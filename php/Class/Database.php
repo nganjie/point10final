@@ -16,12 +16,14 @@
      * @param string $db_pass
      * @param string $db_host
      */
-    public function __construct($db_name,$db_user='root',$db_pass='root',$db_host='localhost'){
+    public function __construct($db_name='point10final_db',$db_user='root',$db_pass='root',$db_host='localhost'){
         $this->db_name = $db_name;
         $this->db_user= $db_user;
         $this->db_pass= $db_pass;
         $this->db_host = $db_host;
-
+        $pdo = new PDO('mysql:dbname=point10final_db;host=localhost',"root","");
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
     }
     /**
      * pour initialiser la connexion à la base de donnée
@@ -30,7 +32,7 @@
      */
     private function getPDO(){
         if($this->pdo===null){
-            $pdo = new PDO('mysql:dbname=cedric11;host=localhost',"root","");
+            $pdo = new PDO('mysql:dbname=point10final_db;host=localhost',"root","");
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
 

@@ -1,0 +1,21 @@
+{
+    "name": "nganjie/point10final",
+    "description": "pour le projet du client",
+    "autoload": {
+        "psr-4": {
+            "Nganjie\\Point10final\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nganjie nzatsi",
+            "email": "nganjienzatsi@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "Router\\":"routes/"
+        }
+    },
+    "require": {}
+}
