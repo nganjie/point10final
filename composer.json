@@ -1,11 +1,7 @@
 {
     "name": "nganjie/point10final",
     "description": "pour le projet du client",
-    "autoload": {
-        "psr-4": {
-            "Nganjie\\Point10final\\": "src/"
-        }
-    },
+  
     "authors": [
         {
             "name": "nganjie nzatsi",
@@ -14,7 +10,8 @@
     ],
     "autoload":{
         "psr-4": {
-            "Router\\":"routes/"
+            "Router\\":"routes/",
+            "App\\":"app/"
         }
     },
     "require": {}
