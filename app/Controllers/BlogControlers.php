@@ -2,18 +2,24 @@
 
 namespace App\Controllers;
 
-Class BlogController{
+Class BlogController extends Controller{
     public function __construct()
     {
         
     }
     public function index(){
-        echo "je suis la homepage ";
+        return $this->view("blog.index");
+    }
+    public function contact(){
+        return $this->view("blog.contact");
+    }
+    public function test(){
+        return $this->view("blog.test");
     }
 
     public function show(int $id)
     {
-        echo "je suis le forfait : ".$id;
+        return $this->view("blog.show",compact('id'));
     }
 }
 

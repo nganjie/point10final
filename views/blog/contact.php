@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/contacts.css" />
+    <link rel="stylesheet" href="<?=SCRIPTS?>../css/index.css" />
+    <link rel="stylesheet" href="<?=SCRIPTS?>../css/contacts.css" />
     <title>Formulaire de contacts</title>
 
     <!-- font awesome -->
@@ -32,7 +32,7 @@
     ></script>
 
     <!-- js file -->
-    <script src="/js/mobile_menu.js" defer></script>
+    <script src="<?=SCRIPTS?>../js/mobile_menu.js" defer></script>
   </head>
   <body>
     <header class="header_wrapper">
@@ -43,14 +43,14 @@
         </div>
         <ul class="lisy_menu_item">
           <li>
-            <a href="contacts.html">Contact</a>
+            <a href="contacts">Contact</a>
           </li>
 
           <li>
             <a href="#contact">Nos forfaits</a>
           </li>
           <li>
-            <a href="#contact">Accueil</a>
+            <a href="Accueil">Accueil</a>
           </li>
           <li>
             <a href="#contact">Se connecter</a>
@@ -63,7 +63,7 @@
         <div class="logo_sect_mobile">
           <a href="/"
             ><img
-              src="/media/logo-point10final.png"
+              src="<?=SCRIPTS?>../media/logo-point10final.png"
               alt="logo de point10recharge"
           /></a>
           <div class="social_icon">
@@ -77,13 +77,13 @@
       <nav id="nav_wrap">
         <a href="/"
           ><img
-            src="/media/logo-point10final.png"
+            src="<?=SCRIPTS?>../media/logo-point10final.png"
             alt="logo de point10recharge"
         /></a>
 
         <ul class="nav_wrap_list">
           <li class="">
-            <a href="index.html">Accueil</a>
+            <a href="">Accueil</a>
           </li>
           <li class="active_nav_item">
             <a href="contacts.html">Contact</a>
@@ -167,7 +167,7 @@
         <div class="footer_top_content">
           <div class="footer_section">
             <div>
-              <img src="/media/logo-point10final.png" alt="" />
+              <img src="<?=SCRIPTS?>../media/logo-point10final.png" alt="" />
             </div>
             <p>
               Nous proposons des forfaits adaptés à vos besoins et qui vous

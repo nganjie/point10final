@@ -1,0 +1,1 @@
+<h1>show n .. <?=$params['id']?></h1>

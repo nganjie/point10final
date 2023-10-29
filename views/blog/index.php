@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="<?=SCRIPTS?>../css/index.css" />
     <title>Document</title>
 
     <!-- font awesome -->
@@ -31,7 +32,7 @@
     ></script>
 
     <!-- js file -->
-    <script src="../js/mobile_menu.js" defer></script>
+    <script src="<?=SCRIPTS?>../js/mobile_menu.js" defer></script>
   </head>
   <body>
     <header class="header_wrapper">
@@ -42,7 +43,7 @@
         </div>
         <ul class="lisy_menu_item">
           <li>
-            <a href="contacts.html">Contact</a>
+            <a href="contacts">Contact</a>
           </li>
 
           <li>
@@ -62,7 +63,7 @@
         <div class="logo_sect_mobile">
           <a href="/"
             ><img
-              src="../media/logo-point10final.png"
+              src="<?=SCRIPTS?>../media/logo-point10final.png"
               alt="logo de point10recharge"
           /></a>
           <div class="social_icon">
@@ -76,16 +77,16 @@
       <nav id="nav_wrap">
         <a href="/"
           ><img
-            src="../media/logo-point10final.png"
+            src="<?=SCRIPTS?>../media/logo-point10final.png"
             alt="logo de point10recharge"
         /></a>
 
         <ul class="nav_wrap_list">
           <li class="active_nav_item">
-            <a href="#contact">Accueil</a>
+            <a href="">Accueil</a>
           </li>
           <li>
-            <a href="contacts.html">Contact</a>
+            <a href="contacts">Contact</a>
           </li>
 
           <li>
@@ -183,14 +184,14 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
       <section class="body_section">
         <h2 class="title_section">ces entreprises nous font confiance</h2>
         <div class="company_logo">
-          <img alt="e" src="../media/images/BLUE.jpeg" />
+          <img alt="e" src="<?=SCRIPTS?>../media/images/BLUE.jpeg" />
           <!-- <img src="e" src="/media/images/images.jpeg" /> -->
           <img
-            src="../media/images/logo-yoomee-mobile-489 (1).png"
+            src="<?=SCRIPTS?>../media/images/logo-yoomee-mobile-489 (1).png"
             alt=" Yoome logo"
           />
-          <img src="../media/images/téléchargement.jpeg" alt="" />
-          <img src="../media/images/images.png" alt="" />
+          <img src="<?=SCRIPTS?>../media/images/téléchargement.jpeg" alt="" />
+          <img src="<?=SCRIPTS?>../media/images/images.png" alt="" />
         </div>
       </section>
 
@@ -207,7 +208,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
           <div class="step_wrap_item">
             <div>
               <img
-                src="../media/images/6333195_adjudication_assortment_choice_culling_resolving_icon-q7orve2eg0xkdj15uy3bvimb4m09hmpafspb63a5ew.png"
+                src="<?=SCRIPTS?>../media/images/6333195_adjudication_assortment_choice_culling_resolving_icon-q7orve2eg0xkdj15uy3bvimb4m09hmpafspb63a5ew.png"
                 alt=""
               />
             </div>
@@ -224,7 +225,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
           <div class="step_wrap_item">
             <div>
               <img
-                src="../media/images/5027839_business_rocket_start_icon-q7orx5zfcrd2b0gbhppyl2hnit9811r1cl2bswndns.png"
+                src="<?=SCRIPTS?>../media/images/5027839_business_rocket_start_icon-q7orx5zfcrd2b0gbhppyl2hnit9811r1cl2bswndns.png"
                 alt=""
               />
             </div>
@@ -242,7 +243,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
           <div class="step_wrap_item">
             <div>
               <img
-                src="../media/images/172465_flag_finish_goal_icon-q7orxqnvj45defma4ynr3x9slafaqe14rff0czspuw.png"
+                src="<?=SCRIPTS?>../media/images/172465_flag_finish_goal_icon-q7orxqnvj45defma4ynr3x9slafaqe14rff0czspuw.png"
                 alt=""
               />
             </div>
@@ -267,7 +268,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
               >Débuter maintenant <i class="fa-solid fa-arrow-right-long"></i
             ></a>
             <div class="image_containt">
-              <img src="../media/images/BLUE.jpeg" alt="" />
+              <img src="<?=SCRIPTS?>../media/images/BLUE.jpeg" alt="" />
             </div>
           </div>
 
@@ -276,7 +277,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
               >Débuter maintenant <i class="fa-solid fa-arrow-right-long"></i
             ></a>
             <div class="image_containt">
-              <img src="../media/images/logo-yoomee-mobile-489.png" alt="" />
+              <img src="<?=SCRIPTS?>../media/images/logo-yoomee-mobile-489.png" alt="" />
             </div>
           </div>
         </div>
@@ -288,7 +289,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
           <!-- client review -->
           <div class="client_review">
             <div class="author">
-              <img src="../media/images/image_girl.png" alt="cleint image" />
+              <img src="<?=SCRIPTS?>../media/images/image_girl.png" alt="cleint image" />
               <div>
                 <h4>Sythian Drandale</h4>
                 <p>Maketer Digital</p>
@@ -306,7 +307,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
           <!-- client review -->
           <div class="client_review">
             <div class="author">
-              <img src="../media/images/image_girl.png" alt="cleint image" />
+              <img src="<?=SCRIPTS?>../media/images/image_girl.png" alt="cleint image" />
               <div>
                 <h4>Ivan Silatsa</h4>
                 <p>Développeur</p>
@@ -329,7 +330,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
         <div class="footer_top_content">
           <div class="footer_section">
             <div>
-              <img src="../media/logo-point10final.png" alt="" />
+              <img src="<?=SCRIPTS?>../media/logo-point10final.png" alt="" />
             </div>
             <p>
               Nous proposons des forfaits adaptés à vos besoins et qui vous

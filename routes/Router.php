@@ -16,15 +16,15 @@ class Router{
   }
   public function run(){
     foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
-        /*echo " route -> ".$route->path." et : ";
-            var_dump($route);*/
+        //echo " route -> ".$route->path." et : ";
+           // var_dump($route);
         if($route->matches($this->url))
         {
-           
-            $route->execute();
+          // echo "on voit bien";
+            return $route->execute();
         }
     }
-    //return header('HTTP/1.0 404 not Found');
+    return header('HTTP/1.0 404 not Found');
   }
 }
 

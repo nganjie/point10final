@@ -24,9 +24,14 @@ class Route{
             /*echo "cela marche ici".$matches[0];
             var_dump($matches);
             echo $path;*/
+            //echo $path.' et '.$pathToMatch.' ET '.$url.' et ';
+            //var_dump($matches);
+            //echo "ok";
             return true;
         }else{
-            echo " c'est faux";
+           // echo $path.' et '.$pathToMatch.' ET '.$url.' et ';
+           // var_dump($matches);
+
             return false;
         }
     }
