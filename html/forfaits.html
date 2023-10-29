@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/contacts.css" />
+    <link rel="stylesheet" href="../css/bundles.css" />
     <title>Formulaire de contacts</title>
 
     <!-- font awesome -->
@@ -50,7 +51,7 @@
           </li>
 
           <li>
-            <a href="#contact">Nos forfaits</a>
+            <a href="forfaits.html">Nos forfaits</a>
           </li>
 
           <li>
@@ -119,7 +120,7 @@
       <section class="banner_wrapper small_banner">
         <div class="banner_content">
           <div class="banner_content_right">
-            <h1 class="banner_title">Contacts</h1>
+            <h1 class="banner_title">nos forfaits</h1>
 
             <div class="banner_description">
               Ici , vous Trouverez tous les informations néccessaire pour
@@ -131,34 +132,52 @@
       </section>
 
       <section class="body_section">
-        <h2 class="title_section">nous laisser un message.</h2>
+        <h2 class="title_section">liste de forfaits disponible.</h2>
 
-        <form action="" id="message_form">
-          <!-- <div class="group_input"> -->
-          <input type="text" name="name" id="" placeholder="Nom..." />
-          <input
-            type="text"
-            name="number"
-            id=""
-            placeholder="Numéro de téléphone..."
-          />
-          <!-- </div> -->
-          <input
-            type="number"
-            name="montant"
-            id=""
-            placeholder="Adresse montant..."
-          />
-          <textarea
-            name="message"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Votre message ici"
-          ></textarea>
+        <div class="bundle_section_wrapper">
+          <!-- filter form -->
+          <form action="" id="filter_form">
+            <h3>Faites une recherche ici</h3>
+            <p>Choix de l'operateur</p>
+            <div class="form_item">
+              <input type="checkbox" id="blue" value="forfaits_blue" />
+              <label for="blue">Camtel</label>
+            </div>
+            <p>Catégorie du forfait</p>
+            <div class="group_input">
+              <div class="form_item">
+                <input type="checkbox" id="blue" value="forfaits_blue" />
+                <label for="blue">Blue</label>
+              </div>
+              <div class="form_item">
+                <input type="checkbox" id="yoome" value="forfaits_yoome" />
+                <label for="yoome">Yoome</label>
+              </div>
+            </div>
 
-          <button class="form_btn">Envoyer</button>
-        </form>
+            <div>
+              <p>Qauntité en Go :</p>
+              <input type="range" name="name" id="" placeholder="Nom..." />
+            </div>
+
+            <div>
+              <p>Prix :</p>
+              <input type="range" name="name" id="" placeholder="Nom..." />
+            </div>
+
+            <!-- <button class="form_btn">Envoyer</button> -->
+          </form>
+
+          <!-- bundles section -->
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem,
+              quisquam. Nostrum odit dolorem dolorum eius mollitia harum
+              molestias sint cum, cupiditate recusandae sequi corporis
+              reprehenderit, eaque repellendus vitae consequatur odio.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
