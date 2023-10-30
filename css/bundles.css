@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "LexendBold";
+  src: url(../media/fonts/Lexend-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "Lexend-Regular";
+  src: url(../media/fonts/Lexend-Regular.ttf);
+}
 .bundle_section_wrapper {
   display: flex;
   flex-direction: column;
@@ -18,6 +27,39 @@
 .form_item {
   display: flex;
   align-items: center;
+}
+.bundle_section_wrapper .bundle_item {
+  text-decoration: none !important;
+  width: max-content !important;
+  display: inline-block !important;
+}
+.bundle_item_content {
+  color: white;
+  text-transform: uppercase;
+  background-color: #002c85;
+  border: 2px solid #002c85;
+  font-family: "Lexend-Regular";
+  padding: 1rem !important;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  margin: 1rem !important;
+  max-width: 300px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.bundle_item_content .bundle_name {
+  font-family: "Lexend-ExtraBold";
+}
+.bundle_item_content.bundle_item_content_orange {
+  border-color: darkorange;
+  background-color: darkorange !important;
+}
+.bundle_item_content.bundle_item_content_yoome {
+  border-color: #782084;
+  background-color: #782084 !important;
 }
 
 @media screen and (min-width: 768px) {

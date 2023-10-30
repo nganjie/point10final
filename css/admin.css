@@ -119,9 +119,11 @@ image {
   padding: 0.5rem !important;
 }
 .review_item {
-  width: 200px;
-  background-color: white !important;
+  width: 300px;
+  text-transform: uppercase;
+  background-color: #002c85 !important;
   border-radius: 4px;
+  color: white !important;
   padding: 1rem !important;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -130,6 +132,10 @@ image {
 }
 .review_item > * {
   margin: 0.5rem 0rem !important;
+}
+.review_item > :nth-child(2) {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* new bundle */

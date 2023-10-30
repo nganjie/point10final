@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: "Lexend-ExtraBold";
+  src: url(../media/fonts/Lexend-ExtraBold.ttf);
+}
+
+@font-face {
   font-family: "Lexend-ExtraLight";
   src: url(../media/fonts/Lexend-ExtraLight.ttf);
 }
@@ -75,7 +80,7 @@ image {
   text-transform: uppercase !important;
   text-align: center !important;
   font-size: 2rem !important;
-  font-family: "Lexend-Regular";
+  font-family: "Lexend-ExtraBold";
 }
 .banner_content_right {
   display: flex !important;
@@ -212,7 +217,7 @@ image {
   font-family: "Lexend-Regular";
 }
 .line_through {
-  font-family: "Lexend-Regular";
+  font-family: "Lexend-ExtraBold";
   color: #42da82 !important;
   font-weight: bold !important;
 }
