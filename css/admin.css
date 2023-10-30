@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Lexend-Regular";
-  src: url(../media/fonts/Lexend-Regular.ttf);
+  src: url(../../media/fonts/Lexend-Regular.ttf);
 }
 
 @font-face {
   font-family: "Lexend-ExtraLight";
-  src: url(../media/fonts/Lexend-ExtraLight.ttf);
+  src: url(../../media/fonts/Lexend-ExtraLight.ttf);
 }
 
 @font-face {
   font-family: "Lexend-ExtraBold";
-  src: url(../media/fonts/Lexend-ExtraBold.ttf);
+  src: url(../../media/fonts/Lexend-ExtraBold.ttf);
 }
 
 *,
