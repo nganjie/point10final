@@ -1,14 +1,10 @@
 <?php
 namespace Router;
 
-<<<<<<< HEAD
 //require "../../vendor/autoload.php";
-require "../../app/Controllers/BlogControlers.php";
-=======
-use Database\DBConnection;
+
 //require "../vendor/autoload.php";
 require "../app/Controllers/BlogControlers.php";
->>>>>>> c4d730a (suite de la configuration des controlleurs et de la vue du site web)
 //use App\Controllers\BlogController;
 
 class Route
@@ -46,18 +42,7 @@ class Route
     }
     public function execute()
     {
-<<<<<<< HEAD
-        $params = explode('@', $this->action);
-        /* echo "et on a : ".$this->action;
-         var_dump($params);
-         echo "qt ";
-         echo $params[1];*/
-        $controller = new $params[0]();
-        //var_dump($controller);
-        $method = $params[1];
-
-        return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();
-=======
+  
         $params =explode('@',$this->action);
        /* echo "et on a : ".$this->action;
         var_dump($params);
@@ -70,7 +55,6 @@ class Route
         $method=$params[1];
        
         return isset($this->matches[1])? $controller->$method($this->matches[1]): $controller->$method();
->>>>>>> c4d730a (suite de la configuration des controlleurs et de la vue du site web)
     }
 }
 
