@@ -2,7 +2,9 @@
 namespace Router;
 
 //require "../../vendor/autoload.php";
-require "../../app/Controllers/BlogControlers.php";
+
+//require "../vendor/autoload.php";
+require "../app/Controllers/BlogControlers.php";
 //use App\Controllers\BlogController;
 
 class Route
@@ -40,16 +42,19 @@ class Route
     }
     public function execute()
     {
-        $params = explode('@', $this->action);
-        /* echo "et on a : ".$this->action;
-         var_dump($params);
-         echo "qt ";
-         echo $params[1];*/
-        $controller = new $params[0]();
-        //var_dump($controller);
-        $method = $params[1];
-
-        return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();
+  
+        $params =explode('@',$this->action);
+       /* echo "et on a : ".$this->action;
+        var_dump($params);
+        echo "qt ";
+        echo $params[1];*/
+        //$d=new DBConnection();
+        //var_dump($d->getPDO());
+        $controller =new $params[0](new DBConnection());
+       // var_dump($controller);
+        $method=$params[1];
+       
+        return isset($this->matches[1])? $controller->$method($this->matches[1]): $controller->$method();
     }
 }
 
