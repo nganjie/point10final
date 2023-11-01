@@ -1,5 +1,5 @@
 <?php 
-
+namespace App\Controllers;
 class Securisation{
     
     public function securiser($donnees){

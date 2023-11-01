@@ -11,6 +11,10 @@ use Database\DBConnection;
     {
         $this->db=$db;
     }
+    public function getDB()
+    {
+      return $this->db;
+    }
     public function all()
     {
         $req=$this->db->getPDO()->query("SELECT * FROM ".$this->table." ORDER BY id DESC");

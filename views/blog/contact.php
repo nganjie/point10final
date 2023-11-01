@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="<?= SCRIPTS ?>../../css/index.css" />
-  <link rel="stylesheet" href="<?= SCRIPTS ?>../../css/contacts.css" />
+  <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
+  <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
   <title>Formulaire de contacts</title>
 
   <!-- font awesome -->
@@ -22,7 +22,8 @@
     crossorigin="anonymous"></script>
 
   <!-- js file -->
-  <script src="<?= SCRIPTS ?>../../js/mobile_menu.js" defer></script>
+  <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
+  <script src="<?= SCRIPTS ?>../js/message_contact.js" defer></script>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
       </ul>
 
       <div class="logo_sect_mobile">
-        <a href="/"><img src="<?= SCRIPTS ?>../../media/logo-point10final.png" alt="logo de point10recharge" /></a>
+        <a href="/"><img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="logo de point10recharge" /></a>
         <div class="social_icon">
           <a href="#"><i class="fa-brands fa-facebook"></i></a>
           <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -62,7 +63,7 @@
     </nav>
     <!-- main site menu -->
     <nav id="nav_wrap">
-      <a href="/"><img src="<?= SCRIPTS ?>../../media/logo-point10final.png" alt="logo de point10recharge" /></a>
+      <a href="/"><img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="logo de point10recharge" /></a>
 
       <ul class="nav_wrap_list">
         <li class="">
@@ -114,8 +115,8 @@
 
     <section class="body_section">
       <h2 class="title_section">nous laisser un message.</h2>
-
-      <form action="" id="message_form">
+      <p style="color:#41f1b6"><?= isset($_GET['valid'])?"votre message à bien été envoyé a l'administrateur du site":""?></p>
+      <form action="enregistrer_message_contact" method="POST" id="message_form">
         <div class="group_input">
           <input type="text" name="name" id="" placeholder="Nom..." />
           <input type="text" name="number" id="" placeholder="Numéro de téléphone..." />
@@ -123,7 +124,7 @@
         <input type="text" name="email" id="" placeholder="Adresse email..." />
         <textarea name="message" id="" cols="30" rows="10" placeholder="Votre message ici"></textarea>
 
-        <button class="form_btn">Envoyer</button>
+        <input type="submit" class="form_btn" value="Envoyer">
       </form>
     </section>
   </main>
@@ -134,7 +135,7 @@
       <div class="footer_top_content">
         <div class="footer_section">
           <div>
-            <img src="<?= SCRIPTS ?>../../media/logo-point10final.png" alt="" />
+            <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
           </div>
           <p>
             Nous proposons des forfaits adaptés à vos besoins et qui vous

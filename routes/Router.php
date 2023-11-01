@@ -14,7 +14,15 @@ class Router{
     /*echo " et".$route->action."<br><br>";
     var_dump($this->routes);*/
   }
+  public function post(string $path,string $action)
+  {
+    $route=new Route($path,$action);
+    $this->routes['POST'][]=$route;
+    /*echo " et".$route->action."<br><br>";
+    var_dump($this->routes);*/
+  }
   public function run(){
+   // echo $_SERVER['REQUEST_METHOD'];
     foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
         //echo " route -> ".$route->path." et : ";
            // var_dump($route);

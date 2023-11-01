@@ -11,14 +11,28 @@ Class BlogController extends Controller{
     public function index(){
         $forfait =new MessageContact($this->db);
         $result =$forfait->all();
-        var_dump($result);
+        //var_dump($result);
         return $this->view("blog.index");
     }
+   
     public function contact(){
         return $this->view("blog.contact");
     }
     public function test(){
         return $this->view("blog.test");
+    }
+    public function enregistrer_message_contact()
+    {
+        $message =new MessageContact($this->db);
+        $result = $message->create($_POST);
+       //echo " on a : ".$result;
+       $valid =0;
+       if($result)
+       {
+        $valid =1;
+        return header("LOCATION: contacts?valid={$valid}");
+        //return $this->view("blog.contacts",compact('valid'));
+       }
     }
 
     public function show(int $id)
@@ -29,7 +43,7 @@ Class BlogController extends Controller{
        //var_dump($f->findById(1));
         $post=$this->db->getPDO()->query("SELECT * FROM message_contact");
         $forfait=$post->fetchAll();
-        $d=78;
+        //$d=78;
         /*foreach($forfait as $elt)
         {
             echo $elt->date;
