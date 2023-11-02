@@ -41,11 +41,11 @@
             <p>Catégorie du forfait</p>
             <div class="group_input">
               <div class="form_item">
-                <input type="radio" name="forfait"  id="blue" value="forfaits_blue"  />
+                <input type="radio" name="forfait"  id="blue" value="blue"  />
                 <label for="blue">Blue</label>
               </div>
               <div class="form_item">
-                <input type="radio" name="forfait"  id="yoome" value="forfaits_yoome" />
+                <input type="radio" name="forfait"  id="yoome" value="yoome" />
                 <label for="yoome">Yoome</label>
               </div>
             </div>
@@ -53,18 +53,15 @@
             <textarea type="text" name="description" id="" placeholder="description..." ></textarea>
             <select name="taille" id="taille">
               <option value="">Selectionner une taille</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
+              <option value="1">S</option>
+              <option value="2">M</option>
+              <option value="3">L</option>
+              <option value="4">XL</option>
+              <option value="5">XXL</option>
             </select>
             <input
               type="number"
               name="prix"
-              step="100"
-              min="500"
-              max="50000"
               id=""
               placeholder="Le montant ici"
             />

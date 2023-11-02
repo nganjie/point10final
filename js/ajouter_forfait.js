@@ -9,7 +9,7 @@ form.addEventListener("submit",(e)=>{
         console.log("sa marche")
         form.submit();
     }else{
-        console.log("veillez remplir tous les champs");
+        alert("veillez remplir tous les champs, y compris le type de forfait");
     }
    /* for(var i=0;i<form.length;i++)
     {
