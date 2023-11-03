@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin point10recharge</title>
 
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/admin.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/admin.css" />
   </head>
   <body>
     <main class="admin_wrapper">

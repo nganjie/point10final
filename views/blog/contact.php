@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
-  <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+  <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/index.css" />
+  <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/contacts.css" />
   <title>Formulaire de contacts</title>
 
   <!-- font awesome -->

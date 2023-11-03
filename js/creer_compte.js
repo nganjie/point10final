@@ -1,10 +1,10 @@
 console.log("cela marche fort bien");
-const form =document.getElementById("register_form");
+const form =document.getElementById("compte_form");
 console.log(form);
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    if(form['categorie'].value&&form['description'].value&&form['taille'].value&&form['prix'].value&&form['nb_go'].value)
+    if(form['name'].value&&form['number'].value&&form['ville'].value&&form['mail'].value&&form['password'].value)
     {
         console.log("sa marche")
         form.submit();

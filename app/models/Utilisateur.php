@@ -3,8 +3,8 @@
    namespace App\Models;
    //require "../Controllers/Securisation.php";
    use App\Controllers\Securisation;
-   class Forfait extends Model{
-    protected $table='forfait';
+   class Utilisateur extends Model{
+    protected $table='utilisateur';
 
     public function create($post):bool
     {
@@ -28,6 +28,20 @@
       //echo $r;
       return true;
       
+    }
+    public function create_uti($nom,$number):int
+    {
+        $secu =new Securisation();
+        $nomt=$secu->securiser($nom);
+        $numbert=$secu->securiser($number);
+        //$mailt=$secu->securiser($mail);
+        $pdo =$this->getDB()->getPDO();
+        $req =$pdo->prepare("INSERT INTO utilisateur(nom,numero) VALUES(:nom,:numero)");
+        $r= $req->execute(array(
+          "nom"=>$nomt,
+          "numero"=>$numbert
+        ));
+        return $this->maxId();
     }
    }
  ?>

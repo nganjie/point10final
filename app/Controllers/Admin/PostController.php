@@ -8,7 +8,7 @@ use App\Models\Forfait;
 
     public function index()
     {
-        $forfait  =(new Forfait($this->getDb()))->all();
+        $forfait  =(new Forfait($this->getDB()))->all();
         return $this->view("admin.forfait.index",compact("forfait"));
     }
     public function admin()
@@ -19,7 +19,12 @@ use App\Models\Forfait;
     public function ajouter_forfait()
     {
        // echo 'je vois bien';
-        return $this->view("admin.ajouter_forfait");
+       $pdo =$this->getDB()->getPDO();
+       $req=$pdo->query("SELECT * FROM categorie");
+       $categorie=$req->fetchAll();
+       $reqx=$pdo->query("SELECT * FROM taille");
+       $taille=$reqx->fetchAll();
+        return $this->view("admin.ajouter_forfait",compact("categorie","taille"));
     }
    
     public function enregistrer_forfait()

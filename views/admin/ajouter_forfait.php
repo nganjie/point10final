@@ -1,6 +1,8 @@
 <?php
 //$post =$_GET["register_form"];
 //var_dump($post);
+//var_dump($params['categorie']);
+
  ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin point10recharge</title>
 
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/admin.css" />
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/admin.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/contacts.css" />
   </head>
   <body>
     <main class="admin_wrapper">
@@ -38,27 +40,23 @@
           <h3 class="title">Enregistrer un nouveau forfait</h3>
           <p style="color:#41f1b6"><?= isset($_GET['valid'])?"le forfait à bien été enregistrer dans la base de données ":""?></p>
           <form action="enregistrer_forfait" method="POST" id="register_form">
-            <p>Catégorie du forfait</p>
-            <div class="group_input">
-              <div class="form_item">
-                <input type="radio" name="forfait"  id="blue" value="blue"  />
-                <label for="blue">Blue</label>
-              </div>
-              <div class="form_item">
-                <input type="radio" name="forfait"  id="yoome" value="yoome" />
-                <label for="yoome">Yoome</label>
-              </div>
-            </div>
-            <input type="text" name="nom" id="" placeholder="Nom..." />
-            <textarea type="text" name="description" id="" placeholder="description..." ></textarea>
+            
+ 
+            <select name="categorie" id="categorie">
+              <option value="">Selectionner une categorie</option>
+              <?php foreach($params['categorie'] as $categorie): ?>
+                <option value="<?=$categorie->id?>"><?=$categorie->nom?></option>
+                <?php endforeach ?>
+            </select>
+            
             <select name="taille" id="taille">
               <option value="">Selectionner une taille</option>
-              <option value="1">S</option>
-              <option value="2">M</option>
-              <option value="3">L</option>
-              <option value="4">XL</option>
-              <option value="5">XXL</option>
+              <?php foreach($params['taille'] as $taille): ?>
+                 <option value="<?=$taille->id?>"><?=$taille->symbole?></option>
+              <?php endforeach ?>
             </select>
+            <textarea type="text" name="description" id="" placeholder="description..." ></textarea>
+            <input type="number" name="nb_go" id="nb_go" placeholder="Nombre de GO"/>
             <input
               type="number"
               name="prix"

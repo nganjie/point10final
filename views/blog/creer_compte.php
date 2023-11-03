@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../../css/index.css" />
-    <link rel="stylesheet" href="../../css/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/index.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/contacts.css" />
     <title>Création de compte</title>
 
     <!-- font awesome -->
@@ -32,186 +32,84 @@
     ></script>
 
     <!-- js file -->
-    <script src="/js/mobile_menu.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
   </head>
   <body>
-    <header class="header_wrapper">
-      <!-- menu for small vp -->
-      <nav aria-label="mobile-menu" id="mobile-menu" class="mobile-menu-close">
-        <div class="close_mobile_section">
-          <button class="close_btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <ul class="lisy_menu_item">
-          <li>
-            <a href="index.html">Accueil</a>
-          </li>
-          <li>
-            <a href="contacts.html">Contact</a>
-          </li>
-
-          <li>
-            <a href="forfaits.html">Nos forfaits</a>
-          </li>
-
-          <li>
-            <a href="se_connecter.html">Se connecter</a>
-          </li>
-          <li>
-            <a href="creer_compte.html">S'inscrire</a>
-          </li>
-        </ul>
-
-        <div class="logo_sect_mobile">
-          <a href="/"
-            ><img
-              src="/media/logo-point10final.png"
-              alt="logo de point10recharge"
-          /></a>
-          <div class="social_icon">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-      </nav>
-      <!-- main site menu -->
-      <nav id="nav_wrap">
-        <a href="/"
-          ><img
-            src="/media/logo-point10final.png"
-            alt="logo de point10recharge"
-        /></a>
-
-        <ul class="nav_wrap_list">
-          <li class="">
-            <a href="index.html">Accueil</a>
-          </li>
-          <li class="">
-            <a href="contacts.html">Contacts</a>
-          </li>
-
-          <li>
-            <a href="forfaits.html">Nos forfaits</a>
-          </li>
-
-          <li>
-            <a href="se_connecter.html">Se connecter</a>
-          </li>
-          <li class="active_nav_item">
-            <a href="creer_compte.html">S'inscrire</a>
-          </li>
-        </ul>
-
-        <button class="open_btn"><i class="fa-solid fa-bars"></i></button>
-      </nav>
-    </header>
-
     <main class="main_content">
       <!-- banner -->
-      <section class="banner_wrapper small_banner">
-        <div class="banner_content">
-          <div class="banner_content_right">
-            <h1 class="banner_title">Se créer un compte</h1>
+      <div class="divided_main_content">
+        <!--  -->
 
-            <div class="banner_description">
-              Inscrivez-vous dès maintenant pour bénéficier de réductions
-              spéciales et être informé en avant-première de nos nouvelles
-              promotions plus tard. Rejoignez notre communauté et profitez des
-              meilleurs tarifs sur nos forfaits.
+        <section class="body_section">
+          <!-- <h2 class="title_section">nous laisser un message.</h2> -->
+
+          <div class="bordered_content">
+            <div class="message_with_logo_section">
+              <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
+            </div>
+            <p style="color:red"><?= isset($_GET['result'])?"le mail renseigner existe déjà et appartient à un client !":""?></p>
+            <form action="creation_compte" method="POST" id="compte_form">
+              <div class="group_input">
+                <input type="text" name="name" id="" placeholder="Nom..." />
+                <input
+                  type="text"
+                  name="number"
+                  id=""
+                  placeholder="Numéro de téléphone..."
+                />
+              </div>
+              <div class="group_input">
+                <!-- <input
+                  type="number"
+                  name="montant"
+                  id=""
+                  placeholder="Adresse montant..."
+                /> -->
+             
+                <input
+                  type="text"
+                  name="ville"
+                  id=""
+                  placeholder="Ville de résidence..."
+                />
+              </div>
+
+              <input
+                type="email"
+                name="mail"
+                id=""
+                placeholder="Adresse mail..."
+              />
+              <input type="password" name="password" placeholder="definir un mot de passe"/>
+
+              <input type="submit" class="form_btn" value="Creer">
+            </form>
+            <div class="green_link">
+              Déja inscrit ?
+              <a class="" href="se-connecter">Se conecter</a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="body_section">
-        <h2 class="title_section">nous laisser un message.</h2>
+        <section class="banner_wrapper">
+          <div class="banner_content">
+            <div class="banner_content_right">
+              <h1 class="banner_title">créer un compte</h1>
 
-        <form action="" id="message_form">
-          <!-- <div class="group_input"> -->
-          <input type="text" name="name" id="" placeholder="Nom..." />
-          <input
-            type="text"
-            name="number"
-            id=""
-            placeholder="Numéro de téléphone..."
-          />
-          <!-- </div> -->
-          <input
-            type="number"
-            name="montant"
-            id=""
-            placeholder="Adresse montant..."
-          />
-          <textarea
-            name="message"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Votre message ici"
-          ></textarea>
-
-          <button class="form_btn">Envoyer</button>
-        </form>
-      </section>
-    </main>
-
-    <!-- footer -->
-    <footer class="footer_wrapper">
-      <div class="footer_content">
-        <div class="footer_top_content">
-          <div class="footer_section">
-            <div>
-              <img src="/media/logo-point10final.png" alt="" />
-            </div>
-            <p>
-              Nous proposons des forfaits adaptés à vos besoins et qui vous
-              permettront d'être fier de les utiliser. Ils sont disponibles pour
-              tous les réseaux Blue et Yoome.
-            </p>
-
-            <div class="social_icon">
-              <a><i class="fa-brands fa-facebook"></i></a>
-              <a><i class="fa-brands fa-twitter"></i></a>
-              <a><i class="fa-brands fa-instagram"></i></a>
+              <div class="banner_description small_text">
+                Inscrivez-vous dès maintenant pour bénéficier de réductions
+                spéciales et être informé en avant-première de nos nouvelles
+                promotions plus tard. Rejoignez notre communauté et profitez des
+                meilleurs tarifs sur nos forfaits.
+              </div>
+              <div class="image_right">
+                <img src="<?= SCRIPTS ?>../media/images/image_boy1.png" alt="" />
+              </div>
             </div>
           </div>
-          <div class="details_footer_wrap">
-            <section class="footer_section">
-              <h2 class="footer_title">ENTREPRISE</h2>
-              <ul>
-                <li><a href="#">Support Cleint</a></li>
-                <li><a href="#">Détails de livraison</a></li>
-                <li><a href="#">Termes et conditions</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-              </ul>
-            </section>
-
-            <section class="footer_section">
-              <h2 class="footer_title">aide</h2>
-              <ul>
-                <li><a href="#">Support Cleint</a></li>
-                <li><a href="#">Détails de livraison</a></li>
-                <li><a href="#">Termes et conditions</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-              </ul>
-            </section>
-
-            <section class="footer_section">
-              <h2 class="footer_title">FAQS</h2>
-              <ul>
-                <li><a href="#">Compte</a></li>
-                <li><a href="#">Livraison</a></li>
-                <li><a href="#">paiement</a></li>
-              </ul>
-            </section>
-          </div>
-        </div>
-        <hr />
-        <div class="foter_desxcript">
-          @point10recharge &copy; 2023. Tous droits réservés
-        </div>
+        </section>
       </div>
-    </footer>
+    </main>
   </body>
 
   <script
@@ -219,4 +117,5 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
+  <script src="<?= SCRIPTS ?>../js/creer_compte.js"></script>
 </html>

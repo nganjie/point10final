@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Forfait;
+use App\Models\Client;
 use App\Models\MessageContact;
 use Database\DBConnection;
 
@@ -21,6 +22,13 @@ Class BlogController extends Controller{
     public function test(){
         return $this->view("blog.test");
     }
+    public function se_connecter(){
+       // echo "oh je vois";
+        return $this->view("blog.se_connecter");
+    }
+    public function creer_compte(){
+        return $this->view("blog.creer_compte");
+    }
     public function enregistrer_message_contact()
     {
         $message =new MessageContact($this->db);
@@ -32,6 +40,38 @@ Class BlogController extends Controller{
         $valid =1;
         return header("LOCATION: contacts?valid={$valid}");
         //return $this->view("blog.contacts",compact('valid'));
+       }
+    }
+    public function creation_compte()
+    {
+        $client =new Client($this->db);
+        $result = $client->create($_POST);
+       //echo " on a : ".$result;
+       $valid =0;
+       if($result)
+       {
+        $valid =1;
+        return header("LOCATION: index.php");
+        //return $this->view("blog.index");
+        //return $this->view("blog.contacts",compact('valid'));
+       }else{
+        return header("LOCATION: creer-compte?result={$result}");
+       }
+    }
+    public function connexion_client()
+    {
+        $client =new Client($this->db);
+        $result = $client->connexion($_POST);
+       echo " on a : ".$result;
+       $valid =0;
+       if($result==1)
+       {
+        $valid =1;
+        
+        //return $this->view("blog.index");
+        //return $this->view("blog.contacts",compact('valid'));
+       }else{
+        return header("LOCATION: se-connecter?result={$result}");
        }
     }
 
