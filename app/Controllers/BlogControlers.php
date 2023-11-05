@@ -74,6 +74,9 @@ Class BlogController extends Controller{
         return header("LOCATION: se-connecter?result={$result}");
        }
     }
+    public function forfait(){
+        return $this->view("blog.forfait");
+    }
 
     public function show(int $id)
     {

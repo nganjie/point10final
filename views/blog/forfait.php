@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../../css/index.css" />
-    <link rel="stylesheet" href="../../css/contacts.css" />
-    <link rel="stylesheet" href="../../css/bundles.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/index.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/bundles.css" />
     <title>Formulaire de contacts</title>
 
     <!-- font awesome -->
@@ -33,7 +33,7 @@
     ></script>
 
     <!-- js file -->
-    <script src="/js/mobile_menu.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
   </head>
   <body>
     <header class="header_wrapper">
@@ -65,7 +65,7 @@
         <div class="logo_sect_mobile">
           <a href="/"
             ><img
-              src="/media/logo-point10final.png"
+              src="<?= SCRIPTS ?>../media/logo-point10final.png"
               alt="logo de point10recharge"
           /></a>
           <div class="social_icon">
@@ -79,7 +79,7 @@
       <nav id="nav_wrap">
         <a href="/"
           ><img
-            src="/media/logo-point10final.png"
+            src="<?= SCRIPTS ?>../media/logo-point10final.png"
             alt="logo de point10recharge"
         /></a>
 
@@ -210,7 +210,7 @@
         <div class="footer_top_content">
           <div class="footer_section">
             <div>
-              <img src="/media/logo-point10final.png" alt="" />
+              <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
             </div>
             <p>
               Nous proposons des forfaits adaptés à vos besoins et qui vous
@@ -260,6 +260,9 @@
           @point10recharge &copy; 2023. Tous droits réservés
         </div>
       </div>
+      <form id="form-id" style="display:none">
+        <input type="text" name="query" value="forfait"/>
+      </form>
     </footer>
   </body>
 
@@ -268,4 +271,5 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
+  <script type="module" src="<?= SCRIPTS ?>../js/forfait.js"></script>
 </html>

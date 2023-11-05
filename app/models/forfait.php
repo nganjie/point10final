@@ -5,6 +5,7 @@
    use App\Controllers\Securisation;
    class Forfait extends Model{
     protected $table='forfait';
+    protected $forfait;
 
     public function create($post):bool
     {
@@ -28,6 +29,13 @@
       //echo $r;
       return true;
       
+    }
+    public function forfait()
+    {
+      $query ="SELECT f.id as id,c.nom,t.symbole as taille,type,description,nb_go,prix FROM forfait f INNER JOIN taille t ON t.id=f.taille INNER JOIN categorie c ON c.id=f.id_nom ORDER BY f.id DESC";
+      $req=$this->db->getPDO()->query($query);
+      return $req->fetchAll();
+     return $tab=$this->all();
     }
    }
  ?>

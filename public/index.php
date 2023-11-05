@@ -1,6 +1,8 @@
 <?php
 //require dirname(__DIR__).'/views/blog/contact.php';
 use Router\Router;
+
+
 require  '../vendor/autoload.php';
 $router = new Router($_GET['url']);
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
@@ -8,6 +10,10 @@ define("SCRIPTS", dirname($_SERVER['SCRIPT_NAME']) . '/');
 
 $password ="toto";
 $hash=password_hash($password,PASSWORD_DEFAULT);
+
+//echo $desc->description;
+//var_dump($f->forfait()[0]);
+//print_r(json_encode($desc));
 //var_dump($hash);
 
 $router->get('contacts', 'App\Controllers\BlogController@contact');
@@ -26,6 +32,7 @@ $router->get('Accueil', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/', 'App\Controllers\BlogController@index');
 $router->get('index.php', 'App\Controllers\BlogController@index');
+$router->get('forfait', 'App\Controllers\BlogController@forfait');
 
 
 
