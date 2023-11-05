@@ -10,10 +10,11 @@
 .bundle_section_wrapper {
   display: flex;
   flex-direction: column;
-  margin: 0 auto !important;
   width: 100%;
-  max-width: 900px;
-  padding: 1rem;
+  gap: 2rem;
+  max-width: 1200px;
+  padding: 1rem !important;
+  margin: 1rem auto !important;
 }
 
 #filter_form {
@@ -21,51 +22,101 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  min-width: 300px;
+  padding: 1rem !important;
   margin: 1rem;
+  align-items: flex-start;
 }
 
-.form_item {
+#filter_form .form_item {
   display: flex;
-  align-items: center;
+
+  gap: 1rem !important;
+  flex-direction: column !important;
 }
-.bundle_section_wrapper .bundle_item {
+#price,
+#qte {
+  max-width: 80%;
+  margin: 1rem 0rem !important;
+  width: 100% !important;
+}
+a.bundle_item:hover,
+.bundle_item:hover {
   text-decoration: none !important;
-  width: max-content !important;
-  display: inline-block !important;
+  background-color: #f1f5f8 !important;
+}
+#categorie {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0.5rem !important;
+}
+.bundle_item {
+  width: fit-content;
+  max-width: 380px !important;
+  text-decoration: none !important;
+  display: flex !important;
+  justify-content: center;
+  font-size: 0.9rem;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0;
+  height: 100% !important;
+  max-width: 450px;
+  width: 100%;
 }
 .bundle_item_content {
-  color: white;
-  text-transform: uppercase;
-  background-color: #002c85;
+  /* color: white; */
+  text-transform: capitalize;
+  /* background-color: #002c85; */
   border: 2px solid #002c85;
   font-family: "Lexend-Regular";
   padding: 1rem !important;
   border-radius: 5px;
-  text-align: center;
+  gap: 1rem;
   width: 100%;
-  margin: 1rem !important;
-  max-width: 300px;
+  justify-content: space-between;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
 }
-.bundle_item_content .bundle_name {
+.bundle_item .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image img {
+  width: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.bundle_name {
   font-family: "Lexend-ExtraBold";
+  color: black;
 }
-.bundle_item_content.bundle_item_content_orange {
-  border-color: darkorange;
-  background-color: darkorange !important;
+.bundle_description {
+  display: flex;
+  gap: 0.2rem;
+  flex-direction: column;
 }
-.bundle_item_content.bundle_item_content_yoome {
-  border-color: #782084;
-  background-color: #782084 !important;
+
+.sjow_bundle_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem !important;
 }
 
 @media screen and (min-width: 768px) {
   .bundle_section_wrapper {
     flex-direction: row;
-    align-items: center;
+    margin: 1rem auto !important;
   }
   #filter_form {
     flex: 1;

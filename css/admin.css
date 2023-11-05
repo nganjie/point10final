@@ -62,14 +62,18 @@ image {
   display: flex;
   grid-template-columns: repeat(1fr, 10);
   width: 100%;
+  overflow: hidden;
   min-height: 100vh;
 }
 .content_wrapper {
   background-color: #bdd7fb;
   flex: 1;
+  width: 100%;
+  /* position: relative; */
 }
 .sidebar {
   width: 220px;
+  /* position: absolute; */
   background-color: #002c85;
   padding: 0.4rem !important;
   color: white !important;
@@ -167,4 +171,12 @@ image {
   width: 100%;
   display: flex;
   flex-direction: column !important;
+}
+
+.title_dash {
+  display: flex;
+  gap: 1rem;
+}
+.title_dash :nth-child(1) {
+  font-size: 2rem !important;
 }
