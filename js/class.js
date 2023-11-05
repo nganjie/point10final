@@ -37,12 +37,12 @@ export class Caracteristique{
 }
 export class Forfait{
     constructor(tab){
-        this.id=tab.id;
+        this.id=Number(tab.id);
         this.nom=tab.nom;
-        this.nb_go=tab.nb_go;
+        this.nb_go=Number(tab.nb_go);
         this.taille=tab.taille;
         this.type=tab.type;
-        this.prix=tab.prix;
+        this.prix=Number(tab.prix);
         this.description=new Caracteristique(tab.description);
        // console.log(this.description.elments);
 
@@ -51,8 +51,11 @@ export class Forfait{
     isFilter(tab){
         var b = objLength(tab);
         var c =0;
+        console.log(tab);
         for(var option in tab)
         {
+            //if(tab["nb_go"]==this.nb_go)
+            //console.log(tab["nb_go"]+" et "+this.nb_go)
             if(option=="prix")
             {
                 if(this.prix==tab[option])
@@ -63,13 +66,20 @@ export class Forfait{
             }else if(option=="nom"){
                 if(String(this.nom).toLowerCase==String(tab[option]).toLowerCase)
                 c++;
+            }else if(option=="nb_go")
+            {
+                
+                if(this.nb_go=tab[option])
+                c++;
             }
-            console.log("la valeur de c : "+c+" la valeur de b :"+b);
-        if(c!=0&&c==b)
-        return true;
-        
-        return false
-        }
+            //console.log("la valeur de c : "+c+" la valeur de b :"+b);
+       
+    }
+    //console.log("la valeur de c : "+c+" la valeur de b :"+b);
+    if(c!=0&&c==b)
+    return true;
+    
+    return false
     }
 
 }

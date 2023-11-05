@@ -1,7 +1,9 @@
 <?php
 //require dirname(__DIR__).'/views/blog/contact.php';
 use Router\Router;
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 require  '../vendor/autoload.php';
 $router = new Router($_GET['url']);
@@ -10,6 +12,8 @@ define("SCRIPTS", dirname($_SERVER['SCRIPT_NAME']) . '/');
 
 $password ="toto";
 $hash=password_hash($password,PASSWORD_DEFAULT);
+$mail = new PHPMailer(true);
+
 
 //echo $desc->description;
 //var_dump($f->forfait()[0]);
