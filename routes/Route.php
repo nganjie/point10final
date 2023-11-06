@@ -1,11 +1,14 @@
 <?php
 namespace Router;
 
-//require "../../vendor/autoload.php";
+require "../vendor/autoload.php";
 
-//require "../vendor/autoload.php";
+//require "../database/DBConnection.php";
 require "../app/Controllers/BlogControlers.php";
-//use App\Controllers\BlogController;
+require "../app/Controllers/Admin/PostController.php";
+use Database\DBConnection;
+use App\Controllers\BlogController;
+use App\Admin\PostController;
 
 class Route
 {

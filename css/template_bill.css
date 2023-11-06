@@ -17,10 +17,19 @@
 *::after,
 *::after {
   box-sizing: border-box !important;
+  padding: 0;
+  margin: 0;
   font-family: "Lexend-ExtraLight", system-ui, -apple-system, BlinkMac,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   transition: all 0.3s !important;
+  -webkit-transition: all 0.3s !important;
+  -moz-transition: all 0.3s !important;
+  -ms-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+}
+html {
+  /* background-color: red; */
 }
 body {
   background-color: whitesmoke !important;
@@ -35,30 +44,12 @@ body {
   margin: 0rem auto;
   position: relative;
   width: 793.7013px;
-
   height: 1122.5196850394px;
+  overflow: hidden !important;
   -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
   -color-adjust: exact !important; /* Firefox 48 – 96 */
   print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
-  background: 60%
-    url(../media/logo_white-removebg-preview-fotor-20231103211259.png) no-repeat;
-  background-size: 60%;
   background-color: white;
-  background-position: 50% 30%;
-}
-.wrapper::before {
-  content: "";
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  background: url(../media/logo_white.png) no-repeat center center;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  background-size: cover;
 }
 .wrapper strong {
   color: rgb(9, 9, 46);
@@ -66,6 +57,7 @@ body {
 .wrapper > * {
   margin: 2rem;
   margin-top: 0;
+  z-index: 50;
 }
 .style_price {
   font-size: 1.6rem;
@@ -182,15 +174,36 @@ body {
   margin-top: 0rem !important;
 }
 
+.background_pre {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /*background-color: red;
+  */
+  font-size: 5rem;
+  transform-origin: top left;
+  rotate: -50deg;
+  transform: translate(-70%, 50%);
+  height: 100%;
+  color: rgba(201, 199, 199, 0.31);
+  font-family: "Lexend-ExtraBold";
+  z-index: 1 !important;
+  -webkit-transform: translate(-70%, 50%);
+  -moz-transform: translate(-70%, 50%);
+  -ms-transform: translate(-70%, 50%);
+  -o-transform: translate(-70%, 50%);
+}
+
 /* add this styles to every templates css module styles when printing */
 @media print {
   .wrapper {
     background-color: white;
-    /* width: calc(793.7013px); */
+    width: calc(793.7013px);
   }
 }
 
 @page {
   size: A4 portrait;
-  /* margin: 10mm; */
+  margin: 10mm;
 }

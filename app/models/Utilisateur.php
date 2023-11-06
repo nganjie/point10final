@@ -3,9 +3,8 @@
    namespace App\Models;
    //require "../Controllers/Securisation.php";
    use App\Controllers\Securisation;
-   class Forfait extends Model{
-    protected $table='forfait';
-    protected $forfait;
+   class Utilisateur extends Model{
+    protected $table='utilisateur';
 
     public function create($post):bool
     {
@@ -30,12 +29,19 @@
       return true;
       
     }
-    public function forfait()
+    public function create_uti($nom,$number):int
     {
-      $query ="SELECT f.id as id,c.nom,t.symbole as taille,type,description,nb_go,prix FROM forfait f INNER JOIN taille t ON t.id=f.taille INNER JOIN categorie c ON c.id=f.id_nom ORDER BY f.id DESC";
-      $req=$this->db->getPDO()->query($query);
-      return $req->fetchAll();
-     return $tab=$this->all();
+        $secu =new Securisation();
+        $nomt=$secu->securiser($nom);
+        $numbert=$secu->securiser($number);
+        //$mailt=$secu->securiser($mail);
+        $pdo =$this->getDB()->getPDO();
+        $req =$pdo->prepare("INSERT INTO utilisateur(nom,numero) VALUES(:nom,:numero)");
+        $r= $req->execute(array(
+          "nom"=>$nomt,
+          "numero"=>$numbert
+        ));
+        return $this->maxId();
     }
    }
  ?>
