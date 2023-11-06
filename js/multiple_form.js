@@ -277,6 +277,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (active === stepsContent.length - 1) return;
         active += 1;
       } else {
+        console.log("first step : ", formObj);
         if (!currentFormValid()) return;
         document.querySelector("#formData").innerText = JSON.stringify(formObj);
       }

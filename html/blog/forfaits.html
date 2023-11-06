@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="../../css/contacts.css" />
     <link rel="stylesheet" href="../../css/bundles.css" />
     <link rel="stylesheet" href="../../css/caroussel_styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
     <title>Formulaire de contacts</title>
 
     <!-- font awesome -->
@@ -20,6 +25,7 @@
     <script src="https://unpkg.com/@spreadtheweb/multi-range-slider@1.0.2/dist/range-slider.main.min.js"></script>
 
     <script src="https://unpkg.com/@spreadtheweb/multi-range-slider@1.0.2/dist/range-slider.main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
     <!-- js file -->
     <script src="/js/mobile_menu.js" defer></script>
@@ -97,14 +103,6 @@
       </nav>
     </header>
 
-    <!-- modla -->
-
-    <!-- Scrollable modal -->
-    <div id="contacts_form" class="modal-dialog modal-dialog-scrollable">
-      ...
-    </div>
-    <!-- 
- -->
     <main class="main_content">
       <!-- banner -->
       <section class="banner_wrapper small_banner">
@@ -123,8 +121,6 @@
 
       <section class="body_section">
         <h2 class="title_section">liste de forfaits disponible.</h2>
-
-        <!-- caroussel for bundle -->
 
         <div class="container">
           <div class="carousel">
@@ -196,6 +192,67 @@
           </div>
         </div>
 
+        <section class="splide" aria-label="Splide Basic HTML Example">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <a href="" class="bundle_item">
+                  <div class="bundle_item_content">
+                    <div class="image">
+                      <img src="/media/images/blue.png" alt="" />
+                    </div>
+                    <div class="bundle_description">
+                      <p class="plan">Blue Night</p>
+                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+                      <p>15 min appel tous réseaux</p>
+                      <p>100 SMS On-net</p>
+                    </div>
+                    <div>
+                      <span class="bundle_name">12500 XFA</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a href="" class="bundle_item">
+                  <div class="bundle_item_content">
+                    <div class="image">
+                      <img src="/media/images/blue.png" alt="" />
+                    </div>
+                    <div class="bundle_description">
+                      <p class="plan">Blue Night</p>
+                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+                      <p>15 min appel tous réseaux</p>
+                      <p>100 SMS On-net</p>
+                    </div>
+                    <div>
+                      <span class="bundle_name">12500 XFA</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a href="" class="bundle_item">
+                  <div class="bundle_item_content">
+                    <div class="image">
+                      <img src="/media/images/blue.png" alt="" />
+                    </div>
+                    <div class="bundle_description">
+                      <p class="plan">Blue Night</p>
+                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+                      <p>15 min appel tous réseaux</p>
+                      <p>100 SMS On-net</p>
+                    </div>
+                    <div>
+                      <span class="bundle_name">12500 XFA</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <!-- end caroussel for bundle -->
 
         <div class="bundle_section_wrapper">
@@ -221,7 +278,8 @@
           <!-- bundles section -->
           <div>
             <div>
-              <h3>Catégorie X</h3>
+              <h3>Catégorie Blue MO</h3>
+
               <div class="sjow_bundle_wrapper">
                 <!-- bundle item -->
                 <a href="" class="bundle_item">
@@ -400,6 +458,18 @@
     </footer>
   </body>
   <script src="/js/range_slider.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      //  new Splide(".splide");
+
+      var splide = new Splide(".splide", {
+        type: "loop",
+        perPage: 3,
+      });
+      splide.mount();
+    });
+  </script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
