@@ -163,10 +163,16 @@ image {
   /* max-width: 1280px !important; */
   width: 100% !important;
   margin: auto !important;
+  min-height: 100vh !important;
   padding: 5rem 0rem !important;
   display: flex;
+  gap: 4rem !important;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+}
+.body_section.blue_background {
+  background-color: #252b35 !important;
 }
 .divided_main_content {
   display: flex;
@@ -175,7 +181,6 @@ image {
   background-image: none !important;
   height: auto !important;
   align-items: flex-start !important;
-  /* justify-content: flex-start !important; */
 }
 .divided_main_content .banner_wrapper .banner_title {
   font-size: 2.3rem !important;
@@ -413,7 +418,7 @@ image {
 }
 #nav_wrap li {
   list-style-type: none !important;
-  padding: 0.5rem !important;
+  padding: 0.1rem 0.3rem !important;
   font-family: "Lexend-Regular";
   font-weight: 600 !important;
   color: white !important;
@@ -439,6 +444,18 @@ image {
   color: #42da82 !important;
   margin-left: 1rem !important;
   display: inline-block !important ;
+}
+#nav_wrap .user_dashbord_link {
+  border: 3px dashed #42da82;
+  background-color: white;
+  color: #42da82 !important;
+  padding: 0.1rem 0.5rem !important;
+  height: fit-content;
+}
+#nav_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 #mobile-menu {
   width: 100% !important;
@@ -498,7 +515,7 @@ image {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  flex-wrap: wrap !important;
+  /* flex-wrap: wrap !important; */
   gap: 2rem !important;
 }
 .underline_hover_after {
@@ -588,7 +605,16 @@ image {
     display: none !important ;
   }
 }
+@media screen and (max-width: 649px) {
+  .banner_title {
+    font-size: 1rem !important;
+  }
 
+  .banner_wrapper.small_banner {
+    min-height: 50vh !important;
+    max-height: max-content !important  ;
+  }
+}
 @media screen and (min-width: 950px) {
   .banner_wrapper {
     height: calc(100vh - 30px) !important;
@@ -616,5 +642,10 @@ image {
     flex-direction: row !important;
     flex-wrap: wrap !important;
     gap: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .banner_content_right {
   }
 }

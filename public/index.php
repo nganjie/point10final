@@ -21,7 +21,8 @@ $mail = new PHPMailer(true);
 //var_dump($hash);
 
 $router->get('contacts', 'App\Controllers\BlogController@contact');
-$router->get('admin/', 'App\Controllers\Admin\PostController@admin');
+$router->get('admin/dashbord', 'App\Controllers\Admin\PostController@admin');
+$router->get('admin/commandes', 'App\Controllers\Admin\PostController@commandes');
 $router->get('admin/ajouter_forfait', 'App\Controllers\Admin\PostController@ajouter_forfait'); 
 $router->get('admin/ajouter_forfait:valid', 'App\Controllers\Admin\PostController@ajouter_forfait'); 
 $router->post('admin/enregistrer_forfait', 'App\Controllers\Admin\PostController@enregistrer_forfait'); 
@@ -37,6 +38,7 @@ $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/', 'App\Controllers\BlogController@index');
 $router->get('index.php', 'App\Controllers\BlogController@index');
 $router->get('forfait', 'App\Controllers\BlogController@forfait');
+
 
 
 

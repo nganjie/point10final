@@ -12,6 +12,9 @@ export class Element{
     valeur(){
         return this.valeur;
     }
+    Template(){
+        return `<p><span style="">${this.categorie}</span> : <span style="color:blue">${this.valeur}</span></p>`;
+    }
 }
 export class Caracteristique{
     elments=[];
@@ -33,6 +36,15 @@ export class Caracteristique{
             //this.elments[i]=new Element(elt);
             this.elments.push(new Element(elt));
         }
+    }
+    Template(){
+        var t='';
+        for(var element in this.elments)
+        {
+           // console.log(element);
+            t+=this.elments[element].Template();
+        }
+        return t;
     }
 }
 export class Forfait{
@@ -81,6 +93,24 @@ export class Forfait{
     
     return false
     }
+    Template()
+    {
+        //var t='';
+        return `  <a href="${this.nom}" class="bundle_item">
+        <div class="bundle_item_content">
+          <div class="image">
+            <img src="/point10final/public/../media/images/blue.png" alt="" />
+          </div>
+          <div class="bundle_description">
+            <p class="plan"><span style="color:#41f1b6">${this.nom}</span></p>
+            ${this.description.Template()}
+          </div>
+          <div>
+            <span class="bundle_name">${this.prix}</span>
+          </div>
+        </div>
+      </a>`;
+    }
 
 }
 export class App{
@@ -92,11 +122,63 @@ export class App{
            // console.log(tab[i]);
             this.forfaits.push(new Forfait(tab[i]));
         }
+        //this.forfaits=Object.groupBy(this.forfaits,(forfait)=> forfait.nom);
     }
     Filter(tab){
         return this.forfaits.filter((forfait)=>{
             //console.log(forfait);
             return forfait.isFilter(tab)});
+    }
+    Template()
+    {
+        var t=``;
+        var nom="";
+        var fr=Object.groupBy(this.forfaits,(forfait)=> forfait.nom);
+       // fr=fr.reverse();
+       
+        for(var f in fr)
+        {
+            t+=`<div>`;
+            
+            t+=`<h3>Catégorie ${f}</h3>`;
+            t+=`<div class="sjow_bundle_wrapper">`;
+            console.log(fr[f])
+            for(var eltf in fr[f])
+            {
+                console.log(fr[f][eltf])
+                t+=fr[f][eltf].Template();
+            }
+            t+=`</div>`;
+            t+=`</div>`;
+        }
+       // t+=`</div>`;
+        return t;
+    }
+    TemplateSlider()
+    {
+        //<div class="slide slide-5"></div>
+        var t=``;
+        var nom="";
+        var fr=Object.groupBy(this.forfaits,(forfait)=> forfait.nom);
+       // fr=fr.reverse();
+       
+        for(var f in fr)
+        {
+           // t+=`<div>`;
+            
+            //t+=`<h3>Catégorie ${f}</h3>`;
+            t+=`<div class="slide slide-5">`;
+            console.log(fr[f])
+            for(var eltf in fr[f])
+            {
+                console.log(fr[f][eltf])
+                t+=fr[f][eltf].Template();
+            }
+            t+=`</div>`;
+           // t+=`</div>`;
+        }
+       // t+=`</div>`;
+        return t;
     }
 }
 function objLength(obj){

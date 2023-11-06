@@ -16,6 +16,11 @@ use App\Models\Forfait;
         //echo "je regarde admin";
         return $this->view("admin.admin");
     }
+    public function commandes()
+    {
+        //echo "je regarde admin";
+        return $this->view("admin.commandes");
+    }
     public function ajouter_forfait()
     {
        // echo 'je vois bien';

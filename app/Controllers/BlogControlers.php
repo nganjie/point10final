@@ -77,6 +77,9 @@ Class BlogController extends Controller{
     public function forfait(){
         return $this->view("blog.forfait");
     }
+   /* public function commandes(){
+        return $this->view("blog.commandes");
+    }*/
 
     public function show(int $id)
     {

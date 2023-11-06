@@ -26,8 +26,7 @@ textarea:focus {
   border: 1px solid #42da82 !important;
 }
 
-#message_form,
-form {
+#message_form {
   max-width: 600px;
   width: 100%;
   overflow: hidden;
@@ -96,11 +95,23 @@ form {
   color: #42da82 !important;
 }
 
-@media screen and (max-width: 653px) {
+@media screen and (max-width: 652px) {
   .divided_main_content {
     flex-direction: column;
   }
   .divided_main_content .banner_wrapper {
-    /* display: none !important; */
+    min-height: 50vh !important;
+    height: 50vh !important;
+    background-color: transparent !important;
+  }
+  .banner_content {
+    height: 50vh;
+    background-color: #002c85 !important;
+  }
+  .divided_main_content.reverse_content {
+    flex-direction: column-reverse;
+  }
+  .image_right {
+    display: none;
   }
 }
