@@ -43,7 +43,7 @@
 a.bundle_item:hover,
 .bundle_item:hover {
   text-decoration: none !important;
-  background-color: #f1f5f8 !important;
+  /* background-color: #f1f5f8 !important; */
 }
 #categorie {
   width: 100%;

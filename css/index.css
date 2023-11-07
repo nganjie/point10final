@@ -166,7 +166,7 @@ image {
   min-height: 100vh !important;
   padding: 5rem 0rem !important;
   display: flex;
-  gap: 4rem !important;
+  gap: 2rem !important;
   align-items: center;
   justify-content: center;
   flex-direction: column;
