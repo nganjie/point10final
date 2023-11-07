@@ -77,9 +77,12 @@ Class BlogController extends Controller{
     public function forfait(){
         return $this->view("blog.forfait");
     }
-   /* public function commandes(){
-        return $this->view("blog.commandes");
-    }*/
+    public function validation_forfait(int $id){
+        $f =new Forfait($this->db);
+        $forfait =$f->getForfait($id);
+       // var_dump($forfait);
+        return $this->view("blog.validation_forfait",compact('forfait'));
+    }
 
     public function show(int $id)
     {

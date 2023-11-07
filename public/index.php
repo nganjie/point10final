@@ -37,7 +37,10 @@ $router->get('Accueil', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/', 'App\Controllers\BlogController@index');
 $router->get('index.php', 'App\Controllers\BlogController@index');
+$router->get('/show/:id', 'App\Controllers\BlogController@show');
 $router->get('forfait', 'App\Controllers\BlogController@forfait');
+$router->get('/validation-forfait/:id', 'App\Controllers\BlogController@validation_forfait');
+
 
 
 

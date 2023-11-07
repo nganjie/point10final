@@ -137,7 +137,7 @@
                 <a href="" class="bundle_item">
                   <div class="bundle_item_content">
                     <div class="image">
-                      <img src="<?= SCRIPTS ?>/media/images/blue.png" alt="" />
+                      <img src="<?= SCRIPTS ?>../media/images/blue.png" alt="" />
                     </div>
                     <div class="bundle_description">
                       <p class="plan">Blue Night</p>

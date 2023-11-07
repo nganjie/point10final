@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
           value: "",
           label: "Numéro whatsapp : ",
           placeholder: "Numéro whatsapp",
-          name: "date_string",
+          name: "whatsapp_number",
         },
       ],
     },
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
           value: false,
           checked: true,
           label: "Orange Money",
-          img: "/media/methode_paiement_2.png",
+          img: "../media/methode_paiement_2.png",
           description: `
         <h1>Guide de paiement Orange Money Cameroun</h1>
         <ol>
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
           value: false,
           placeholder: "Numéro de transaction",
           label: "MTN Mobile money",
-          img: "/media/methode_paiement_1.jpeg",
+          img: "../media/methode_paiement_1.jpeg",
           description: `
         <h1>Guide de paiement MTN MOMO Cameroun</h1>
         <ol>

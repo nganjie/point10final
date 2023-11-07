@@ -37,5 +37,13 @@
       return $req->fetchAll();
      return $tab=$this->all();
     }
+    public function getForfait(int $id)
+    {
+      $req=$this->db->getPDO()->prepare("SELECT f.id as id,c.nom,t.symbole as taille,type,description,nb_go,prix FROM forfait f INNER JOIN taille t ON t.id=f.taille INNER JOIN categorie c ON c.id=f.id_nom  WHERE f.id=:id");
+      $req->bindValue("id",$id);
+      $req->execute();
+      $forfait =$req->fetch();
+      return $forfait;
+    }
    }
  ?>
