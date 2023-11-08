@@ -14,6 +14,7 @@ abstract class Controller{
     protected function view(string $path,array $params=null){
         ob_start();
         $path=str_replace('.',DIRECTORY_SEPARATOR,$path);
+       // echo VIEWS.$path;
         require VIEWS.$path.'.php';
         if($params)
         {

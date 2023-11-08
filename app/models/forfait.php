@@ -1,6 +1,7 @@
 <?php
   
    namespace App\Models;
+  // namespace App\Models\SingleForfait;
    //require "../Controllers/Securisation.php";
    use App\Controllers\Securisation;
    class Forfait extends Model{
@@ -44,6 +45,26 @@
       $req->execute();
       $forfait =$req->fetch();
       return $forfait;
+    }
+    public function AllForfait()
+    {
+      $query ="SELECT id FROM forfait";
+      $req=$this->db->getPDO()->query($query);
+      $req=$req->fetchAll();
+      $f="";
+      for($i=0;$i<count($req);$i++)
+      {
+        $f.=(new SingleForfait($this->db,$req[$i]->id))->TemplateCarousel();
+      }
+     // echo $f;
+      return $f;
+    }
+    public function AllCategorie()
+    {
+      $query ="SELECT nom FROM categorie";
+      $req=$this->db->getPDO()->query($query);
+      $req=$req->fetchAll();
+      return $req;
     }
    }
  ?>

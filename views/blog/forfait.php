@@ -1,3 +1,7 @@
+<?php
+//echo $params['forfait']->AllForfait();
+$categorie=$params['forfait']->AllCategorie();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +27,7 @@
 
     <!-- js file -->
     <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
-    <script src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
   </head>
   <body>
     <header class="header_wrapper">
@@ -133,24 +137,8 @@
             </div>
             
             <div class="carousel-content" id="carousel-forfait">
-              <div class="slide slide-5">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="<?= SCRIPTS ?>../media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
+             
+              <?= $params['forfait']->AllForfait(); ?>
 
              
             </div>
@@ -169,11 +157,12 @@
             <h3>Faites une recherche ici</h3>
 
             <p>Catégorie du forfait</p>
-            <select name="" id="categorie">
+            <select name="categorie" class="categorie">
               <option value="">-- choisir une catégorie --</option>
-              <option value="">Catégorie E</option>
-              <option value="">Catégorie D</option>
-              <option value="">Catégorie M</option>
+              <?php foreach($categorie as $ca):?>
+              <option value="<?= $ca->nom?>"><?= $ca->nom?></option>
+
+              <?php endforeach; ?>
             </select>
 
             <p class="qte_value">Qauntité en Go :</p>
@@ -367,12 +356,12 @@
       </div>
     </footer>
   </body>
-  <script src="<?= SCRIPTS ?>../js/range_slider.js"></script>
+  <script type ="module" src="<?= SCRIPTS ?>../js/range_slider.js" defer></script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
-  <script type="module" src="<?= SCRIPTS ?>../js/forfait.js"></script>
+  <script type="module" src="<?= SCRIPTS ?>../js/forfait.js" defer></script>
 </html>

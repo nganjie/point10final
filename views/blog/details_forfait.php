@@ -1,20 +1,36 @@
-<?php
-$forfait =$params['forfait'];
-//echo $forfait->nom;
-//var_dump($params['forfait']);
- ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/multi_form.css" />
-    <script src="<?= SCRIPTS ?>../js/multiple_form.js" defer></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundles.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/caroussel_styles.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundle_details.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+    <title>Formulaire de contacts</title>
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/6e9cf17fd4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- javascript cdn and file -->
+    <script src="https://unpkg.com/@spreadtheweb/multi-range-slider@1.0.2/dist/range-slider.main.min.js"></script>
+
+    <script src="https://unpkg.com/@spreadtheweb/multi-range-slider@1.0.2/dist/range-slider.main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+    <!-- js file -->
+    <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
   </head>
   <body>
     <header class="header_wrapper">
@@ -25,7 +41,7 @@ $forfait =$params['forfait'];
         </div>
         <ul class="lisy_menu_item">
           <li>
-            <a href="index.html">Accueil</a>
+            <a href="#contact">Accueil</a>
           </li>
           <li>
             <a href="contacts.html">Contact</a>
@@ -36,22 +52,15 @@ $forfait =$params['forfait'];
           </li>
 
           <li>
-            <a href="se_connecter.html"></a>
+            <a href="#contact">Se connecter</a>
           </li>
           <li>
-            <a href="creer_compte.html"></a>
-          </li>
-
-          <li class="user_dashbord_link">
-            <a href="">
-              <i class="fa-solid fa-user"></i>
-              <span>Ivan</span>
-            </a>
+            <a href="#contact">S'inscrire</a>
           </li>
         </ul>
 
         <div class="logo_sect_mobile">
-          <a href="index.html"
+          <a href="/"
             ><img
               src="<?= SCRIPTS ?>../media/logo-point10final.png"
               alt="logo de point10recharge"
@@ -72,28 +81,22 @@ $forfait =$params['forfait'];
         /></a>
 
         <ul class="nav_wrap_list">
-          <li class="active_nav_item">
-            <a href="#contact">Accueil</a>
+          <li class="">
+            <a href="index.html">Accueil</a>
           </li>
-          <li>
+          <li class="active_nav_item">
             <a href="contacts.html">Contact</a>
           </li>
 
           <li>
-            <a href="forfaits.html">Nos forfaits</a>
+            <a href="#contact">Nos forfaits</a>
           </li>
 
           <li>
-            <a href="creer_compte.html">S'incrire</a>
+            <a href="#contact">Se connecter</a>
           </li>
           <li>
-            <a href="se_connecter.html">Se connecter</a>
-          </li>
-          <li class="user_dashbord_link">
-            <a href="dasnord_client.html">
-              <i class="fa-solid fa-user"></i>
-              <span>Ivan</span>
-            </a>
+            <a href="#contact">S'inscrire</a>
           </li>
         </ul>
 
@@ -102,7 +105,8 @@ $forfait =$params['forfait'];
     </header>
 
     <main class="main_content">
-      <section class="banner_wrapper small_banner">
+      <!-- banner -->
+      <!-- <section class="banner_wrapper small_banner">
         <div class="banner_content">
           <div class="banner_content_right">
             <h1 class="banner_title">nos forfaits</h1>
@@ -111,19 +115,54 @@ $forfait =$params['forfait'];
               Ici , vous Trouverez tous les informations néccessaire pour
               contacter les admistrateurs du site. Vous pouvez aussi directement
               leur laisser un message dépuis le formulaire.
-              <?=$forfait->SingleTemplate(); ?>
-
             </div>
           </div>
         </div>
+      </section> -->
+
+      <section class="body_section">
+        <h2 class="title_section">Détail d'un forfait</h2>
+
+       <?=$params["forfait"]->TemplateDetaille() ?>
       </section>
 
-      <section class="body_section multi_step">
-        <form id="userForm">
-          <h2 class="title_section">Validation de commande</h2>
-          <ul data-steps></ul>
-        </form>
-        <!-- <pre id="formData"></pre> -->
+      <section class="body_section">
+        <h2 class="title_section">Autre forfait similaire</h2>
+
+        <!-- bundle item -->
+        <a href="" class="bundle_item">
+          <div class="bundle_item_content">
+            <div class="image">
+              <img src="<?= SCRIPTS ?>../media/images/blue.png" alt="" />
+            </div>
+            <div class="bundle_description">
+              <p class="plan">Blue Night</p>
+              <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+              <p>15 min appel tous réseaux</p>
+              <p>100 SMS On-net</p>
+            </div>
+            <div>
+              <span class="bundle_name">12500 XFA</span>
+            </div>
+          </div>
+        </a>
+        <!-- bundle item -->
+        <a href="" class="bundle_item">
+          <div class="bundle_item_content">
+            <div class="image">
+              <img src="<?= SCRIPTS ?>../media/images/blue.png" alt="" />
+            </div>
+            <div class="bundle_description">
+              <p class="plan">Blue Night</p>
+              <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+              <p>15 min appel tous réseaux</p>
+              <p>100 SMS On-net</p>
+            </div>
+            <div>
+              <span class="bundle_name">12500 XFA</span>
+            </div>
+          </div>
+        </a>
       </section>
     </main>
 
@@ -184,11 +223,24 @@ $forfait =$params['forfait'];
         </div>
       </div>
     </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
   </body>
+  <script src="<?= SCRIPTS ?>../js/range_slider.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      //  new Splide(".splide");
+
+      var splide = new Splide(".splide", {
+        type: "loop",
+        perPage: 3,
+      });
+      splide.mount();
+    });
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
 </html>

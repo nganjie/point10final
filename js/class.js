@@ -63,9 +63,11 @@ export class Forfait{
     isFilter(tab){
         var b = objLength(tab);
         var c =0;
-        console.log(tab);
+        //console.log(tab);
+        
         for(var option in tab)
         {
+            
             //if(tab["nb_go"]==this.nb_go)
             //console.log(tab["nb_go"]+" et "+this.nb_go)
             if(option=="prix")
@@ -76,18 +78,33 @@ export class Forfait{
                 if(String(this.taille).toLowerCase==String(tab[option]).toLowerCase)
                 c++;
             }else if(option=="nom"){
-                if(String(this.nom).toLowerCase==String(tab[option]).toLowerCase)
+                //console.log(" un autre monde : "+option)
+                //console.log(" un autre monde : "+option+" et "+tab[option]+" et "+this.nom+" encore : "+((String(this.nom).toLowerCase)===(String(tab[option]).toLowerCase)))
+                if(this.nom===tab[option])
                 c++;
-            }else if(option=="nb_go")
+            }else if(option=="go_min")
             {
                 
-                if(this.nb_go=tab[option])
-                c++;
+                if(this.nb_go>=tab[option]&&this.nb_go<=tab["go_max"])
+                {
+                    c++;
+                    c++;
+                }
+                
+            }else if(option=="prix_min")
+            {
+                //console.log(tab[option]+" et "+this.prix)
+                if(this.prix>=Number(tab[option])&&this.prix<=Number(tab["prix_max"]))
+                {
+                    c++;
+                    c++;
+                }
             }
+            
             //console.log("la valeur de c : "+c+" la valeur de b :"+b);
        
     }
-    //console.log("la valeur de c : "+c+" la valeur de b :"+b);
+   // console.log("la valeur de c : "+c+" la valeur de b :"+b);
     if(c!=0&&c==b)
     return true;
     
@@ -96,7 +113,7 @@ export class Forfait{
     Template()
     {
         //var t='';
-        return `  <a href="${this.nom}" class="bundle_item">
+        return `  <a href="details-forfait/${this.id}" class="bundle_item">
         <div class="bundle_item_content">
           <div class="image">
             <img src="/point10final/public/../media/images/blue.png" alt="" />
@@ -129,11 +146,11 @@ export class App{
             //console.log(forfait);
             return forfait.isFilter(tab)});
     }
-    Template()
+    Template(tab)
     {
         var t=``;
         var nom="";
-        var fr=Object.groupBy(this.forfaits,(forfait)=> forfait.nom);
+        var fr=Object.groupBy(tab,(forfait)=> forfait.nom);
        // fr=fr.reverse();
        
         for(var f in fr)
@@ -142,10 +159,10 @@ export class App{
             
             t+=`<h3>Catégorie ${f}</h3>`;
             t+=`<div class="sjow_bundle_wrapper">`;
-            console.log(fr[f])
+            //console.log(fr[f])
             for(var eltf in fr[f])
             {
-                console.log(fr[f][eltf])
+                //console.log(fr[f][eltf])
                 t+=fr[f][eltf].Template();
             }
             t+=`</div>`;
@@ -168,10 +185,10 @@ export class App{
             
             //t+=`<h3>Catégorie ${f}</h3>`;
             t+=`<div class="slide slide-5">`;
-            console.log(fr[f])
+          //  console.log(fr[f])
             for(var eltf in fr[f])
             {
-                console.log(fr[f][eltf])
+               // console.log(fr[f][eltf])
                 t+=fr[f][eltf].Template();
             }
             t+=`</div>`;

@@ -1,4 +1,7 @@
 import { App,Forfait,Caracteristique,Element } from '../js/class.js';
+import { search_choices,objLength,sliderPrice,sliderQte } from '../js/range_slider.js';
+var select_choix =document.querySelector('.categorie');
+console.log(search_choices);
 const form =document.getElementById('form-id');
 var boundle =document.getElementById('bundle-forfait');
 var carousel=document.getElementById('carousel-forfait');
@@ -17,24 +20,35 @@ fetch("php/api.php",{
     //console.log(b);
     var app =new App(data);
     var slider =app.TemplateSlider();
-    boundle.innerHTML=app.Template();
-    carousel.innerHTML=slider;
-    console.log(slider);
-    var d=app.Filter(tab_filter);
-    d=Object.groupBy(d,(forfait)=> forfait.nom);
-    console.log(typeof(d));
-    for(var r in d)
-    {
-        console.log(r);
-        console.log(d[r])
-    }
-    const objet = {
-        nom: "Jean",
-        âge: 25,
-      };
-      for (const key of Object.keys(objet)) {
-        console.log(key, objet[key]);
-      }
+    boundle.innerHTML=app.Template(app.forfaits);
+    //carousel.innerHTML=slider;
+    //console.log(slider);
+ 
+    sliderQte.onChange((values) => {
+
+      var d=app.Template(app.Filter(search_choices));
+      boundle.innerHTML=d;
+      //console.log("un autre ici")
+      //console.log(d)
+    });
+    sliderPrice.onChange((values) => {
+
+      //search_choices["prix_min"] = values[0];
+      //search_choices["prix_max"] = values[1];
+
+      var d=app.Template(app.Filter(search_choices));
+      boundle.innerHTML=d;
+      //console.log(app.Filter(search_choices))
+     // console.log(d)
+    });
+    select_choix.addEventListener("change",()=>{
+      console.log("un bon départ pour ici");
+      console.log(search_choices);
+      var d=app.Template(app.Filter(search_choices));
+      boundle.innerHTML=d;
+      console.log(app.Filter(search_choices));
+
+    })
     /*d.forEach((v,k)=>{
         console.log(k);
     })*/

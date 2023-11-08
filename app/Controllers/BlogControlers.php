@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Forfait;
+use App\Models\SingleForfait;
 use App\Models\Client;
 use App\Models\MessageContact;
 use Database\DBConnection;
@@ -75,13 +76,37 @@ Class BlogController extends Controller{
        }
     }
     public function forfait(){
-        return $this->view("blog.forfait");
+        $forfait =new Forfait($this->db);
+        return $this->view("blog.forfait",compact('forfait'));
     }
     public function validation_forfait(int $id){
-        $f =new Forfait($this->db);
-        $forfait =$f->getForfait($id);
+        $f =new SingleForfait($this->db,$id);
+        $forfait =$f;
        // var_dump($forfait);
         return $this->view("blog.validation_forfait",compact('forfait'));
+    }
+    public function details_forfait($id)
+    {
+        $forfait=new SingleForfait($this->db,$id);
+       /* $fa=$f->getForfait(12);
+       // print_r($f->getForfait(20));
+        $a=$fa->description;
+        $a =substr($a,0,strlen($a)-1);
+        //echo($a);
+        $element =explode(";",$a);
+        echo count($element);
+        print_r($element);
+       
+       for($i =0;$i<count($element);$i++)
+       {
+        $elt =explode(":",$element[$i]);
+
+        print_r($elt);
+        echo "<br>";
+       }*/
+
+        //echo $forfait->TemplateDetaille();
+        return $this->view("blog.details_forfait",compact('forfait'));
     }
 
     public function show(int $id)
