@@ -1,0 +1,61 @@
+/* general styling */
+:root {
+  --smaller: 0.75;
+}
+
+#container_count_down {
+  color: #333;
+  background-color: #ffd54f;
+  padding: 1rem !important;
+  margin: 1rem !important;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+#container_count_down h1 {
+  font-weight: normal;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+
+#container_count_down li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+#container_count_down li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+#container_count_down .emoji {
+  display: none;
+  padding: 1rem;
+}
+
+#container_count_down .emoji span {
+  font-size: 4rem;
+  padding: 0 0.5rem;
+}
+
+@media all and (max-width: 768px) {
+  #container_count_down h1 {
+    font-size: calc(1.5rem * var(--smaller));
+  }
+
+  #container_count_down li {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+
+  #container_count_down li span {
+    font-size: calc(3.375rem * var(--smaller));
+  }
+}

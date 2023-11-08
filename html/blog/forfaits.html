@@ -249,6 +249,60 @@
                   </div>
                 </a>
               </li>
+              <li class="splide__slide">
+                <a href="" class="bundle_item">
+                  <div class="bundle_item_content">
+                    <div class="image">
+                      <img src="/media/images/blue.png" alt="" />
+                    </div>
+                    <div class="bundle_description">
+                      <p class="plan">Blue Night</p>
+                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+                      <p>15 min appel tous réseaux</p>
+                      <p>100 SMS On-net</p>
+                    </div>
+                    <div>
+                      <span class="bundle_name">12500 XFA</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a href="" class="bundle_item">
+                  <div class="bundle_item_content">
+                    <div class="image">
+                      <img src="/media/images/blue.png" alt="" />
+                    </div>
+                    <div class="bundle_description">
+                      <p class="plan">Blue Night</p>
+                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+                      <p>15 min appel tous réseaux</p>
+                      <p>100 SMS On-net</p>
+                    </div>
+                    <div>
+                      <span class="bundle_name">12500 XFA</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a href="" class="bundle_item">
+                  <div class="bundle_item_content">
+                    <div class="image">
+                      <img src="/media/images/blue.png" alt="" />
+                    </div>
+                    <div class="bundle_description">
+                      <p class="plan">Blue Night</p>
+                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
+                      <p>15 min appel tous réseaux</p>
+                      <p>100 SMS On-net</p>
+                    </div>
+                    <div>
+                      <span class="bundle_name">12500 XFA</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </section>
@@ -298,7 +352,6 @@
                     </div>
                   </div>
                 </a>
-
                 <!-- bundle item -->
                 <a href="" class="bundle_item">
                   <div class="bundle_item_content">
@@ -462,10 +515,19 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       //  new Splide(".splide");
-
       var splide = new Splide(".splide", {
         type: "loop",
-        perPage: 3,
+        perPage: 10,
+      });
+      document.addEventListener('"resize', function (e) {
+        const rect = window.getBoundingClientRect();
+        console.log("first page", rect.left);
+        if (rect.width < 500) {
+          var splide = new Splide(".splide", {
+            type: "loop",
+            perPage: 1,
+          });
+        }
       });
       splide.mount();
     });
