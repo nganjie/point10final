@@ -3,13 +3,13 @@
  use App\Models\Forfait;
  use App\Models\Caracteristique;
  class SingleForfait extends Forfait{
-    private $id;
-    private $nom;
-    private $nb_go;
-    private $taille;
-    private $type;
-    private $prix;
-    private $description;
+    public $id;
+    public $nom;
+    public $nb_go;
+    public $taille;
+    public $type;
+    public $prix;
+    public $description;
     public function __construct($db,int $id)
     {
         $this->db=$db;
@@ -44,20 +44,21 @@
     }
     public function SingleTemplate()
     {
-      $a= "  
-      <div class='bundle_item_content'>
-        <div class='image'>
-          <img src='/point10final/public/../media/images/blue.png' alt='' />
-        </div>
-        <div class='bundle_description'>
-          <p class='plan'><span style='color:#41f1b6'>{$this->nom}</span></p>
-          {$this->description->SingleTemplate()}
+      $a="<div class='details_wrapper'>
+      <div class='details_bundles'>
+        <div>
+          <img src='../media/images/blue.png' alt='' />
         </div>
         <div>
-          <span class='bundle_name'>{$this->prix}</span>
+          <p>Nom du forfait : <strong style='color:#41f1b6'>{$this->nom}</strong></p>
+          {$this->description->Template()}
+          <p>Prix :<span style='color:blue'>  {$this->prix}</span></p>
         </div>
       </div>
-    ";
+      <div class='start_now'>
+        
+      </div>
+    </div>";
     return $a;
     }
     public function TemplateDetaille()

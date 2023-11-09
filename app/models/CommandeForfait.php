@@ -1,6 +1,7 @@
 <?php
   
    namespace App\Models;
+   use DateTime;
    //require "../Controllers/Securisation.php";
    use App\Controllers\Securisation;
    class CommandeForfait extends Model{
@@ -8,33 +9,38 @@
 
     public function create($post):bool
     {
+      $date = new DateTime();
       $secu =new Securisation();
       $name= $secu->securiser($post['name']);
      // $nom =$secu->securiser($post['nom']);
-      $number=$secu->securiser($post['phone_number']);
-      $wnumber =$secu->securiser($post['whatsapp_number']);
+      $number=(int)$secu->securiser($post['phone_number']);
+      $pay_number =(int)$secu->securiser($post['pay_number']);
       $operateur =$secu->securiser($post['methode']);
-      $wnumber =$secu->securiser($post['']);
+      $whatsap_number =(int)$secu->securiser($post['whatsap-number']);
+      $transaction_number=(int)$secu->securiser($post['transaction_number']);
       //$ville =$secu->securiser($post['ville']);
       $mail=$secu->securiser($post['email']);
+      $id_forfait =(int)$secu->securiser($post['id_forfait']);
+      $id_client =(int)$secu->securiser($post['id_client']);
       //$password =password_hash($post['password'],PASSWORD_DEFAULT);
       //$utilisateur =new Utilisateur($this->db);
     //  $id =$utilisateur->create_uti($name,$number);
       
       //echo $id;
       $pdo =$this->getDB()->getPDO();
+      //var_dump($post);
 
-      $req =$pdo->prepare("INSERT INTO commande_forfait(name,email,numero_benefice,numero_payement,operateur_payement,date_commande,idclient,client_id,forfait_id) VALUES(:name,:email,:numero_b,:numero_p,:operateur_p,:date_commande,:idclient,:client_id,:forfait_id)");
+      $req =$pdo->prepare("INSERT INTO commande_forfait(nom,email,numero_benefice,numero_payement,operateur_payement,numero_transaction,date_commande,idclient,forfait_id) VALUES(:nom,:email,:numero_b,:numero_p,:operateur_p,:numero_transaction,:date_commande,:idclient,:forfait_id)");
       $r= $req->execute(array(
-        "name"=>$name,
+        "nom"=>$name,
         "email"=>$mail,
         "numero_b"=>$number,
-        "numero_p"=>$wnumber,
+        "numero_p"=>$whatsap_number,
         "operateur_p"=>$operateur,
-        "date_commande"=>$date,
-        "idclient"=>1,
-        "client_id"=>1,
-        "forfait_id"=>1
+        "numero_transaction"=>$transaction_number,
+        "date_commande"=>$date->format("Y-m-d H:i:s"),
+        "idclient"=>$id_client,
+        "forfait_id"=>$id_forfait
       ));
       //echo $id;
       return true;
