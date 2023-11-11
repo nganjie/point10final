@@ -1,9 +1,9 @@
 <?php
 //require dirname(__DIR__).'/views/blog/contact.php';
+
+use App\Controllers\Mail;
 use Router\Router;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+
 
 require  '../vendor/autoload.php';
 $router = new Router($_GET['url']);
@@ -12,7 +12,25 @@ define("SCRIPTS", dirname($_SERVER['SCRIPT_NAME']) . '/');
 
 $password ="toto";
 $hash=password_hash($password,PASSWORD_DEFAULT);
-$mail = new PHPMailer(true);
+/*$maile =new Mail("nouveau compte client");
+$content ="<h1 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h1>
+<p>nom: <strong>{name}</strong> </p>
+<p>ville: <strong>{ville}</strong> </p>
+<p>numero: <strong>{number}</strong> </p>
+<p>mail: <strong>{mail}</strong> </p>
+";
+$maile->systemEmail();
+$maile->htmlEmail($content);
+$maile->send();*/
+/*ob_start();
+ require "../php/template_facture.php";
+ $content=ob_get_clean();
+$mail =new Mail("nganjienzatsi@gmail.com"," html test App ");
+//$mail->htmlEmail($content);
+$mail->simpleEmail("un autre message de bienvenue");
+$res =$mail->send();
+$info =$res?" message envoyer ":"message non envoyer";*/
+//echo $info;
 
 
 //echo $desc->description;
@@ -46,12 +64,9 @@ $router->get('/validation-forfait/:id', 'App\Controllers\BlogController@validati
 
 
 
-try{
-    $router->run();
-}catch(NotFoundExecption $e)
-{
-   return $e->error404();
-}
+
+$router->run();
+
 
 
 ?>

@@ -42,11 +42,17 @@ fetch("php/api.php",{
      // console.log(d)
     });
     select_choix.addEventListener("change",()=>{
-      console.log("un bon départ pour ici");
+      //console.log("un bon départ pour ici : "+select_choix.options[select_choix.selectedIndex].value+" et : "+select_choix.selectedIndex);
       console.log(search_choices);
-      var d=app.Template(app.Filter(search_choices));
+      if(select_choix.options[select_choix.selectedIndex].value=="")
+      {
+        boundle.innerHTML=app.Template(app.forfaits);
+      }else{
+        var d=app.Template(app.Filter(search_choices));
       boundle.innerHTML=d;
-      console.log(app.Filter(search_choices));
+      //console.log(app.Filter(search_choices));
+      }
+      
 
     })
     /*d.forEach((v,k)=>{

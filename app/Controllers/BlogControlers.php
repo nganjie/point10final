@@ -52,11 +52,13 @@ Class BlogController extends Controller{
        if($result)
        {
         $valid =1;
-        return header("LOCATION: index.php");
+        return $this->view("blog.creer_compte");
+        //return header("LOCATION: index.php");
         //return $this->view("blog.index");
         //return $this->view("blog.contacts",compact('valid'));
        }else{
-        return header("LOCATION: creer-compte?result={$result}");
+        return $this->view("blog.creer_compte");
+       // return header("LOCATION: creer-compte?result={$result}");
        }
     }
     public function connexion_client()

@@ -5,7 +5,7 @@ use App\Models\CommandeForfait;
 use Database\DBConnection;
 
 require  '../vendor/autoload.php';
-
+echo  "un monde de fous";
 $post =$_POST;
 if($post['query']=="forfait")
 {
