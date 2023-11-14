@@ -23,7 +23,7 @@ use Database\DBConnection;
     public function findById($id)
     {
       $req=$this->db->getPDO()->prepare("SELECT * FROM ".$this->table." WHERE id=?");
-      $req->execute($db);
+      $req->execute();
       return $req->fetch();
     }
     public function maxId():int

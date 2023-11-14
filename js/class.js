@@ -150,7 +150,64 @@ export class App{
     {
         var t=``;
         var nom="";
-        var fr=Object.groupBy(tab,(forfait)=> forfait.nom);
+        
+        /*let tabf=tab.sort((a,b)=>{
+            return a.nom=='BLUE GO'&&b.nom!="BLUE GO";
+        })*/
+
+
+         
+       let tabf=tab.sort((a,b)=>{
+        if(a.nom=="BLUE ONE"||b.nom=="BLUE ONE")
+        {
+            return 1;
+        }else{
+            return -1;
+        }
+           /* if(a.nom>b.nom)
+            {
+                return 1;
+            }else if(a.nom<b.nom){
+                return -1;
+            }*/
+        })
+        tabf.sort((a,b)=>{
+            if(Number(a.prix)>Number(b.prix))
+            {
+                return 1;
+            }else{
+                return -1;
+            }
+        })
+        console.log(tabf);
+        var fr=Object.groupBy(tabf,(forfait)=> forfait.nom);
+        /*fr.sort((a,b)=>{
+            if(a>b)
+            {
+                return 1;
+            }else{
+                return -1;
+            }
+            //return a.nom=='BLUE GO'&&b.nom!="BLUE GO";
+        })*/
+       /* fr.sort((a,b)=>{
+            return a.prix>b.prix;
+        })*/
+        for(var fs in fr)
+        {
+            console.log(" avant ");
+            console.log(fr[fs])
+            fr[fs].sort((a,b)=>{
+                if(Number(a.prix)>Number(b.prix))
+            {
+                return 1;
+            }else{
+                return -1;
+            }
+            })
+            console.log("après");
+            console.log(fr[fs]);
+        }
        // fr=fr.reverse();
        
         for(var f in fr)

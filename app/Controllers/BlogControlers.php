@@ -45,7 +45,7 @@ Class BlogController extends Controller{
     }
     public function creation_compte()
     {
-        $client =new Client($this->db);
+        $client =new Client($this->db,-1);
         $result = $client->create($_POST);
        //echo " on a : ".$result;
        $valid =0;
@@ -63,7 +63,7 @@ Class BlogController extends Controller{
     }
     public function connexion_client()
     {
-        $client =new Client($this->db);
+        $client =new Client($this->db,-1);
         $result = $client->connexion($_POST);
        echo " on a : ".$result;
        $valid =0;

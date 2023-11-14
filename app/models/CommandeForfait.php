@@ -2,13 +2,27 @@
   
    namespace App\Models;
 
+use App\Controllers\AlertModification;
+use App\Models\SingleCommande;
+
 use App\Controllers\Mail;
 use DateTime;
+//require "SingleCommande.php";
    //require "../Controllers/Securisation.php";
    use App\Controllers\Securisation;
    class CommandeForfait extends Model{
     protected $table='commande_forfait';
+    public $commandes_encours=[];
+    public $commandes=[];
 
+
+    public function maxId():int
+    {
+      $pdo =$this->db->getPDO();
+      $req=$pdo->query("SELECT MAX(id) as id FROM commande_forfait");
+      $res =$req->fetch();
+      return $res->id;
+    }
     public function create($post):bool
     {
       $date = new DateTime();
@@ -24,6 +38,7 @@ use DateTime;
       $mail=$secu->securiser($post['email']);
       $id_forfait =(int)$secu->securiser($post['id_forfait']);
       $id_client =(int)$secu->securiser($post['id_client']);
+      AlertModification::createModification($this->maxId(),"commande");
       //$password =password_hash($post['password'],PASSWORD_DEFAULT);
       //$utilisateur =new Utilisateur($this->db);
     //  $id =$utilisateur->create_uti($name,$number);
@@ -105,5 +120,47 @@ use DateTime;
         }
        // $req->bindValue("password",$password);
     }
+    public function allCommandeEnCours(){
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT * FROM commande_forfait WHERE id NOT IN(SELECT c.id_commande from cloturer_commande c)");
+      $req->execute();
+      $data=$req->fetchAll();
+      //var_dump($data);
+      foreach($data as $tab)
+      {
+        $this->commandes_encours[]=new SingleCommande($tab);
+      }
+      var_dump($this->commandes_encours);
+    }
+    public function allCommande(){
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT * FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id");
+      $req->execute();
+      $data=$req->fetchAll();
+      //var_dump($data);
+      foreach($data as $tab)
+      {
+        $this->commandes[]=new SingleCommande($tab);
+      }
+      var_dump($this->commandes);
+    }
+    public function cloturer($post)
+    {
+      $pdo =$this->db->getPDO();
+      $id =$post['id'];
+      $motif =$post['motif'];
+      $id_commande=$post["id_commande"];
+      $id_admin = $post['id_admin'];
+      $date = new DateTime();
+      $req=$pdo->prepare("INSERT INTO cloturer_commande(id_commande,date_cloture,decision,id_admin) VALUES(:id_commande,:date_cloture,:decision,:id_admin)");
+      $req->execute(array(
+        "id_commande"=>$id_commande,
+        "date_cloture"=>$date->format("Y-m-d H:i:s"),
+        "decision"=>$motif,
+        "id_admin"=>$id_admin
+      ));
+      
+    }
    }
+   
  ?>

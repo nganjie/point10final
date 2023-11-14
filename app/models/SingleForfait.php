@@ -50,7 +50,7 @@
           <img src='../media/images/blue.png' alt='' />
         </div>
         <div>
-          <p>Nom du forfait : <strong style='color:#41f1b6'>{$this->nom}</strong></p>
+          <p>Nom du forfait : <strong style='color:blue'>{$this->nom}</strong></p>
           {$this->description->Template()}
           <p>Prix :<span style='color:blue'>  {$this->prix}</span></p>
         </div>
@@ -69,7 +69,7 @@
             <img src='../media/images/blue.png' alt='' />
           </div>
           <div>
-            <p>Nom du forfait : <strong style='color:#41f1b6'>{$this->nom}</strong></p>
+            <p>Nom du forfait : <strong style='color:blue'>{$this->nom}</strong></p>
             {$this->description->Template()}
             <p>Prix :<span style='color:blue'>  {$this->prix}</span></p>
           </div>

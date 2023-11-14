@@ -1,3 +1,5 @@
+//let xd;
+import { launch_toast } from "./toast";
 (function () {
   const second = 1000,
     minute = second * 60,
@@ -21,7 +23,7 @@
   //end
 
   const countDown = new Date(birthday).getTime(),
-    x = setInterval(function () {
+    xd = setInterval(function () {
       const now = new Date().getTime(),
         distance = countDown - now;
 
@@ -42,8 +44,42 @@
         document.getElementById("headline").innerText = "It's my birthday!";
         document.getElementById("countdown").style.display = "none";
         document.getElementById("content").style.display = "block";
-        clearInterval(x);
+        clearInterval(xd);
       }
       //seconds
     }, 0);
+
+    var div_error=document.getElementById("error");
+var form =document.getElementById("cache");
+var min =document.getElementById('countdown');
+console.log(form);
+const form_command=document.getElementById("valid-form");
+form_command.addEventListener("submit",(e)=>{
+  //e.preventDefault();
+  console.log("je suis à terre");
+  setTimeout(()=>{
+   let confirm= setInterval(()=>{
+      fetch("../php/api.php",{
+        method:"POST",
+        body:new FormData(document.getElementById("cache"))
+      }).then(res=>res.text())
+      .then((data)=>{
+        console.log(data);
+        div_error.innerHTML=data;
+        clearInterval(xd);
+        min.innerHTML+=`<p style="color:#41f1b6">votre forfait à été activé avec success</p>`;
+        launch_toast("votre forfait à été activé avec success","sucess");
+
+        if(data==2)
+        {
+          console.log(" un nouveau monde souvre à moi");
+        }else{
+          console.log("rien ne va ici bas");
+        }
+        clearInterval(confirm);
+      })
+    },5000)
+  },5000)
+
+});
 })();

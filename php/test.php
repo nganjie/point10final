@@ -1,3 +1,28 @@
+<?php
+
+use App\Models\CommandeForfait;
+use App\Models\MessageContact;
+use App\Models\Messages;
+use Database\DBConnection;
+
+require  '../vendor/autoload.php';
+
+$db =new DBConnection();
+$commande =new CommandeForfait($db);
+
+//$commande->allCommandeEnCours();
+//$commande->allCommande();
+$messages =new MessageContact($db);
+//$messages->allMessageContact();
+$m =new Messages($db,15);
+$m->create(array(
+    "message"=>"bonjour",
+    "id_rec"=>1
+));
+$m->allMessages();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

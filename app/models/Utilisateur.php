@@ -3,9 +3,36 @@
    namespace App\Models;
    //require "../Controllers/Securisation.php";
    use App\Controllers\Securisation;
+use Database\DBConnection;
+use App\Models\Messages;
+
    class Utilisateur extends Model{
     protected $table='utilisateur';
+    protected $id;
+    protected $nom;
+    protected $numero;
+    protected $user;
+    protected $messages;
 
+    public function __construct(DBConnection $db,int $id)
+    {
+      $this->db=$db;
+      if($id!=-1)
+      {
+        $this->id=$id;
+      $pdo=$this->db->getPDO();
+      $req= $pdo->prepare("SELECT * FROM utilisateur WHERE id=:id");
+      $req->execute(array(
+        "id"=>$id
+      ));
+      $data =$req->fetch();
+      $this->nom =$data->nom;
+      $this->numero =$data->numero;
+      $this->messages=new Messages($this->db,$this->id);
+      $this->user=$data;
+      }
+      
+    }
     public function create($post):bool
     {
       $secu =new Securisation();
@@ -42,6 +69,10 @@
           "numero"=>$numbert
         ));
         return $this->maxId();
+    }
+    public function createMessage($post)
+    {
+      $this->messages->create($post);
     }
    }
  ?>

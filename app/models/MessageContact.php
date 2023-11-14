@@ -3,8 +3,10 @@
    namespace App\Models;
    use App\Controllers\Securisation;
    use DateTime;
+   use App\Models\SingleMessageContact;
    class MessageContact extends Model{
     protected $table='message_contact';
+    public $messages;
     public function create($post):bool
     {
       $date = new DateTime();
@@ -24,6 +26,18 @@
       ));
       //echo $r;
       return true;
+    }
+    public function allMessageContact(){
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT * FROM message_contact ");
+      $req->execute();
+      $data=$req->fetchAll();
+      //var_dump($data);
+      foreach($data as $tab)
+      {
+        $this->messages[]=new SingleMessageContact($tab);
+      }
+      var_dump($this->messages);
     }
    }
  ?>

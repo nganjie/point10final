@@ -214,7 +214,7 @@
         closeForm.addEventListener('submit', closeFormSubmit);
     }
 
-    let socket = new WebSocket("ws://127.0.01:8060");
+    let socket = new WebSocket("ws://130.185.118.11:30027");
 
     var socketOpen = (e) => {
         console.log("connected to the socket");

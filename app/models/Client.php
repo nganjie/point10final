@@ -5,7 +5,8 @@
 
 use App\Controllers\Mail;
 use App\Controllers\Securisation;
-   class Client extends Model{
+use App\Models\Utilisateur;
+   class Client extends Utilisateur{
     protected $table='client';
 
     public function create($post):bool
@@ -36,8 +37,8 @@ use App\Controllers\Securisation;
         var_dump($verif);
         return false;
       }
-      $utilisateur =new Utilisateur($this->db);
-      $id =$utilisateur->create_uti($name,$number);
+      //$utilisateur =new Utilisateur($this->db,-1);
+      $id =$this->create_uti($name,$number);
       $req =$pdo->prepare("INSERT INTO client(id_utilisateur,ville,email,password) VALUES(:id_utilisateur,:ville,:email,:password)");
       $r= $req->execute(array(
         "id_utilisateur"=>$id,
@@ -81,6 +82,12 @@ use App\Controllers\Securisation;
             return 0;
         }
        // $req->bindValue("password",$password);
+    }
+    public function sendMessage($post)
+    {
+      $id =$post['id'];
+      $ms =new Messages($this->db,$id);
+      $ms->create($post);
     }
    }
  ?>

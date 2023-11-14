@@ -17,96 +17,14 @@ $date = new DateTime();
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/template_bill_preview.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundle_details.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/countdown.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/toast.css" />
 
     <script src="<?= SCRIPTS ?>../js/multiple_form.js" defer></script>
-    <script src="<?= SCRIPTS ?>../js/countdown.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/countdown.js" defer></script>
     <title>Validation d'un forfait</title>
   </head>
   <body>
-  <header class="header_wrapper">
-      <!-- menu for small vp -->
-      <nav aria-label="mobile-menu" id="mobile-menu" class="mobile-menu-close">
-        <div class="close_mobile_section">
-          <button class="close_btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <ul class="lisy_menu_item">
-          <li>
-            <a href="index.html">Accueil</a>
-          </li>
-          <li>
-            <a href="contacts.html">Contact</a>
-          </li>
-
-          <li>
-            <a href="forfaits.html">Nos forfaits</a>
-          </li>
-
-          <li>
-            <a href="se_connecter.html"></a>
-          </li>
-          <li>
-            <a href="creer_compte.html"></a>
-          </li>
-
-          <li class="user_dashbord_link">
-            <a href="">
-              <i class="fa-solid fa-user"></i>
-              <span>Ivan</span>
-            </a>
-          </li>
-        </ul>
-
-        <div class="logo_sect_mobile">
-          <a href="index.html"
-            ><img
-              src="<?= SCRIPTS ?>../media/logo-point10final.png"
-              alt="logo de point10recharge"
-          /></a>
-          <div class="social_icon">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-      </nav>
-      <!-- main site menu -->
-      <nav id="nav_wrap">
-        <a href="/"
-          ><img
-            src="<?= SCRIPTS ?>../media/logo-point10final.png"
-            alt="logo de point10recharge"
-        /></a>
-
-        <ul class="nav_wrap_list">
-          <li class="active_nav_item">
-            <a href="#contact">Accueil</a>
-          </li>
-          <li>
-            <a href="contacts.html">Contact</a>
-          </li>
-
-          <li>
-            <a href="forfaits.html">Nos forfaits</a>
-          </li>
-
-          <li>
-            <a href="creer_compte.html">S'incrire</a>
-          </li>
-          <li>
-            <a href="se_connecter.html">Se connecter</a>
-          </li>
-          <li class="user_dashbord_link">
-            <a href="dasnord_client.html">
-              <i class="fa-solid fa-user"></i>
-              <span>Ivan</span>
-            </a>
-          </li>
-        </ul>
-
-        <button class="open_btn"><i class="fa-solid fa-bars"></i></button>
-      </nav>
-    </header>
-
+  <?php require "header.php" ?>
     <main class="main_content">
       <div class="body_section">
        <?= $params['forfait']->SingleTemplate(); ?>
@@ -424,68 +342,22 @@ $date = new DateTime();
     </main>
 
     <!-- footer -->
-    <footer class="footer_wrapper">
-      <div class="footer_content">
-        <div class="footer_top_content">
-          <div class="footer_section">
-            <div>
-              <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
-            </div>
-            <p>
-              Nous proposons des forfaits adaptés à vos besoins et qui vous
-              permettront d'être fier de les utiliser. Ils sont disponibles pour
-              tous les réseaux Blue et Yoome.
-            </p>
+    <?php require "footer.php" ?>
 
-            <div class="social_icon">
-              <a><i class="fa-brands fa-facebook"></i></a>
-              <a><i class="fa-brands fa-twitter"></i></a>
-              <a><i class="fa-brands fa-instagram"></i></a>
-            </div>
-          </div>
-          <div class="details_footer_wrap">
-            <section class="footer_section">
-              <h2 class="footer_title">ENTREPRISE</h2>
-              <ul>
-                <li><a href="#">Support Cleint</a></li>
-                <li><a href="#">Détails de livraison</a></li>
-                <li><a href="#">Termes et conditions</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-              </ul>
-            </section>
-
-            <section class="footer_section">
-              <h2 class="footer_title">aide</h2>
-              <ul>
-                <li><a href="#">Support Cleint</a></li>
-                <li><a href="#">Détails de livraison</a></li>
-                <li><a href="#">Termes et conditions</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-              </ul>
-            </section>
-
-            <section class="footer_section">
-              <h2 class="footer_title">FAQS</h2>
-              <ul>
-                <li><a href="#">Compte</a></li>
-                <li><a href="#">Livraison</a></li>
-                <li><a href="#">paiement</a></li>
-              </ul>
-            </section>
-          </div>
-        </div>
-        <hr />
-        <div class="foter_desxcript">
-          @point10recharge &copy; 2023. Tous droits réservés
-        </div>
-      </div>
-    </footer>
+    <form id="cache" style="display:none">
+    <input type="text" name="query" value="verifie_valid_commande" />
+    <input type="number" name="id_commande"  />
+    </form>
+    <div id="toast" style="display: none;">
+      <div id="img">Icon</div>
+      <div id="desc">A notification message..</div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="<?= SCRIPTS ?>../js/valider_commande"></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/valider_commande"></script>
   </body>
 </html>
