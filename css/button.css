@@ -14,13 +14,21 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: .5rem 1rem  !important;
+  padding: 0.5rem 1rem !important;
 }
-
+.button.start_now {
+  color: white !important;
+  background: #42da82;
+}
 .text_btn {
   color: #42da82;
   text-decoration: none;
   letter-spacing: 1px;
+}
+.button.start_now .text_btn {
+  color: white;
+  font-weight: bolder;
+  font-family: "Lexend-ExtraBold";
 }
 /* Second Button */
 
@@ -39,34 +47,46 @@
   width: 100%;
   height: 100%;
   left: -300px;
-  background: #42da82 ;
+  background: #42da82;
   position: absolute;
   transition: all 0.35s ease-Out;
   bottom: 0;
 }
-.button.green_btn 
-.slide {
+.button.start_now .slide {
+  /* background: red; */
+  left: 100%;
+  z-index: 1000;
+}
+.button.green_btn .slide {
   background-color: #002c85;
+}
+.button:hover .text_btn {
+  color: #42da82 !important;
+}
+.button:hover {
+  background-color: transparent;
+  color: #42da82;
 }
 .button:hover .slide {
   left: 0;
+  background: transparent;
 }
 
 .button:hover .text_btn {
   color: white;
 }
 
-
-.button.green_btn{
+.button.green_btn {
   border-color: #002c85;
   color: #002c85;
 }
-.button.green_btn .text_btn{
+.button.green_btn .text_btn {
   color: #002c85;
-  
 }
 
 .button.green_btn:hover .text_btn {
   color: white;
 }
 
+.button.start_now {
+}

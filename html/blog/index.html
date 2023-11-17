@@ -6,37 +6,21 @@
 
     <link rel="stylesheet" href="../../css/index.css" />
     <link rel="stylesheet" href="../../css/contacts.css" />
-    <link rel="stylesheet" href="../../css/caroussel_styles.css" />
     <link rel="stylesheet" href="../../css/toast.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../../css/button.css" />
+    <link rel="stylesheet" href="../../css/banner_animation.css" />
+    <title>Accueil</title>
 
     <!-- font awesome -->
     <script
       src="https://kit.fontawesome.com/6e9cf17fd4.js"
       crossorigin="anonymous"
     ></script>
-    <!-- Load Bootstrap -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-      crossorigin="anonymous"
-    ></script> -->
 
     <!-- js file -->
     <script src="../../js/mobile_menu.js" defer></script>
-    <script src="../../js/caroussel.js" defer></script>
     <script src="../../js/toast.js" defer></script>
+    <script src="../../js/intersection__animated.js" defer></script>
   </head>
   <body>
     <!-- TOAST CONTENT -->
@@ -145,17 +129,24 @@
       <section class="banner_wrapper">
         <div class="banner_content">
           <div class="banner_content_right">
-            <h1 class="banner_title">
-              reChercher le forait qui convient à vos besoin de connectivité
-              <span class="line_through"> illimité. </span>
+            <h1 class="banner_title waviy">
+              <p class="text_content">
+                trouver le forait qui convient à vos besoin de connectivité
+                <span class="line_through"> illimité. </span>
+              </p>
             </h1>
 
             <div class="banner_description">
               Parcourez notre vaste liste de forfaits , disponible pour tous les
               réseaux et soyez des aujourd'hui plus que jamais connecté.
             </div>
-            <div class="start_now">
-              <a href="#">Commencer maintenant</a>
+            <div class="button start_now">
+              <div class="slide"></div>
+              <span class="text_btn">
+                <a class="text_btn" href="forfaits.html"
+                  >Commencer maintenant</a
+                >
+              </span>
             </div>
 
             <div class="resume_section">
@@ -229,8 +220,8 @@
         <h1 class="title_section">Comment ça marche ?</h1>
 
         <div class="step_wrap">
-          <div class="step_wrap_item">
-            <div>
+          <div class="step_wrap_item" data-appear>
+            <div class="">
               <img
                 src="../../media/images/6333195_adjudication_assortment_choice_culling_resolving_icon-q7orve2eg0xkdj15uy3bvimb4m09hmpafspb63a5ew.png"
                 alt=""
@@ -246,7 +237,7 @@
             </section>
           </div>
 
-          <div class="step_wrap_item">
+          <div class="step_wrap_item" data-appear>
             <div>
               <img
                 src="../../media/images/5027839_business_rocket_start_icon-q7orx5zfcrd2b0gbhppyl2hnit9811r1cl2bswndns.png"
@@ -264,7 +255,7 @@
             </section>
           </div>
 
-          <div class="step_wrap_item">
+          <div class="step_wrap_item" data-appear>
             <div>
               <img
                 src="../../media/images/172465_flag_finish_goal_icon-q7orxqnvj45defma4ynr3x9slafaqe14rff0czspuw.png"
@@ -283,92 +274,10 @@
         </div>
       </section>
 
-      <div class="gtco-testimonials">
-        <h2>Testimonials Carousel - Cards Comments</h2>
-        <div class="owl-carousel owl-carousel1 owl-theme">
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300"
-                alt=""
-              />
-              <div class="card-body">
-                <h5>
-                  Ronne Galle <br />
-                  <span> Project Manager </span>
-                </h5>
-                <p class="card-text">
-                  “ Nam libero tempore, cum soluta nobis est eligendi optio
-                  cumque nihil impedit quo minus id quod maxime placeat ”
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://images.unsplash.com/photo-1588361035994-295e21daa761?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=301&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=301"
-                alt=""
-              />
-              <div class="card-body">
-                <h5>
-                  Missy Limana<br />
-                  <span> Engineer </span>
-                </h5>
-                <p class="card-text">
-                  “ Nam libero tempore, cum soluta nobis est eligendi optio
-                  cumque nihil impedit quo minus id quod maxime placeat ”
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://images.unsplash.com/photo-1575377222312-dd1a63a51638?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=302&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=302"
-                alt=""
-              />
-              <div class="card-body">
-                <h5>
-                  Martha Brown<br />
-                  <span> Project Manager </span>
-                </h5>
-                <p class="card-text">
-                  “ Nam libero tempore, cum soluta nobis est eligendi optio
-                  cumque nihil impedit quo minus id quod maxime placeat ”
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://images.unsplash.com/photo-1549836938-d278c5d46d20?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=303&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=303"
-                alt=""
-              />
-              <div class="card-body">
-                <h5>
-                  Hanna Lisem<br />
-                  <span> Project Manager </span>
-                </h5>
-                <p class="card-text">
-                  “ Nam libero tempore, cum soluta nobis est eligendi optio
-                  cumque nihil impedit quo minus id quod maxime placeat ”
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- top selling -->
       <section class="body_section">
         <h1 class="title_section">actuellement disponible</h1>
-        <div class="categorie_wrap">
+        <div class="categorie_wrap" data-appear>
           <div class="blue_categorie_cart">
             <a href="#" class="underline_hover_after"
               >Débuter maintenant <i class="fa-solid fa-arrow-right-long"></i
@@ -391,7 +300,7 @@
       <!-- client reviews -->
       <section class="body_section">
         <h2 class="title_section">Nos clients satisfaits</h2>
-        <div class="review_wrap">
+        <div class="review_wrap" data-appear>
           <!-- client review -->
           <div class="client_review">
             <div class="author">

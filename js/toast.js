@@ -1,4 +1,4 @@
-export function launch_toast(message, toastStatus) {
+ function launch_toast(message, toastStatus) {
   console.log("un autre ici bas")
   var x = document.getElementById("toast");
   x.style.display="flex";

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../css/modal.css" />
     <link rel="stylesheet" href="../../css/checkbox.css" />
     <link rel="stylesheet" href="../../css/button.css" />
+    <link rel="stylesheet" href="../../css/notification_message.css" />
 
     <!-- font awesome -->
     <script
@@ -43,17 +44,16 @@
           <h1>Point10recharge</h1>
         </div>
         <ul class="list_nav">
-          <li><a href="admin.html">Dashbord</a></li>
+          <li class="active"><a class="active" href="admin.html">Dashbord</a></li>
           <li><a href="forfaits.html">Forfaits</a></li>
           <li><a href="commandes.html">Commandes</a></li>
-
+        
           <li>
-            <button
-              class="toaast_btn"
-              onclick="launch_toast(`Bundle saved successfully`, `error`)"
-            >
-              Show Toast
-            </button>
+            <a href="admin_message.html">
+              <i class="fa fa-envelope"></i>
+              <span>Messages</span>
+            </a>
+            <span class="notification-label notification-label-red">12</span>
           </li>
         </ul>
       </nav>
