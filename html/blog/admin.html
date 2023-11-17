@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/table.css" />
     <link rel="stylesheet" href="../../css/modal.css" />
     <link rel="stylesheet" href="../../css/checkbox.css" />
+    <link rel="stylesheet" href="../../css/button.css" />
 
     <!-- font awesome -->
     <script
@@ -31,13 +32,15 @@
       <div id="desc">Nouveau forfaits enregistrer avec success</div>
     </div>
 
-
     <main class="admin_wrapper">
       <nav class="sidebar">
-        <div style="border-bottom: 1px solid white;padding-bottom: 1rem !important;">
-          <h1>
-            Point10recharge
-          </h1>
+        <div
+          style="
+            border-bottom: 1px solid white;
+            padding-bottom: 1rem !important;
+          "
+        >
+          <h1>Point10recharge</h1>
         </div>
         <ul class="list_nav">
           <li><a href="admin.html">Dashbord</a></li>
@@ -226,7 +229,7 @@
                       </svg>
                     </button>
 
-                    <button type="button" class="open-modal" data-open="modal2">
+                    <!-- <button type="button" class="open-modal" data-open="modal2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"
@@ -236,7 +239,7 @@
                           d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
                         />
                       </svg>
-                    </button>
+                    </button> -->
                   </td>
                 </tr>
 
@@ -303,7 +306,7 @@
                       </svg>
                     </button>
 
-                    <button type="button" class="open-modal" data-open="modal2">
+                    <!-- <button type="button" class="open-modal" data-open="modal2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"
@@ -313,7 +316,7 @@
                           d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
                         />
                       </svg>
-                    </button>
+                    </button> -->
                   </td>
                 </tr>
 
@@ -381,7 +384,7 @@
                       </svg>
                     </button>
 
-                    <button type="button" class="open-modal" data-open="modal2">
+                    <!-- <button type="button" class="open-modal" data-open="modal2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"
@@ -391,7 +394,7 @@
                           d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
                         />
                       </svg>
-                    </button>
+                    </button> -->
                   </td>
                 </tr>
               </tbody>
@@ -470,15 +473,25 @@
           >
             <div class="form_item">
               <label for="">Valider la commande</label>
-              <div class="check-box">
+              <!-- <div class="check-box">
                 <input type="checkbox" />
+              </div> -->
+
+              <div class="button button-2 green_btn" id="">
+                <div class="slide"></div>
+                <span class="text_btn" href="#">Valider la commande</span>
               </div>
             </div>
 
             <div class="form_item">
               <label for="">Cloturer la commande</label>
-              <div class="check-box">
+              <!-- <div class="check-box">
                 <input type="checkbox" />
+              </div> -->
+
+              <div class="button button-2" id="">
+                <div class="slide"></div>
+                <span class="text_btn" href="#">Cloturer la commande</span>
               </div>
             </div>
           </form>

@@ -49,8 +49,8 @@
 
 .modal-dialog {
   position: relative;
-  min-width: 300px;
-  min-height: 50vh;
+  min-width: 400px;
+  min-height: 65vh;
   max-width: 800px;
   max-height: 90vh;
   border-radius: 5px;
