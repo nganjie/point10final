@@ -78,7 +78,9 @@ image {
   padding: 0.4rem !important;
   color: white !important;
 }
-
+.sidebar:nth-child(1) {
+  border-bottom: 1px solid white !important;
+}
 .list_nav li {
   font-family: "Lexend-ExtraBold";
   list-style-type: none;
@@ -124,7 +126,7 @@ image {
 }
 .review_item {
   width: 300px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   background-color: #002c85 !important;
   border-radius: 4px;
   color: white !important;
@@ -179,4 +181,119 @@ image {
 }
 .title_dash :nth-child(1) {
   font-size: 2rem !important;
+}
+
+/* ACTIVE CALORIES  */
+
+.review_item.active-calories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: black !important;
+  background-color: rgb(214, 227, 248) !important;
+  padding: 1rem 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
+}
+
+.active-calories h1 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.active-calories-container {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.calories-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.calories-content p {
+  font-size: 1rem;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 10px 0;
+  /* width: 200px; */
+}
+
+.box h2 {
+  position: relative;
+  text-align: center;
+  font-size: 1.25rem;
+  color: rgb(91, 95, 111);
+  font-weight: 600;
+}
+
+.box h2 small {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.circle {
+  position: relative;
+  width: 80px;
+  aspect-ratio: 1/1;
+  background: conic-gradient(
+    from 0deg,
+    #590b94 0%,
+    #590b94 0% var(--i),
+    #b3b2b2 var(--i),
+    #b3b2b2 100%
+  );
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background-color: rgb(214, 227, 248);
+  border-radius: 50%;
+}
+/* end active colories */
+
+/* data dundle */
+
+.details_bundles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.details_bundles img{
+  border-radius: 50%;
+}
+.details_bundles > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: gray;
+}
+.details_bundles > :nth-child(2) strong {
+  color: black;
+  padding: 5rem 0rem !important;
+}
+.title_section{
+  text-align: center;
+  text-transform: uppercase;
+  margin: 3rem .5rem !important;
+
 }

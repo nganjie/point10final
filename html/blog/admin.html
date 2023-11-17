@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="../../css/toast.css" />
     <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="stylesheet" href="../../css/table.css" />
+    <link rel="stylesheet" href="../../css/modal.css" />
+    <link rel="stylesheet" href="../../css/checkbox.css" />
 
     <!-- font awesome -->
     <script
@@ -15,7 +18,9 @@
     ></script>
 
     <script src="../../js/toast.js" defer></script>
+    <script src="../../js/modal_coustom.js" defer></script>
   </head>
+
   <body>
     <!-- TOAST CONTENT -->
 
@@ -26,18 +31,13 @@
       <div id="desc">Nouveau forfaits enregistrer avec success</div>
     </div>
 
-    <!-- <div id="toast">
-      <div id="img">
-        <i class="fa-regular fa-circle-xmark"></i>
-      </div>
-      <div id="desc">Erreur lors de la sauvegarde du forfait</div>
-    </div> -->
 
-    <!-- END TOAST CONTENT -->
     <main class="admin_wrapper">
       <nav class="sidebar">
-        <div>
-          <img src="../../media/logo-point10final.png" alt="" />
+        <div style="border-bottom: 1px solid white;padding-bottom: 1rem !important;">
+          <h1>
+            Point10recharge
+          </h1>
         </div>
         <ul class="list_nav">
           <li><a href="admin.html">Dashbord</a></li>
@@ -75,21 +75,440 @@
         <div class="resume_wrapper">
           <!-- resume item  -->
           <div class="review_item">
-            <h4>Compte créer</h4>
+            <h4>Total Commandes</h4>
             <span>34567</span>
           </div>
-          <!-- resume item  -->
-          <div class="review_item">
-            <h4>Catégories</h4>
-            <span>34567</span>
+        </div>
+
+        <div class="resume_wrapper">
+          <div class="active-calories review_item">
+            <h4 style="align-self: flex-start">Commandes Réalisées</h4>
+            <div class="active-calories-container">
+              <div class="box" style="--i: 85%">
+                <div class="circle">
+                  <h2>85<small>%</small></h2>
+                </div>
+              </div>
+              <div class="calories-content">
+                <p><strong>Nouveau:</strong> <span> 400 </span></p>
+                <p><strong>Total:</strong> <span> 1400 </span></p>
+              </div>
+            </div>
           </div>
-          <!-- resume item  -->
-          <div class="review_item">
-            <h4>Forfaits vendus</h4>
-            <span>34567</span>
+
+          <div class="active-calories review_item">
+            <h4 style="align-self: flex-start">Commandes non-Réalisées</h4>
+            <div class="active-calories-container">
+              <div class="box" style="--i: 85%">
+                <div class="circle">
+                  <h2>85<small>%</small></h2>
+                </div>
+              </div>
+              <div class="calories-content">
+                <p><strong>Nouveau:</strong> <span> 400 </span></p>
+                <p><strong>Total:</strong> <span> 1400 </span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- table -->
+        <div class="body_section">
+          <h2 class="title_section">Commandes de forfaits</h2>
+          <div class="products_table">
+            <!-- Responsive Table Section -->
+            <table class="responsive-table">
+              <!-- Responsive Table Header Section -->
+              <thead class="responsive-table__head">
+                <tr class="responsive-table__row">
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--name"
+                  >
+                    Nom du forfait
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--types"
+                  >
+                    Email
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--types"
+                  >
+                    N°-Trans
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--types"
+                  >
+                    N°-Payeur
+                  </th>
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--update"
+                  >
+                    Date
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--status"
+                  >
+                    Status
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--status"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <!-- Responsive Table Body Section -->
+              <tbody class="responsive-table__body">
+                <tr class="responsive-table__row">
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--name"
+                  >
+                    Blue MO
+                  </td>
+
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--types"
+                  >
+                    admin@admin.com
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--update"
+                  >
+                    106980064734
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country"
+                  >
+                    698 564 734
+                  </td>
+
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country"
+                  >
+                    Apr 24, 2021, 11:36 AM
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--status"
+                  >
+                    <span class="status-indicator status-indicator--new"></span>
+                    <span> New </span>
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country action_section"
+                  >
+                    <button type="button" class="open-modal" data-open="modal1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 576 512"
+                      >
+                        <path
+                          d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                        />
+                      </svg>
+                    </button>
+
+                    <button type="button" class="open-modal" data-open="modal3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                        />
+                      </svg>
+                    </button>
+
+                    <button type="button" class="open-modal" data-open="modal2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 448 512"
+                      >
+                        <path
+                          d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="responsive-table__row">
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--name"
+                  >
+                    Blue MO
+                  </td>
+
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--types"
+                  >
+                    admin@admin.com
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--update"
+                  >
+                    106980064734
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country"
+                  >
+                    698 564 734
+                  </td>
+
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country"
+                  >
+                    Apr 24, 2021, 11:36 AM
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--status"
+                  >
+                    <span
+                      class="status-indicator status-indicator--active"
+                    ></span>
+                    <span> Active </span>
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country action_section"
+                  >
+                    <button type="button" class="open-modal" data-open="modal1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 576 512"
+                      >
+                        <path
+                          d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                        />
+                      </svg>
+                    </button>
+
+                    <button type="button" class="open-modal" data-open="modal3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                        />
+                      </svg>
+                    </button>
+
+                    <button type="button" class="open-modal" data-open="modal2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 448 512"
+                      >
+                        <path
+                          d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- table item -->
+                <tr class="responsive-table__row">
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--name"
+                  >
+                    Blue MO
+                  </td>
+
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--types"
+                  >
+                    admin@admin.com
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--update"
+                  >
+                    106980064734
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country"
+                  >
+                    698 564 734
+                  </td>
+
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country"
+                  >
+                    Apr 24, 2021, 11:36 AM
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--status"
+                  >
+                    <span
+                      class="status-indicator status-indicator--inactive"
+                    ></span>
+                    <span> Inactive </span>
+                  </td>
+                  <td
+                    class="responsive-table__body__text responsive-table__body__text--country action_section"
+                  >
+                    <button type="button" class="open-modal" data-open="modal1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 576 512"
+                      >
+                        <path
+                          d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                        />
+                      </svg>
+                    </button>
+
+                    <button type="button" class="open-modal" data-open="modal3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                        />
+                      </svg>
+                    </button>
+
+                    <button type="button" class="open-modal" data-open="modal2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 448 512"
+                      >
+                        <path
+                          d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </main>
+
+    <!-- LES MODAUX ICI -->
+    <!-- view modal -->
+
+    <div class="modal" id="modal1" data-animation="slideInOutLeft">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          <h2>Détails de la commande</h2>
+
+          <button class="close-modal" aria-label="close modal" data-close>
+            ✕
+          </button>
+        </header>
+        <section class="modal-content">
+          <div class="details_bundles">
+            <div>
+              <img src="/media/images/blue.png" alt="" />
+            </div>
+            <div>
+              <p>Nom du forfait : <strong>Blue Night</strong></p>
+              <p>Plan du forfait : <strong>Blue Mo</strong></p>
+              <p>Volume 4G : <strong>7Go</strong></p>
+              <p>
+                Volume 3G a la fin du volume 4G :
+                <strong>Illimité vers tous les sites</strong>
+              </p>
+              <p>Vitesse Max en 3G illimité : <strong>200 Kbps</strong></p>
+              <p>SMS On-net : <strong>200 </strong></p>
+              <p>Prix : <strong>2000 XAF / semaine </strong></p>
+            </div>
+          </div>
+        </section>
+        <!-- <footer class="modal-footer">The footer of the first modal</footer> -->
+      </div>
+    </div>
+
+    <!-- update modal -->
+
+    <div class="modal" id="modal3" data-animation="slideInOutLeft">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          <h2>Modifier de la commande</h2>
+
+          <button class="close-modal" aria-label="close modal" data-close>
+            ✕
+          </button>
+        </header>
+        <section class="modal-content">
+          <div class="details_bundles">
+            <div></div>
+            <div>
+              <p>Nom du forfait : <strong>Blue Night</strong></p>
+              <p>Plan du forfait : <strong>Blue Mo</strong></p>
+              <p>Volume 4G : <strong>7Go</strong></p>
+              <p>
+                Volume 3G a la fin du volume 4G :
+                <strong>Illimité vers tous les sites</strong>
+              </p>
+              <p>Vitesse Max en 3G illimité : <strong>200 Kbps</strong></p>
+              <p>SMS On-net : <strong>200 </strong></p>
+              <p>Prix : <strong>2000 XAF / semaine </strong></p>
+            </div>
+          </div>
+
+          <form
+            action="
+          "
+          >
+            <div class="form_item">
+              <label for="">Valider la commande</label>
+              <div class="check-box">
+                <input type="checkbox" />
+              </div>
+            </div>
+
+            <div class="form_item">
+              <label for="">Cloturer la commande</label>
+              <div class="check-box">
+                <input type="checkbox" />
+              </div>
+            </div>
+          </form>
+        </section>
+        <!-- <footer class="modal-footer">The footer of the first modal</footer> -->
+      </div>
+    </div>
+
+    <!-- delete modal -->
+    <div class="modal" id="modal2" data-animation="mixInAnimations">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          <h2>Sure de le faire ?</h2>
+          <button class="close-modal" aria-label="close modal" data-close>
+            ✕
+          </button>
+        </header>
+        <section class="modal-content">
+          <p>
+            <strong>Supprimer la commande N° #567876</strong>
+          </p>
+          <form
+            action="
+         "
+          >
+            <button class="delete_btn">Supprimer</button>
+          </form>
+        </section>
+        <!-- <footer class="modal-footer">The footer of the second modal</footer> -->
+      </div>
+    </div>
   </body>
 </html>
