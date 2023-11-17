@@ -1,6 +1,7 @@
 <?php
  namespace App\Controllers\Admin;
 use App\Controllers\Controller;
+use App\Models\CommandeForfait;
 //require "../../Models/Forfait.php";
 //spl_autoload_call('Forfait.php');
 use App\Models\Forfait;
@@ -14,7 +15,9 @@ use App\Models\Forfait;
     public function admin()
     {
         //echo "je regarde admin";
-        return $this->view("admin.admin");
+        $commande=new CommandeForfait($this->db);
+
+        return $this->view("admin.admin",compact('commande'));
     }
     public function commandes()
     {

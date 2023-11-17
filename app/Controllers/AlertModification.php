@@ -20,17 +20,11 @@ use Database\DBConnection;
     static function modifierCommande(int $id){
         $db =new DBConnection();
         $pdo=$db->getPDO();
-        $selectmod = $pdo->prepare("SELECT numero_modifier FROM modification WHERE id_modif=:id");
+        $selectmod = $pdo->prepare("UPDATE modification SET numero_modifier=2 WHERE id_modif=:id");
         $selectmod->execute(array(
             "id"=>$id
         ));
-        $resultmod = $selectmod->fetch();
         //echo $resultmod[0][0]+1;
-        $m =1+$resultmod->numero_modifier%10;
-        
-    
-    $modifier = $pdo->prepare("UPDATE modification SET numero_modifier = '$m' WHERE id =1");
-      $modifier->execute();
     }
     static function numeroModif($id){
         $db =new DBConnection();

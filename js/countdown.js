@@ -65,18 +65,18 @@ form_command.addEventListener("submit",(e)=>{
       }).then(res=>res.text())
       .then((data)=>{
         console.log(data);
-        div_error.innerHTML=data;
-        clearInterval(xd);
-        min.innerHTML+=`<p style="color:#41f1b6">votre forfait à été activé avec success</p>`;
-        launch_toast("votre forfait à été activé avec success","sucess");
-
-        if(data==2)
+        if(Number(data)==2)
         {
+          min.innerHTML+=`<p style="color:#41f1b6">votre forfait à été activé avec success</p>`;
+        launch_toast("votre forfait à été activé avec success","success");
           console.log(" un nouveau monde souvre à moi");
+          div_error.innerHTML=data;
+          clearInterval(confirm);
+          clearInterval(xd)
         }else{
           console.log("rien ne va ici bas");
         }
-        clearInterval(confirm);
+        //clearInterval(confirm);
       })
     },5000)
   },5000)
