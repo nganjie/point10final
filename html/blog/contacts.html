@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="../../css/message.css" />
     <link rel="stylesheet" href="../../css/index.css" />
     <link rel="stylesheet" href="../../css/contacts.css" />
     <title>Formulaire de contacts</title>
@@ -130,11 +131,10 @@
         </div>
       </section>
 
-      <section class="body_section">
+      <!-- <section class="body_section">
         <h2 class="title_section">nous laisser un message.</h2>
 
         <form action="" id="message_form">
-          <!-- <div class="group_input"> -->
           <input type="text" name="name" id="" placeholder="Nom..." />
           <input
             type="text"
@@ -142,7 +142,6 @@
             id=""
             placeholder="Numéro de téléphone..."
           />
-          <!-- </div> -->
           <input
             type="number"
             name="montant"
@@ -159,6 +158,63 @@
 
           <button class="form_btn">Envoyer</button>
         </form>
+      </section> -->
+
+      <section class="body_section">
+        <h2 class="title_section">nous laisser un message.</h2>
+
+        <div id="frame">
+          <div id="sidepanel">
+            <div id="profile">
+              <div class="wrap">
+                <img
+                  id="profile-img"
+                  src="/media/images/Sans titre.jpeg"
+                  class="online"
+                  alt=""
+                />
+                <p>Vous</p>
+              </div>
+            </div>
+
+            <div id="contacts">
+              <ul>
+                <li class="contact active">
+                  <div class="wrap">
+                    <img src="/media/images/Sans titre.jpeg" alt="" />
+                    <div class="meta">
+                      <p class="name">Admin</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="content">
+            <div class="contact-profile">
+              <img src="/media/images/Sans titre.jpeg" alt="" />
+              <p>Admin</p>
+            </div>
+            <div class="messages">
+              <ul>
+                <li class="sent">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </li>
+                <li class="replies">
+                  <p>Lorem ipsum dolor. OK</p>
+                </li>
+              </ul>
+            </div>
+            <div class="message-input">
+              <div class="wrap">
+                <input type="text" placeholder="Write your message..." />
+                <button class="submit">envoyer</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 

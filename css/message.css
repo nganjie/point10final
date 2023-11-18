@@ -6,7 +6,7 @@
   min-height: 300px !important;
   max-height: 720px !important;
   background: #e6eaea !important;
-  margin: 2rem  !important;
+  margin: 2rem !important;
 }
 @media screen and (max-width: 360px) {
   #frame {
@@ -665,12 +665,13 @@
   z-index: 99 !important;
 }
 #frame .content .message-input .wrap {
-  position: relative !important;
+  display: flex;
+  align-items: center;
 }
 #frame .content .message-input .wrap input {
-  font-family: "proxima-nova", "Source Sans Pro", sans-serif !important;
   float: left !important;
   border: none !important;
+  flex: 1;
   width: calc(100% - 90px) !important;
   padding: 11px 32px 10px 8px !important;
   font-size: 0.8em !important;
@@ -704,10 +705,9 @@
   opacity: 1 !important;
 }
 #frame .content .message-input .wrap button {
-  float: right !important;
   border: none !important;
-  width: 50px !important;
-  padding: 12px 0 !important;
+  padding-bottom: .1rem !important;
+  width: 100px;
   cursor: pointer !important;
   background: #32465a !important;
   color: #f5f5f5 !important;
