@@ -159,18 +159,22 @@
   background: #febf02;
 }
 .products_table .responsive-table__body__text.action_section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.2rem !important;
 }
 .products_table .responsive-table__body__text.action_section button {
-  font-size: 1.4rem !important;
-  display: inline-block;
+  font-size: 1rem !important;
+  display: inline-flex;
   padding-top: 0.6rem !important;
   border-radius: 6px;
   height: fit-content !important;
 }
+.products_table .responsive-table__body__text.action_section button i{
+  
+}
+
 .products_table
   .responsive-table__body__text.action_section
   button:nth-child(1) {
