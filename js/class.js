@@ -12,6 +12,9 @@ export class Element{
     valeur(){
         return this.valeur;
     }
+    TemplateVue(){
+        return `<p>${this.categorie}: <strong>${this.valeur}</strong></p>`;
+    }
     Template(){
         return `<p><span style="">${this.categorie}</span> : <span style="color:blue">${this.valeur}</span></p>`;
     }
@@ -46,6 +49,16 @@ export class Caracteristique{
         }
         return t;
     }
+    TemplateVue()
+    {
+        var t='';
+        for(var element in this.elments)
+        {
+           // console.log(element);
+            t+=this.elments[element].TemplateVue();
+        }
+        return t;
+    }
 }
 export class Forfait{
     constructor(tab){
@@ -59,6 +72,11 @@ export class Forfait{
        // console.log(this.description.elments);
 
        // this.
+    }
+    TemplateVue()
+    {
+        var row="";
+
     }
     isFilter(tab){
         var b = objLength(tab);

@@ -38,7 +38,7 @@ use DateTime;
       $mail=$secu->securiser($post['email']);
       $id_forfait =(int)$secu->securiser($post['id_forfait']);
       $id_client =(int)$secu->securiser($post['id_client']);
-      AlertModification::createModification($this->maxId(),"commande");
+      AlertModification::createModification($this->maxId()+1,"commande");
       //$password =password_hash($post['password'],PASSWORD_DEFAULT);
       //$utilisateur =new Utilisateur($this->db);
     //  $id =$utilisateur->create_uti($name,$number);
@@ -130,27 +130,29 @@ use DateTime;
       {
         $this->commandes_encours[]=new SingleCommande($tab);
       }
-      var_dump($this->commandes_encours);
+     // var_dump($this->commandes_encours);
     }
     public function allCommande(){
       $pdo =$this->db->getPDO();
-      $req =$pdo->prepare("SELECT * FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id");
+      $req =$pdo->prepare("SELECT c.id,c.nom,c.email,c.numero_benefice,c.numero_payement,c.operateur_payement,c.numero_transaction,c.date_commande,c.date_cloture,c.idclient,c.forfait_id,cl.id as idc,cl.id_commande,cl.date_cloture,cl.decision,cl.id_admin FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id;");
       $req->execute();
       $data=$req->fetchAll();
       //var_dump($data);
+      //var_dump($data);
       foreach($data as $tab)
       {
+       // echo "un bonsoir<br>";
         $this->commandes[]=new SingleCommande($tab);
       }
-      var_dump($this->commandes);
+      //var_dump($this->commandes);
     }
     public function cloturer($post)
     {
       $pdo =$this->db->getPDO();
       $id =$post['id'];
       $motif =$post['motif'];
-      $id_commande=$post["id_commande"];
-      $id_admin = $post['id_admin'];
+      $id_commande=(int)$post["id_commande"];
+      $id_admin =(int) $post['id_admin'];
       $date = new DateTime();
       $req=$pdo->prepare("INSERT INTO cloturer_commande(id_commande,date_cloture,decision,id_admin) VALUES(:id_commande,:date_cloture,:decision,:id_admin)");
       $req->execute(array(
@@ -159,7 +161,69 @@ use DateTime;
         "decision"=>$motif,
         "id_admin"=>$id_admin
       ));
+      AlertModification::modifierCommande($id_commande);
       
+    }
+    public function TemplateCommande(){
+      $tab ='';
+      $tab.="<!-- Responsive Table Header Section -->
+      <thead class='responsive-table__head'>
+        <tr class='responsive-table__row'>
+          <th
+            class='responsive-table__head__title responsive-table__head__title--name'
+          >
+            Nom du forfait
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            Email
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            N°-Trans
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            N°-Payeur
+          </th>
+          <th
+            class='responsive-table__head__title responsive-table__head__title--update'
+          >
+            Date
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--status'
+          >
+            Status
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--status'
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <!-- Responsive Table Body Section -->";
+      foreach($this->commandes as $cd)
+      {
+        //echo "un monde de fous";
+        //echo $cd->Template();
+        $tab.=$cd->Template();
+      }
+      $tab.="<tbody class='responsive-table__body'>";
+      $tab.="</tbody>";
+      //echo $tab;
+      //echo "un monde de merde ici bas";
+      
+      return $tab;
     }
    }
    
