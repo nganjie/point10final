@@ -618,7 +618,6 @@
 #frame .content .messages ul li {
   display: inline-block !important;
   clear: both !important;
-  float: left !important;
   margin: 15px 15px 5px 15px !important;
   width: calc(100% - 25px) !important;
   font-size: 0.9em !important;
