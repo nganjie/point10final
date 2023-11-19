@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../css/contacts.css" />
     <link rel="stylesheet" href="../../css/bundles.css" />
     <link rel="stylesheet" href="../../css/caroussel_styles.css" />
+    <link rel="stylesheet" href="../../css/new_carroussel.css" />
 
     <link
       rel="stylesheet"
@@ -28,8 +29,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
     <!-- js file -->
-    <script src="/js/mobile_menu.js" defer></script>
-    <script src="/js/caroussel.js" defer></script>
+    <script type="module" src="/js/mobile_menu.js" defer></script>
+    <script type="module" src="/js/caroussel.js" defer></script>
+    <script type="module" type="module" src="/js/new_caroussel.js" defer></script>
   </head>
   <body>
     <header class="header_wrapper">
@@ -122,6 +124,8 @@
       <section class="body_section">
         <h2 class="title_section">liste de forfaits disponible.</h2>
 
+      
+
         <div class="container">
           <div class="carousel">
             <div class="nav nav-left">
@@ -191,121 +195,6 @@
             </div>
           </div>
         </div>
-
-        <section class="splide" aria-label="Splide Basic HTML Example">
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="/media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="splide__slide">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="/media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="splide__slide">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="/media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="splide__slide">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="/media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="splide__slide">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="/media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="splide__slide">
-                <a href="" class="bundle_item">
-                  <div class="bundle_item_content">
-                    <div class="image">
-                      <img src="/media/images/blue.png" alt="" />
-                    </div>
-                    <div class="bundle_description">
-                      <p class="plan">Blue Night</p>
-                      <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-                      <p>15 min appel tous réseaux</p>
-                      <p>100 SMS On-net</p>
-                    </div>
-                    <div>
-                      <span class="bundle_name">12500 XFA</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
 
         <!-- end caroussel for bundle -->
 
@@ -510,7 +399,7 @@
       </div>
     </footer>
   </body>
-  <script src="/js/range_slider.js"></script>
+  <script type="module" src="/js/range_slider.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {

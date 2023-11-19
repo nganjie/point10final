@@ -7,26 +7,57 @@
 
     <link rel="stylesheet" href="../../css/admin.css" />
     <link rel="stylesheet" href="../../css/contacts.css" />
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/6e9cf17fd4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../../js/toast.js" defer></script>
+    <script src="../../js/modal_coustom.js" defer></script>
+    <script src="../../js/toggle_sidebar.js" defer></script>
   </head>
   <body>
     <main class="admin_wrapper">
       <nav class="sidebar">
-        <div>
-          <img src="../../media/logo-point10final.png" alt="" />
+        <div
+          style="
+            border-bottom: 1px solid white;
+            padding-bottom: 1rem !important;
+          "
+        >
+          <h1>Point10recharge</h1>
         </div>
         <ul class="list_nav">
-          <li class="active"><a href="#">Dashbord</a></li>
-          <li><a href="#">Forfaits</a></li>
-          <li><a href="#">Commandes</a></li>
+          <li class="">
+            <a class="" href="admin.html">Dashbord</a>
+          </li>
+          <li><a href="utilisateurs.html">Utilisateurs</a></li>
+          <li><a href="commandes.html">Commandes</a></li>
+          <li>
+            <a href="contacts_msgs.html">
+              <i class="fa fa-envelope"></i>
+              <span>Msgs Contacts</span>
+            </a>
+            <span class="notification-label notification-label-red">12</span>
+          </li>
+          <li>
+            <a href="admin_message.html">
+              <i class="fa fa-envelope"></i>
+              <span>Messages</span>
+            </a>
+            <span class="notification-label notification-label-red">12</span>
+          </li>
         </ul>
       </nav>
 
       <!-- header adamin -->
       <div class="content_wrapper">
         <div class="header_admin">
-          <h1>Dashbord</h1>
+          <h1>Nouveau</h1>
           <div>
-            <a class="new_btn" href="#">Nouveau foraits</a>
+            <a class="new_btn" href="#">Nouveau forfait</a>
           </div>
         </div>
 

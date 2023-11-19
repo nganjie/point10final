@@ -19,6 +19,8 @@
       src="https://kit.fontawesome.com/6e9cf17fd4.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="../../js/toggle_sidebar.js" defer></script>
   </head>
 
   <body>
@@ -42,10 +44,18 @@
           <h1>Point10recharge</h1>
         </div>
         <ul class="list_nav">
-          <li><a href="admin.html">Dashbord</a></li>
-          <li><a href="forfaits.html">Forfaits</a></li>
+          <li class="">
+            <a class="" href="admin.html">Dashbord</a>
+          </li>
+          <li><a href="utilisateurs.html">Utilisateurs</a></li>
           <li><a href="commandes.html">Commandes</a></li>
-
+          <li>
+            <a href="contacts_msgs.html">
+              <i class="fa fa-envelope"></i>
+              <span>Msgs Contacts</span>
+            </a>
+            <span class="notification-label notification-label-red">12</span>
+          </li>
           <li class="active">
             <a href="admin_message.html">
               <i class="fa fa-envelope"></i>
@@ -53,15 +63,6 @@
             </a>
             <span class="notification-label notification-label-red">12</span>
           </li>
-
-          <!-- <li>
-            <button
-              class="toaast_btn"
-              onclick="launch_toast(`Bundle saved successfully`, `error`)"
-            >
-              Show Toast
-            </button>
-          </li> -->
         </ul>
       </nav>
 
@@ -69,14 +70,14 @@
       <div class="content_wrapper">
         <div class="header_admin">
           <div class="title_dash">
-            <button>
+            <button onclick="toggleSidebar()">
               <i class="fa-solid fa-bars"></i>
             </button>
-            <h2>Dashbord</h2>
+            <h2>Messages</h2>
           </div>
           <div>
             <a class="new_btn" href="register_new_bundle.html"
-              >Nouveau foraits</a
+              >Nouveau forfait</a
             >
           </div>
         </div>
@@ -109,10 +110,7 @@
                   alt=""
                 />
                 <p>Mike Ross</p>
-                <i
-                  class="fa fa-chevron-down expand-button"
-                  aria-hidden="true"
-                ></i>
+           
               </div>
             </div>
 

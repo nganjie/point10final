@@ -21,6 +21,7 @@
 
     <script src="../../js/toast.js" defer></script>
     <script src="../../js/modal_coustom.js" defer></script>
+    <script src="../../js/toggle_sidebar.js" defer></script>
   </head>
 
   <body>
@@ -44,10 +45,18 @@
           <h1>Point10recharge</h1>
         </div>
         <ul class="list_nav">
-          <li class="active"><a class="active" href="admin.html">Dashbord</a></li>
-          <li><a href="forfaits.html">Forfaits</a></li>
+          <li class="active">
+            <a class="active" href="admin.html">Dashbord</a>
+          </li>
+          <li><a href="utilisateurs.html">Utilisateurs</a></li>
           <li><a href="commandes.html">Commandes</a></li>
-        
+          <li>
+            <a href="contacts_msgs.html">
+              <i class="fa fa-envelope"></i>
+              <span>Msgs Contacts</span>
+            </a>
+            <span class="notification-label notification-label-red">12</span>
+          </li>
           <li>
             <a href="admin_message.html">
               <i class="fa fa-envelope"></i>
@@ -62,14 +71,14 @@
       <div class="content_wrapper">
         <div class="header_admin">
           <div class="title_dash">
-            <button>
+            <button onclick="toggleSidebar()">
               <i class="fa-solid fa-bars"></i>
             </button>
             <h2>Dashbord</h2>
           </div>
           <div>
             <a class="new_btn" href="register_new_bundle.html"
-              >Nouveau foraits</a
+              >Nouveau forfait</a
             >
           </div>
         </div>

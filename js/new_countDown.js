@@ -1,7 +1,6 @@
 function decompteEn5Minutes() {
-  const duree = 300000
+  const duree = 300000;
   let tempsRestant = duree;
-
   function mettreAJourDecompte() {
     const minutes = Math.floor(tempsRestant / 60000);
     const secondes = Math.floor((tempsRestant % 60000) / 1000);
@@ -20,9 +19,7 @@ function decompteEn5Minutes() {
       tempsElement.innerHTML = tempsFormatte;
     } else {
       const parent = document.querySelector("#temps-restant");
-      tempsElement = document.createElement("div");
-      tempsElement.setAttribute("id", "temps");
-      parent.appendChild(tempsElement);
+
       parent.innerHTML = `<div id="temps"></div>`;
     }
 
@@ -42,21 +39,21 @@ function decompteEn5Minutes() {
       if (tempsRestantElement) {
         tempsRestantElement.innerHTML = "Le décompte recommence.";
       }
-      intervalle = setInterval(mettreAJourDecompte,1000);
+      intervalle = setInterval(mettreAJourDecompte, 1000);
     }
   }
-  
+
   let intervalle = setInterval(mettreAJourDecompte, 1000);
   /**
    * Appeler cette fonction pour arreter le decompte
    */
-    function arreterDecompte() {
-      clearInterval(intervalle);
-      const tempsRestantElement = document.getElementById("temps-restant");
-      if (tempsRestantElement) {
-        tempsRestantElement.innerHTML = "Le décompte est arrêté.";
-      }
+  function arreterDecompte() {
+    clearInterval(intervalle);
+    const tempsRestantElement = document.getElementById("temps-restant");
+    if (tempsRestantElement) {
+      tempsRestantElement.innerHTML = "Le décompte est arrêté.";
     }
+  }
 }
 
 decompteEn5Minutes();

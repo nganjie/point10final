@@ -84,7 +84,7 @@ $commande->allCommande();
           </div>
           <div>
             <a class="new_btn" href="register_new_bundle.html"
-              >Nouveau foraits</a
+              >Nouveau forfait</a
             >
           </div>
         </div>

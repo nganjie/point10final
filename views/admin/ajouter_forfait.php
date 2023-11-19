@@ -32,7 +32,7 @@
         <div class="header_admin">
           <h1>Dashbord</h1>
           <div>
-            <a class="new_btn" href="#">Nouveau foraits</a>
+            <a class="new_btn" href="#">Nouveau forfait</a>
           </div>
         </div>
 
