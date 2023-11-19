@@ -51,6 +51,7 @@ $router->post('admin/messages/:id', 'App\Controllers\Admin\PostController@messag
 
 $router->post('creation_compte', 'App\Controllers\BlogController@creation_compte');
 $router->post('connexion_client', 'App\Controllers\BlogController@connexion_client');
+$router->post('facture', 'App\Controllers\BlogController@facture');
 $router->get('se-connecter', 'App\Controllers\BlogController@se_connecter');
 $router->get('se-connecter:result', 'App\Controllers\BlogController@se_connecter');
 $router->get('creer-compte', 'App\Controllers\BlogController@creer_compte');

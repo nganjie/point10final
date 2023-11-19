@@ -61,7 +61,7 @@ use DateTime;
       ));
       //echo $id;
       $f =new SingleForfait($this->db,$id_forfait);
-      $maile =new Mail("nouvelle commande de forfait");
+     /*$maile =new Mail("nouvelle commande de forfait");
       $content ="<h4 style='color:blue'>NOUVELLE COMMANDE DE FORFAIT ENREGISTRER</h4>
       <p>nom: <strong>{$name}</strong> </p>
       <p>numero de paiement : <strong>{$pay_number}</strong> </p>
@@ -93,7 +93,7 @@ use DateTime;
       ";
       $maile_client->externalEmail($mail);
       $maile_client->htmlEmail($content);
-      $maile_client->send();
+      $maile_client->send();*/
       return true;
       
     }

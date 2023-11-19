@@ -19,16 +19,20 @@ $date = new DateTime();
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/countdown.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/toast.css" />
 
+
+
     <script src="<?= SCRIPTS ?>../js/multiple_form.js" defer></script>
-    <script type="module" src="<?= SCRIPTS ?>../js/countdown.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/createPdf.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/new_countDown.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Validation d'un forfait</title>
   </head>
   <body>
   <?php require "header.php" ?>
     <main class="main_content">
-      <div class="body_section">
+      
        <?= $params['forfait']->SingleTemplate(); ?>
-      </div>
+     
 
       <section id="multi_step_section" class="body_section multi_step">
         <div id="userForm">
@@ -197,6 +201,11 @@ $date = new DateTime();
 
             <!-- countdwn -->
             <div id="container_count_down">
+              <div id="temps-restant">
+                <div id="temps"></div>
+              </div>
+            </div>
+            <!--<div id="container_count_down">
               <h1 id="headline">Veillez patienter</h1>
               <div id="countdown">
                 <ul>
@@ -209,12 +218,13 @@ $date = new DateTime();
                 <span>🎉</span>
                 <span>🎂</span>
               </div>
-            </div>
-
-            <button class="btn prev" type="button">Précédent</button
-            ><button class="btn next" style="visibility: hidden" type="button">
-              Validé
-            </button>
+            </div>-->
+            <form method="POST" action="<?= SCRIPTS ?>../facture" id="pdfac">
+              <input type="text" name="facture" style="display:none"/>
+            <button type="submit" id="pdf" class="btn" style="visibility: hidden"  type="button">Télécharger le Réçus</button
+            >
+            </form>
+            
           </div>
         </div>
 
@@ -235,8 +245,8 @@ $date = new DateTime();
                 <p>Point10recharge</p>
                 <p>Plateforme de vente en ligne de forfait</p>
                 <p>
-                  <a href="support@point10recharge.com" id="email-client"
-                    >E-mail : @gmail.com</a
+                  <a href="issahnfonsouen@point10recharge"
+                    >E-mail : issahnfonsouen@point10recharge</a
                   >
                 </p>
                 <strong><?=$date->format("Y-m-d H:i") ?></strong>
@@ -248,7 +258,7 @@ $date = new DateTime();
                 <strong id="name-client"> ........</strong>
                 <p>Douala</p>
                 <p id="number-client">+237 ...</p>
-                <p>ivansilatsa@gmail.com</p>
+                <p id="email-client">example@gmail.com</p>
                 <p>Cameroun</p>
               </div>
             </section>

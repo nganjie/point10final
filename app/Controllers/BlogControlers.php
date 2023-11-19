@@ -110,6 +110,11 @@ Class BlogController extends Controller{
         //echo $forfait->TemplateDetaille();
         return $this->view("blog.details_forfait",compact('forfait'));
     }
+    public function facture()
+    {
+        $facture =$_POST["facture"];
+       return $this->view("blog.pdf",compact("facture"));
+    }
 
     public function show(int $id)
     {

@@ -54,6 +54,6 @@ form_commande.addEventListener("submit",(e)=>{
         var form =document.getElementById("cache");
         form['id_commande'].value=Number(data);
         console.log("et on a : "+form['id_commande'].value)
-        div_error.innerHTML=data;
+       // div_error.innerHTML=data;
     })
 })
