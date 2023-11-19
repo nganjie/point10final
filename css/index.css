@@ -166,9 +166,8 @@ image {
   min-height: 100vh !important;
   padding: 5rem 0rem !important;
   display: flex;
+  justify-content: center;align-items: center;
   gap: 2rem !important;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 .body_section.blue_background {

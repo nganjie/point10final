@@ -32,6 +32,7 @@ textarea:focus {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   margin: auto 1rem;
   margin: auto !important;
 }
