@@ -8,8 +8,8 @@ use App\Models\Messages;
 
    class Utilisateur extends Model{
     protected $table='utilisateur';
-    protected $id;
-    protected $nom;
+    public $id;
+    public $nom;
     protected $numero;
     protected $user;
     protected $messages;
@@ -61,6 +61,8 @@ use App\Models\Messages;
         $secu =new Securisation();
         $nomt=$secu->securiser($nom);
         $numbert=$secu->securiser($number);
+        
+        $id =$this->maxIdTable("utilisateur");
         //$mailt=$secu->securiser($mail);
         $pdo =$this->getDB()->getPDO();
         $req =$pdo->prepare("INSERT INTO utilisateur(nom,numero) VALUES(:nom,:numero)");
@@ -68,11 +70,27 @@ use App\Models\Messages;
           "nom"=>$nomt,
           "numero"=>$numbert
         ));
-        return $this->maxId();
+        return $id+1;
     }
     public function createMessage($post)
     {
       $this->messages->create($post);
+    }
+    public function TemplateMessage()
+    {
+      $a="          <div class='content'>
+      <div class='contact-profile'>
+        <img src='../media/images/Sans titre.jpeg' alt='' />
+        <p>{$this->nom}</p>
+      </div>
+       {$this->messages->TemplateMessages($this->id)}
+      <div class='message-input'>
+        <div class='wrap'>
+          <input type='text' placeholder='Write your message...' />
+          <button class='submit'>envoyer</button>
+        </div>
+      </div>
+    </div>";
     }
    }
  ?>

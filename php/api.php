@@ -63,4 +63,5 @@ if($post['query']=="validercommande")
     );
     print_r(json_encode($tab));
 }
+
 ?>

@@ -164,6 +164,68 @@ use DateTime;
       AlertModification::modifierCommande($id_commande);
       
     }
+    public function TemplateCommandeEncour()
+    {
+      $tab ='';
+      $tab.="<!-- Responsive Table Header Section -->
+      <thead class='responsive-table__head'>
+        <tr class='responsive-table__row'>
+          <th
+            class='responsive-table__head__title responsive-table__head__title--name'
+          >
+            Nom du forfait
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            Email
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            N°-Trans
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            N°-Payeur
+          </th>
+          <th
+            class='responsive-table__head__title responsive-table__head__title--update'
+          >
+            Date
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--status'
+          >
+            Status
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--status'
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <!-- Responsive Table Body Section -->";
+      foreach($this->commandes_encours as $cd)
+      {
+        //echo "un monde de fous";
+        //echo $cd->Template();
+        $tab.=$cd->Template();
+      }
+      $tab.="<tbody class='responsive-table__body'>";
+      $tab.="</tbody>";
+      //echo $tab;
+      //echo "un monde de merde ici bas";
+      
+      return $tab;
+    }
     public function TemplateCommande(){
       $tab ='';
       $tab.="<!-- Responsive Table Header Section -->

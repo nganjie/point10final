@@ -29,6 +29,59 @@ class SingleCommande{
         $this->forfait_id=$tab->forfait_id;
        // echo "<br><br>$tab->id<br><br>";
     }
+    public function TemplateEncour()
+    {
+      $row="<tr class='responsive-table__row'>
+      <td
+        class='responsive-table__body__text responsive-table__body__text--name'
+      >
+        {$this->nom}
+      </td>
+      
+      <td
+        class='responsive-table__body__text responsive-table__body__text--types'
+      >
+      {$this->email}
+      </td>
+      <td
+        class='responsive-table__body__text responsive-table__body__text--update'
+      >
+      {$this->numero_transaction}
+      </td>
+      <td
+        class='responsive-table__body__text responsive-table__body__text--country'
+      >
+      {$this->numero_payement}
+      </td>
+
+      <td
+        class='responsive-table__body__text responsive-table__body__text--country'
+      >
+      {$this->date_cloture}
+      </td>
+      <td
+        class='responsive-table__body__text responsive-table__body__text--status'
+      >
+        <span class='status-indicator status-indicator--new'></span>
+        <span> New </span>
+      </td>
+      <td
+        class='responsive-table__body__text responsive-table__body__text--country action_section'
+      >
+      <button type='button' class='open-modal' data-open='modalvue{$this->id}'>
+                      <i class='fa-solid fa-eye'></i>
+                    </button>
+
+                    <button type='button' class='open-modal' data-open='modalmodif{$this->id}'>
+                      <i class='fa-solid fa-circle-check'></i>
+                    </button>
+        <button type='button' class='open-modal' data-open='modalvue{$this->id}'>
+      </td>
+    </tr>";
+    //echo "<br><br> j'y suis maintenant ";
+    //echo $row;
+    return $row;
+    }
     public function Template()
     {
         $row="<tr class='responsive-table__row'>
@@ -57,7 +110,7 @@ class SingleCommande{
         <td
           class='responsive-table__body__text responsive-table__body__text--country'
         >
-        {$this->date_cloture}
+        {$this->date_commande}
         </td>
         <td
           class='responsive-table__body__text responsive-table__body__text--status'
