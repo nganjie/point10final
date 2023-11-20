@@ -1,0 +1,7 @@
+Programmes
+
+- Maths : Lire les variables aléatoires et couples aléatoires.
+- Traiter les exos
+
+Analyse de données
+ - Cours sur les variables
