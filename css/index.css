@@ -111,7 +111,7 @@ image {
   max-width: 400px;
   width: 90% !important;
 }
-/* .start_now a {
+.start_now a {
   display: inline-block !important;
   background-color: #42da82 !important;
   font-family: "Lexend-ExtraBold";
@@ -125,7 +125,7 @@ image {
   -moz-border-radius: 3rem !important;
   -ms-border-radius: 3rem !important;
   -o-border-radius: 3rem !important;
-} */
+} 
 .resume_section {
   display: flex !important;
   gap: 3rem !important;

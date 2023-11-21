@@ -42,6 +42,41 @@ use DateTime;
       ));
       
     }
+    public function connexion($post):int
+    {
+        $secu =new Securisation();
+        //var_dump($post);
+        $mail=$secu->securiser($post['mail']);
+        $password=$secu->securiser($post['password']);
+        $pdo =$this->getDB()->getPDO();
+        $req=$pdo->prepare("SELECT c.id as id,id_utilisateur,email,password,nom,numero FROM admin c INNER JOIN utilisateur u ON u.id=c.id_utilisateur WHERE email=:mail");
+        $req->bindValue("mail",$mail);
+        $req->execute();
+        $res=$req->fetch();
+        //var_dump($res);
+        if($res)
+        {
+            if($password==$res->password){
+              session_start();
+              $_SESSION["adm-id"] = $res->id;
+              $_SESSION["adm-nom"] = $res->nom;
+              $_SESSION["adm-password"] = $res->password;
+              //$_SESSION["adm-ville"] = $res->ville;
+              $_SESSION["adm-id_utilisateur"] = $res->id_utilisateur;
+              $_SESSION["adm-email"] =$res->email;
+              $_SESSION["adm-numero"] =$res->numero;
+              $_SESSION["connecter"]=true;
+              //echo "$res->id  et on a encore $res->id_utilisateur";
+             
+                return 1;
+            }else{
+                return 2;
+            }
+        }else{
+            return 0;
+        }
+       // $req->bindValue("password",$password);
+    }
     public function allUsers()
     {
       $pdo =$this->db->getPDO();

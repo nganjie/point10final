@@ -1,12 +1,13 @@
 
 <?php
-
+forcer_utilisateur_connecter_admin();
 $commande =$params['commande'];
 $commande->allCommande();
+//echo $_SESSION['adm-nom'];
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -242,7 +243,8 @@ $commande->allCommande();
       <input type="text" name="id" />
       <input type="text" name="motif" />
       <input type="text" name="id_commande" />
-      <input type="text" name="id_admin" value='1' />
+      <input type="text" name="id_admin" value='<?=$_SESSION['adm-id']?>' />
+      <input type="text" name="chemin" value="<?=SCRIPTS ?>"/>
     </form>
 
   </body>

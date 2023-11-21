@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+
+use App\Controllers\Mail;
 use Database\DBConnection;
 use App\Models\SingleMessage;
 use DateTime;
@@ -13,7 +15,7 @@ class Messages extends Model{
         $this->db=$db;
         $this->id=(int)$id;
     }
-    public function create($post){
+    public function create($post,bool $send){
         $content =$post['message'];
         $id_rec=(int)$post['id_rec'];
         $date =new DateTime();
@@ -27,6 +29,22 @@ class Messages extends Model{
             ":Rec_id"=>$id_rec,
             ":env"=>$this->id
         ));
+        if($send)
+        {
+          //$mail =new Mail("");
+          $maile =new Mail("Nouveau Message D'un client");
+      $content ="<h4 style='color:blue'>NOUVEAU Message D'un CLIENT De point10recharge</h4>
+      <p>nom: <strong>{$post['nom']}</strong> </p>
+      <p>ville: <strong>{$post['ville']}</strong> </p>
+      <p>numero: <strong>{$post['numero']}</strong> </p>
+      <p>mail: <strong>{$post['mail']}</strong> </p>
+      <p>message :</p>
+      <p>{$post['message']}</p>
+      ";
+      $maile->systemEmail();
+      $maile->htmlEmail($content);
+      $maile->send();
+        }
         
     }
 

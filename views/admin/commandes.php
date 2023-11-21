@@ -1,6 +1,6 @@
 
 <?php
-
+forcer_utilisateur_connecter_admin();
 $commande =$params['commande'];
 $commande->allCommandeEnCours();
 
@@ -214,7 +214,8 @@ $commande->allCommandeEnCours();
       <input type="text" name="id" />
       <input type="text" name="motif" />
       <input type="text" name="id_commande" />
-      <input type="text" name="id_admin" value='1' />
+      <input type="text" name="id_admin" value='<?=$_SESSION['adm-id']?>' />
+      <input type="text" name="chemin" value="<?=SCRIPTS ?>"/>
     </form>
   </body>
 </html>

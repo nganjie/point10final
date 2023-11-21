@@ -5,7 +5,10 @@ namespace App\Controllers;
 use App\Models\Forfait;
 use App\Models\SingleForfait;
 use App\Models\Client;
+use App\Models\CommandeForfait;
 use App\Models\MessageContact;
+use App\Models\Messages;
+use App\Models\SingleCommande;
 use Database\DBConnection;
 
 Class BlogController extends Controller{
@@ -61,15 +64,27 @@ Class BlogController extends Controller{
        // return header("LOCATION: creer-compte?result={$result}");
        }
     }
+    public function messages_create()
+    {
+        //echo "je regarde admin";
+        //$admin =new Admin($this->db,$id,1);
+        $client = new Client($this->db,$_POST['id_rec']);
+        $message =new Messages($this->db,$_POST['id_send']); //Messages($this->db,$id);
+        $message->create($_POST,true);
+        //var_dump($client);
+        return $this->view("blog.client_message");
+    }
     public function connexion_client()
     {
         $client =new Client($this->db,-1);
         $result = $client->connexion($_POST);
-       echo " on a : ".$result;
+        
+       //echo " on a : ".$result;
        $valid =0;
        if($result==1)
        {
         $valid =1;
+        $this->dashbord_client();
         
         //return $this->view("blog.index");
         //return $this->view("blog.contacts",compact('valid'));
@@ -114,6 +129,34 @@ Class BlogController extends Controller{
     {
         $facture =$_POST["facture"];
        return $this->view("blog.pdf",compact("facture"));
+    }
+    public function dashbord_client()
+    {
+       // $client =new Client($this->db,$_SESSION["id_utilisateur"]);
+       // $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
+       return $this->view("blog.dashbord_client");
+    }
+    public function facture_client(int $id)
+    {
+      $pdo =$this->db->getPDO();
+      //echo $id;
+      $req =$pdo->prepare("SELECT c.id,c.nom,c.email,c.numero_benefice,c.numero_payement,c.operateur_payement,c.numero_transaction,c.date_commande,c.date_cloture,c.idclient,c.forfait_id,cl.id as idc,cl.id_commande,cl.date_cloture,cl.decision,cl.id_admin FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id WHERE c.id=:idc");
+      $req->execute(array(
+        "idc"=>$id
+      ));
+      $data=$req->fetch();
+      //echo $data->id;
+      $forfait =new SingleForfait($this->db,$data->forfait_id);
+      //var_dump($data);
+        //$client =new Client($this->db,$id);
+        $commande=new SingleCommande($data);
+       return $this->view("blog.facture_client",compact("commande","forfait"));
+    }
+    public function client_message()
+    {
+      // $client =new Client($this->db,$id);
+       // $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
+       return $this->view("blog.client_message");
     }
 
     public function show(int $id)

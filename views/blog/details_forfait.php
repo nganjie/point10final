@@ -30,7 +30,7 @@
 
     <!-- js file -->
     <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
-    <script src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
+ 
   </head>
   <body>
   <?php require "header.php" ?>
@@ -100,10 +100,9 @@
     <!-- footer -->
     <?php require "footer.php" ?>
   </body>
-  <script src="<?= SCRIPTS ?>../js/range_slider.js"></script>
-
+ 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+   /* document.addEventListener("DOMContentLoaded", function () {
       //  new Splide(".splide");
 
       var splide = new Splide(".splide", {
@@ -111,7 +110,7 @@
         perPage: 3,
       });
       splide.mount();
-    });
+    });*/
   </script>
 
   <script

@@ -58,7 +58,7 @@ $date = new DateTime();
                 ><input
                   type="text"
                   class="user-name input-field"
-                  value=""
+                  value="<?= est_connecter()?$_SESSION['nom']:"" ?>"
                   placeholder="Votre nom : "
                   name="name"
                   id="name"
@@ -70,13 +70,13 @@ $date = new DateTime();
                   type="email"
                   class="user-email input-field"
                   id="email"
-                  value=""
+                  value="<?= est_connecter()?$_SESSION['email']:"" ?>"
                   placeholder="Adresse email"
                   name="email"
                 />
               </div>
               <div class="input-group">
-                <label for="phone_number">Numero de téléphone : </label
+                <label for="phone_number">Numero de téléphone du béneficiare : </label
                 ><input
                   id="phone_number"
                   type="number"
@@ -92,7 +92,7 @@ $date = new DateTime();
                   id="whatsapp_number"
                   type="number"
                   class="user-date input-field"
-                  value=""
+                  value="<?= est_connecter()?$_SESSION['numero']:"" ?>"
                   placeholder="Numéro whatsapp"
                   name="whatsap-number"
                 />
@@ -179,6 +179,7 @@ $date = new DateTime();
                   value=""
                   placeholder="Numéro de transaction"
                 />
+               
               </div>
 
               
@@ -188,7 +189,7 @@ $date = new DateTime();
               <div class="btn-container">
                 <input type="text" name="query" value="commande_forfait" style="display:none"/>
                 <input type="number" name="id_forfait" value="<?= $params["forfait"]->id?>" style="display:none"/>
-                <input type="number" name="id_client" value="<?php isset($params['user'])?-1:-1;  ?>" style="display:none"/>
+                <input type="number" name="id_client" value="<?= est_connecter()?$_SESSION['id']:0 ?>" style="display:none"/>
                 <button class="btn prev" type="button">Précédent</button
                 ><button class="btn next" type="submit">Validé</button>
               </div>
@@ -342,8 +343,8 @@ $date = new DateTime();
             </div>
 
             <div class="footer_wrapper_pre">
-              <a>www.point10recharge.com</a>
-              <p>support@point10recharge.com</p>
+              <a>www.point10recharge.cm</a>
+              <p>support@point10recharge.cm</p>
               <span>Page 1/1</span>
             </div>
           </div>

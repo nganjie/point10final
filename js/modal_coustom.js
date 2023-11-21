@@ -63,8 +63,8 @@ for (const el of openEls) {
       form_cache['id'].value=id;
       form_cache['id_commande'].value=id;
       console.log(form_cache['id'].value);
-      console.log("vue");
-      fetch("../php/api.php",{
+      console.log(form_cache['chemin'].value);
+      fetch(form_cache['chemin'].value+"../php/api.php",{
         method:"POST",
         body:new FormData(document.getElementById("form-cache"))
       }).then(res=>res.json())
@@ -84,7 +84,7 @@ for (const el of openEls) {
           <section class="modal-content">
             <div class="details_bundles">
               <div>
-                <img src="../media/images/blue.png" alt="" />
+                <img src="${form_cache['chemin'].value}../media/images/blue.png" alt="" />
               </div>
               <div>
                 <p>Nom du client : <strong>${data.nom}</strong></p>

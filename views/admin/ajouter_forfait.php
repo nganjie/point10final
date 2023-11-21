@@ -2,6 +2,7 @@
 //$post =$_GET["register_form"];
 //var_dump($post);
 //var_dump($params['categorie']);
+forcer_utilisateur_connecter_admin();
 
  ?>
 <!DOCTYPE html>

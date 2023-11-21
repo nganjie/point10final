@@ -41,10 +41,10 @@ use App\Models\Messages;
     public function messages_create(int $id)
     {
         //echo "je regarde admin";
-        $admin =new Admin($this->db,14,1);
-        $client = new Client($this->db,$id);
-        $message =new Messages($this->db,14);
-        $message->create($_POST);
+        $admin =new Admin($this->db,$id,1);
+        $client = new Client($this->db,$_POST['id_rec']);
+        $message =new Messages($this->db,$id);
+        $message->create($_POST,false);
         //var_dump($client);
         return $this->view("admin.messages",compact('admin','client'));
     }
@@ -78,6 +78,28 @@ use App\Models\Messages;
         //return $this->view("admin.ajouter_forfait");
        }
         //return $this->view("admin.ajouter_forfait");
+    }
+    public function connexion()
+    {
+        return $this->view("admin.connexion_admin");
+    }
+    public function connexion_admin()
+    {
+        $admin =new Admin($this->db,-1,1);
+        $result = $admin->connexion($_POST);
+        
+       //echo " on a : ".$result;
+       $valid =0;
+       if($result==1)
+       {
+        $valid =1;
+        $this->admin();
+        
+        //return $this->view("blog.index");
+        //return $this->view("blog.contacts",compact('valid'));
+       }else{
+        return header("LOCATION: se-connecter?result={$result}");
+       }
     }
  }
 

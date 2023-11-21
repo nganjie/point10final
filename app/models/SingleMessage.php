@@ -21,7 +21,8 @@ class SingleMessage{
     }
     public function TemplateMessage(int $id)
     {
-        $s="";
+        $s="replies";
+        //echo $id;
         if($id==$this->Env_id)
         {
             

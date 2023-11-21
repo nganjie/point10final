@@ -70,10 +70,10 @@
           <li>
             <a href="<?= SCRIPTS ?>../se-connecter">Se connecter</a>
           </li>
-          <li class="user_dashbord_link">
-            <a href="dasnord_client.html">
+          <li class="user_dashbord_link" <?php if(!est_connecter()) echo "style='display:none'";?>>
+            <a href="dashbord-client">
               <i class="fa-solid fa-user"></i>
-              <span>Ivan</span>
+              <span><?php if(est_connecter()){echo $_SESSION['nom'];}else{echo"nom";}?></span>
             </a>
           </li>
         </ul>
