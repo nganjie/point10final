@@ -67,7 +67,7 @@ form_command.addEventListener("submit",(e)=>{
         console.log(data);
         if(Number(data)==2)
         {
-          min.innerHTML+=`<p style="color:#41f1b6">votre forfait à été activé avec success</p>`;
+          min.innerHTML+=`<p style="color:blue">votre forfait à été activé avec success</p>`;
         launch_toast("votre forfait à été activé avec success","success");
           console.log(" un nouveau monde souvre à moi");
           div_error.innerHTML=data;

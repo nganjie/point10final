@@ -15,6 +15,9 @@ use DateTime;
     public $commandes_encours=[];
     public $commandes=[];
     public $commandes_user=[];
+    public $nb_commande_enc;
+    public $nb_commande;
+    public $nb_commande_cloturer;
 
 
     public function maxId():int
@@ -98,6 +101,30 @@ use DateTime;
       return true;
       
     }
+    public function nb_commande()
+    {
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id ORDER BY c.id desc;");
+      $req->execute();
+      $data=$req->fetch();
+      //var_dump($data);
+      $this->nb_commande=$data->nb;
+      return $data->nb;
+    }
+    public function allStatsCommande()
+    {
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id ORDER BY c.id desc;");
+      $req->execute();
+      $data=$req->fetch();
+      //var_dump($data);
+      $this->nb_commande=$data->nb;
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id WHERE cl.decision='cloturer' ORDER BY c.id desc;");
+      $req->execute();
+      $data=$req->fetch();
+      $this->nb_commande_cloturer=$data->nb;
+      //return $data->nb;
+    }
     public function connexion($post):int
     {
         $secu =new Securisation();
@@ -141,10 +168,13 @@ use DateTime;
       $req->execute();
       $data=$req->fetchAll();
       //var_dump($data);
+      
       foreach($data as $tab)
       {
+        $this->nb_commande_enc+=1;
         $this->commandes_encours[]=new SingleCommande($tab);
       }
+      $this->nb_commande();
      // var_dump($this->commandes_encours);
     }
     public function allCommande(){

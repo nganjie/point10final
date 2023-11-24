@@ -17,16 +17,7 @@ forcer_utilisateur_connecter_admin();
   </head>
   <body>
     <main class="admin_wrapper">
-      <nav class="sidebar">
-        <div>
-          <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
-        </div>
-        <ul class="list_nav">
-          <li class="active"><a href="#">Dashbord</a></li>
-          <li><a href="#">Forfaits</a></li>
-          <li><a href="#">Commandes</a></li>
-        </ul>
-      </nav>
+    <?php require "option.php"; ?>
 
       <!-- header adamin -->
       <div class="content_wrapper">

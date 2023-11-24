@@ -3,6 +3,7 @@
 forcer_utilisateur_connecter_admin();
 $commande =$params['commande'];
 $commande->allCommande();
+$commande->allStatsCommande();
 //echo $_SESSION['adm-nom'];
 
 ?>
@@ -60,7 +61,7 @@ $commande->allCommande();
             <h2>Dashbord</h2>
           </div>
           <div>
-            <a class="new_btn" href="register_new_bundle.html"
+            <a class="new_btn" href="ajouter_forfait"
               >Nouveau forfait</a
             >
           </div>
@@ -79,14 +80,14 @@ $commande->allCommande();
           <div class="active-calories review_item">
             <h4 style="align-self: flex-start">Commandes Réalisées</h4>
             <div class="active-calories-container">
-              <div class="box" style="--i: 85%">
+              <div class="box" style="--i: <?=ROUND(($commande->nb_commande-$commande->nb_commande_cloturer)*100/$commande->nb_commande)?>%">
                 <div class="circle">
-                  <h2>85<small>%</small></h2>
+                  <h2><?=ROUND(($commande->nb_commande-$commande->nb_commande_cloturer)*100/$commande->nb_commande)?><small>%</small></h2>
                 </div>
               </div>
               <div class="calories-content">
-                <p><strong>Nouveau:</strong> <span> 400 </span></p>
-                <p><strong>Total:</strong> <span> 1400 </span></p>
+                <p><strong>Nouveau:</strong> <span> <?=$commande->nb_commande-$commande->nb_commande_cloturer?> </span></p>
+                <p><strong>Total:</strong> <span> <?=$commande->nb_commande?> </span></p>
               </div>
             </div>
           </div>
@@ -94,14 +95,14 @@ $commande->allCommande();
           <div class="active-calories review_item">
             <h4 style="align-self: flex-start">Commandes non-Réalisées</h4>
             <div class="active-calories-container">
-              <div class="box" style="--i: 85%">
+              <div class="box" style="--i: <?=ROUND($commande->nb_commande_cloturer*100/$commande->nb_commande)?>%">
                 <div class="circle">
-                  <h2>85<small>%</small></h2>
+                  <h2><?=ROUND($commande->nb_commande_cloturer*100/$commande->nb_commande)?><small>%</small></h2>
                 </div>
               </div>
               <div class="calories-content">
-                <p><strong>Nouveau:</strong> <span> 400 </span></p>
-                <p><strong>Total:</strong> <span> 1400 </span></p>
+                <p><strong>Nouveau:</strong> <span> <?=$commande->nb_commande_cloturer ?> </span></p>
+                <p><strong>Total:</strong> <span> <?=$commande->nb_commande?>  </span></p>
               </div>
             </div>
           </div>
