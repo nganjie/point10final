@@ -1,13 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <p>pour le test du début</p>
-    </div>
-</body>
-</html>
+<thead class="responsive-table__head">
+                <tr class="responsive-table__row table_msg">
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--types"
+                  >
+                    Email
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--update"
+                  >
+                    Messages
+                  </th>
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--update"
+                  >
+                    Status
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--update"
+                  >
+                    Date
+                  </th>
+
+                  <th
+                    class="responsive-table__head__title responsive-table__head__title--status"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>

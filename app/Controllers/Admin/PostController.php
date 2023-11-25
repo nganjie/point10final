@@ -7,6 +7,7 @@ use App\Models\CommandeForfait;
 //require "../../Models/Forfait.php";
 //spl_autoload_call('Forfait.php');
 use App\Models\Forfait;
+use App\Models\MessageContact;
 use App\Models\Messages;
 
  class PostController extends Controller{
@@ -47,6 +48,18 @@ use App\Models\Messages;
         $message->create($_POST,false);
         //var_dump($client);
         return $this->view("admin.messages",compact('admin','client'));
+    }
+    public function messages_contact()
+    {
+        //echo "je regarde admin";
+       /* $admin =new Admin($this->db,$id,1);
+        $client = new Client($this->db,$_POST['id_rec']);
+        $message =new Messages($this->db,$id);
+        $message->create($_POST,false);*/
+        //var_dump($client);
+        $messageContact= new MessageContact($this->db);
+        $messageContact->allMessageContact();
+        return $this->view("admin.messages_contact");
     }
     public function commandes()
     {

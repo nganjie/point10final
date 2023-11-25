@@ -48,6 +48,7 @@ $router->get('admin/messages', 'App\Controllers\Admin\PostController@messages');
 $router->get('admin/messages/:id', 'App\Controllers\Admin\PostController@messages_id'); 
 $router->post('admin/connexion-admin', 'App\Controllers\Admin\PostController@connexion_admin'); 
 $router->get('admin/connexion', 'App\Controllers\Admin\PostController@connexion'); 
+$router->get('admin/messages_contact', 'App\Controllers\Admin\PostController@messages_contact'); 
 
 $router->post('admin/enregistrer_forfait', 'App\Controllers\Admin\PostController@enregistrer_forfait'); 
 $router->post('enregistrer_message_contact', 'App\Controllers\BlogController@enregistrer_message_contact');

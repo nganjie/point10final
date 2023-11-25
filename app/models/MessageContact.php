@@ -29,7 +29,7 @@
     }
     public function allMessageContact(){
       $pdo =$this->db->getPDO();
-      $req =$pdo->prepare("SELECT * FROM message_contact ");
+      $req =$pdo->prepare("SELECT * FROM message_contact ORDER BY id desc");
       $req->execute();
       $data=$req->fetchAll();
       //var_dump($data);
@@ -37,6 +37,8 @@
       {
         $this->messages[]=new SingleMessageContact($tab);
       }
+      echo "un monde de malade part ici";
+      var_dump($data);
       var_dump($this->messages);
     }
    }
