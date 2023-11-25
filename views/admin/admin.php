@@ -48,31 +48,7 @@ $commande->allCommande();
 
     <!-- END TOAST CONTENT -->
     <main class="admin_wrapper">
-      <nav class="sidebar">
-        <div
-          style="
-            border-bottom: 1px solid white;
-            padding-bottom: 1rem !important;
-          "
-        >
-          <h1>Point10recharge</h1>
-        </div>
-        <ul class="list_nav">
-          <li><a href="admin.html">Dashbord</a></li>
-          <li><a href="forfaits.html">Forfaits</a></li>
-          <li><a href="commandes.html">Commandes</a></li>
-
-          <li>
-            <button
-              class="toaast_btn"
-              onclick="launch_toast(`Bundle saved successfully`, `error`)"
-            >
-              Show Toast
-            </button>
-          </li>
-        </ul>
-      </nav>
-
+      <?php require "option.php"; ?>
       <!-- header adamin -->
       <div class="content_wrapper">
         <div class="header_admin">

@@ -38,5 +38,17 @@ use Database\DBConnection;
     
       return $id->id;
     }
+    public function maxIdTable($tab):int
+    {
+      $req=$this->db->getPDO()->prepare("SELECT MAX(id) as id FROM ".$tab);
+      $req->execute();
+      $id= $req->fetch();
+      
+      //$id=(int)$id;
+      //echo $id;
+      //var_dump($id);
+    
+      return $id->id;
+    }
   }
 ?>

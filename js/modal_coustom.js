@@ -142,6 +142,21 @@ for (const el of openEls) {
         });
         cloturer.addEventListener("click",(e)=>{
           console.log(" avec l'id : "+data.id);
+          form_cache['query'].value="validercommande";
+          form_cache['motif'].value="cloturer";
+        form_cache['id_commande'].value=id;
+          console.log(" avec l'id : "+data.id);
+          fetch("../php/api.php",{
+            method:"POST",
+            body:new FormData(document.getElementById("form-cache"))
+          }).then(res1=>res1.json())
+          .then((data1)=>{
+            console.log(data1);
+            if(data1.etat==1)
+            {
+              launch_toast("la commande à été cloturer avec success","success");
+            }
+          })
         })
       }
       

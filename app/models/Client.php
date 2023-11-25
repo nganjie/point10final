@@ -49,6 +49,7 @@ use App\Models\Utilisateur;
       //echo $id;
       $maile =new Mail("nouveau compte client");
       $content ="<h4 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h4>
+      <p>id: <strong>{$id}</strong> </p>
       <p>nom: <strong>{$name}</strong> </p>
       <p>ville: <strong>{$ville}</strong> </p>
       <p>numero: <strong>{$number}</strong> </p>
@@ -88,6 +89,18 @@ use App\Models\Utilisateur;
       $id =$post['id'];
       $ms =new Messages($this->db,$id);
       $ms->create($post);
+    }
+    public function TemplateUsers()
+    {
+      $a="<li class='contact'>
+      <div class='wrap'>
+        <img src='/point10final/public/../media/images/Sans titre.jpeg' alt='' />
+        <div class='meta'>
+         <a href='/point10final/admin/messages/{$this->id}'> <p class='name'>{$this->nom}</p></a>
+        </div>
+      </div>
+    </li>";
+    return $a;
     }
    }
  ?>

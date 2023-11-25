@@ -1,10 +1,14 @@
 <?php
  namespace App\Controllers\Admin;
 use App\Controllers\Controller;
+use App\Models\Admin;
+use App\Models\Client;
 use App\Models\CommandeForfait;
 //require "../../Models/Forfait.php";
 //spl_autoload_call('Forfait.php');
 use App\Models\Forfait;
+use App\Models\Messages;
+
  class PostController extends Controller{
 
     public function index()
@@ -19,10 +23,36 @@ use App\Models\Forfait;
 
         return $this->view("admin.admin",compact('commande'));
     }
-    public function commandes()
+    public function messages()
     {
         //echo "je regarde admin";
-        return $this->view("admin.commandes");
+        $admin =new Admin($this->db,14,1);
+        return $this->view("admin.messages",compact('admin'));
+    }
+    public function messages_id(int $id)
+    {
+        //echo "je regarde admin";
+        $admin =new Admin($this->db,14,1);
+        $client = new Client($this->db,$id);
+        
+        //var_dump($client);
+        return $this->view("admin.messages",compact('admin','client'));
+    }
+    public function messages_create(int $id)
+    {
+        //echo "je regarde admin";
+        $admin =new Admin($this->db,14,1);
+        $client = new Client($this->db,$id);
+        $message =new Messages($this->db,14);
+        $message->create($_POST);
+        //var_dump($client);
+        return $this->view("admin.messages",compact('admin','client'));
+    }
+    public function commandes()
+    {
+        $commande=new CommandeForfait($this->db);
+        //echo "je regarde admin";
+        return $this->view("admin.commandes",compact('commande'));
     }
     public function ajouter_forfait()
     {

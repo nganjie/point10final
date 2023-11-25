@@ -12,6 +12,7 @@ use DateTime;
     protected $table='admin';
     public $id_admin;
     public $email;
+    public $users=[];
 
     public function __construct(DBConnection $db,int $id,int $ida)
     {
@@ -40,6 +41,28 @@ use DateTime;
         "id_admin"=>$this->id_admin
       ));
       
+    }
+    public function allUsers()
+    {
+      $pdo =$this->db->getPDO();
+      $req=$pdo->prepare("SELECT id FROM utilisateur WHERE id in (SELECT id_utilisateur FROM client)");
+      $req->execute();
+      $data=$req->fetchAll();
+      foreach($data as $us)
+      {
+        $this->users[]=new Client($this->db,$us->id);
+      }
+      
+    }
+    public function TemplateUsers()
+    {
+      $a="<ul>";
+      foreach($this->users as $us)
+      {
+        $a.=$us->TemplateUsers();
+      }
+      $a.="</ul>";
+      return $a;
     }
    }
 

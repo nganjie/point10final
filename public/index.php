@@ -43,11 +43,15 @@ $router->get('admin/dashbord', 'App\Controllers\Admin\PostController@admin');
 $router->get('admin/commandes', 'App\Controllers\Admin\PostController@commandes');
 $router->get('admin/ajouter_forfait', 'App\Controllers\Admin\PostController@ajouter_forfait'); 
 $router->get('admin/ajouter_forfait:valid', 'App\Controllers\Admin\PostController@ajouter_forfait'); 
+$router->get('admin/messages', 'App\Controllers\Admin\PostController@messages');
+$router->get('admin/messages/:id', 'App\Controllers\Admin\PostController@messages_id'); 
 $router->post('admin/enregistrer_forfait', 'App\Controllers\Admin\PostController@enregistrer_forfait'); 
 $router->post('enregistrer_message_contact', 'App\Controllers\BlogController@enregistrer_message_contact');
+$router->post('admin/messages/:id', 'App\Controllers\Admin\PostController@messages_create'); 
 
 $router->post('creation_compte', 'App\Controllers\BlogController@creation_compte');
 $router->post('connexion_client', 'App\Controllers\BlogController@connexion_client');
+$router->post('facture', 'App\Controllers\BlogController@facture');
 $router->get('se-connecter', 'App\Controllers\BlogController@se_connecter');
 $router->get('se-connecter:result', 'App\Controllers\BlogController@se_connecter');
 $router->get('creer-compte', 'App\Controllers\BlogController@creer_compte');
