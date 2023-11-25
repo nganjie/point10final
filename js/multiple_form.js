@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (Boolean(value) && id == METHODE) {
       desc.innerHTML = `
       <h1>Guide de paiement Orange Money Cameroun</h1>
-                <p>Composer le <h3>
+                <p>Composer le <h3 class="number_compose">
 
                   #150*14*272180*656968696*le_montant_ici#
                 </h3> 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     } else {
       desc.innerHTML = `
       <h1>Guide de paiement MTN MOMO Cameroun</h1>
-                <p>Composer le <h3>
+                <p>Composer le <h3 class="number_compose">
 
                   #150*14*272180*656968696*le_montant_ici#
                 </h3> 

@@ -1,8 +1,11 @@
 <?php
-
+forcer_utilisateur_connecter_admin();
 $admin =$params['admin'];
 $admin->allUsers();
 $client="";
+echo $_SESSION['adm-id_utilisateur'];
+
+$id=(int)$_SESSION['adm-id_utilisateur'];
 if(isset($params['client']))
 {
     echo "cela marche plutot bien";
@@ -113,14 +116,15 @@ if(isset($params['client']))
             <div class="messages">
               <ul>
               <?php if(isset($params['client']))
-                echo $client->TemplateMessage();else "" ;?>
+                echo $client->TemplateMessage($id);else "" ;?>
               </ul>
             </div>
             <div class="message-input">
-                <form method="POST" action="<?=isset($params['client'])?$client->id:0 ?>">
+                <form method="POST" action="<?=$id?>">
                 <div class="wrap">
                 <input type="text" name="message" placeholder="Write your message..." />
                 <input type="text" name="id_rec" value="<?=isset($params['client'])?$client->id:0 ?>" style="display:none" />
+                
                 <button type="submit" class="submit">envoyer</button>
               </div>
                 </form>

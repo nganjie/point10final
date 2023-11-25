@@ -64,7 +64,9 @@ image {
   min-height: 50vh !important;
   height: max-content !important  ;
 }
-
+.text_content{
+  font-size: 1.5rem !important;
+}
 .banner_content {
   display: flex !important;
   align-items: center !important;
@@ -87,10 +89,10 @@ image {
 }
 .banner_content_right {
   display: flex !important;
-  gap: 3rem !important;
+  gap: 1rem !important;
   align-items: center !important;
   flex-direction: column !important;
-  padding-top: 3rem !important;
+  padding-top: 1rem !important;
 }
 
 /* left */
@@ -114,7 +116,7 @@ image {
   max-width: 400px;
   width: 90% !important;
 }
-/* .start_now a {
+.start_now a {
   display: inline-block !important;
   background-color: #42da82 !important;
   font-family: "Lexend-ExtraBold";
@@ -128,7 +130,7 @@ image {
   -moz-border-radius: 3rem !important;
   -ms-border-radius: 3rem !important;
   -o-border-radius: 3rem !important;
-} */
+} 
 .resume_section {
   display: flex !important;
   gap: 3rem !important;
@@ -216,6 +218,8 @@ image {
   align-items: center !important;
   gap: 1rem !important;
   width: 100% !important;
+  width: 97%;
+  margin: .5rem;
 }
 .client_review {
   border: 1px solid #42da82 !important;
@@ -226,7 +230,7 @@ image {
   -moz-border-radius: 4px !important;
   -ms-border-radius: 4px !important;
   -o-border-radius: 4px !important;
-  width: 100% !important;
+  width: 95% !important;
   max-width: 400px !important;
   font-size: 0.8rem !important;
   color: #01451ddd !important;
@@ -243,7 +247,7 @@ image {
   font-family: "Lexend-Regular";
 }
 .banner_description.small_text {
-  font-size: 1rem !important;
+  font-size: .9rem !important;
 }
 .line_through {
   font-family: "Lexend-ExtraBold";
@@ -525,7 +529,7 @@ image {
   background-color: #0147db !important;
   height: 300px !important;
   border-radius: 10px !important;
-  width: 100% !important;
+  width: 95% !important;
   color: white !important;
   align-items: center !important;
   font-weight: bold !important;

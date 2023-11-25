@@ -8,6 +8,40 @@ use App\Controllers\Securisation;
 use App\Models\Utilisateur;
    class Client extends Utilisateur{
     protected $table='client';
+    public $ville;
+    public $id_client;
+    public $email;
+    public $commandes;
+    public $commandes_art;
+    public $commande_r;
+    public $commandeForfait;
+
+    public function setInfo($id,$ville,$email)
+    {
+      $this->id_client=$id;
+      $this->ville=$ville;
+      $this->email=$email;
+      $pdo =$this->getDB()->getPDO();
+        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=:idc AND id not in(SELECT id_commande FROM cloturer_commande)");
+        $req->bindValue('idc',$id);
+        $req->execute();
+        $res=$req->fetch();
+        $this->commandes_art=$res->nombre;
+        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=$id");
+        $req->bindValue('idc',$id);
+        $req->execute();
+        $res=$req->fetch();
+        $this->commandes=$res->nombre;
+        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=$id AND id in(SELECT id_commande FROM cloturer_commande)");
+        $req->bindValue('idc',$id);
+        $req->execute();
+        $res=$req->fetch();
+        $this->commande_r=$res->nombre;
+        $this->commandeForfait =new CommandeForfait($this->db);
+        $this->commandeForfait->allCommandeUser($this->id_client);
+
+
+    }
 
     public function create($post):bool
     {
@@ -67,14 +101,25 @@ use App\Models\Utilisateur;
         $mail=$secu->securiser($post['mail']);
         $password=$secu->securiser($post['password']);
         $pdo =$this->getDB()->getPDO();
-        $req=$pdo->prepare("SELECT * FROM client WHERE email=:mail");
+        $req=$pdo->prepare("SELECT c.id as id,id_utilisateur,ville,email,password,nom,numero FROM client c INNER JOIN utilisateur u ON u.id=c.id_utilisateur WHERE email=:mail");
         $req->bindValue("mail",$mail);
         $req->execute();
         $res=$req->fetch();
-        var_dump($res);
+        //var_dump($res);
         if($res)
         {
             if(password_verify($password,$res->password)){
+              session_start();
+              $_SESSION["id"] = $res->id;
+              $_SESSION["nom"] = $res->nom;
+              $_SESSION["password"] = $res->password;
+              $_SESSION["ville"] = $res->ville;
+              $_SESSION["id_utilisateur"] = $res->id_utilisateur;
+              $_SESSION["email"] =$res->email;
+              $_SESSION["numero"] =$res->numero;
+              $_SESSION["connecter"]=true;
+              //echo "$res->id  et on a encore $res->id_utilisateur";
+             
                 return 1;
             }else{
                 return 2;
@@ -84,11 +129,19 @@ use App\Models\Utilisateur;
         }
        // $req->bindValue("password",$password);
     }
-    public function sendMessage($post)
+    public function commandes()
+    {
+      $pdo =$this->getDB()->getPDO();
+        $req=$pdo->prepare("SELECT u.id,id_utilisateur,ville,email,password,nom,numero FROM client c INNER JOIN utilisateur u ON u.id=c.id_utilisateur WHERE email=:mail");
+        $req->bindValue("mail",'');
+        $req->execute();
+        $res=$req->fetch();
+    }
+    public function sendMessage($post,bool $send)
     {
       $id =$post['id'];
       $ms =new Messages($this->db,$id);
-      $ms->create($post);
+      $ms->create($post,$send);
     }
     public function TemplateUsers()
     {

@@ -261,3 +261,7 @@
     align-items: flex-start;
   }
 }
+.number_compose{
+  word-break: break-all !important;
+  word-wrap: break-word !important;
+}

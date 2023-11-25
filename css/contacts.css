@@ -58,6 +58,7 @@ textarea:focus {
 }
 .group_input > * {
   max-width: 100%;
+  width: 100%;
 }
 .bordered_content {
   background: rgba(175, 196, 217, 0.346);
@@ -105,7 +106,7 @@ textarea:focus {
     height: 50vh !important;
     background-color: transparent !important;
   }
-  .banner_content {
+  .divided_main_content .banner_content {
     height: 50vh;
     background-color: #002c85 !important;
   }
@@ -114,5 +115,10 @@ textarea:focus {
   }
   .image_right {
     display: none;
+  }
+}
+@media screen and (min-width: 701px) {
+  .group_input > * {
+    width: 40%;
   }
 }

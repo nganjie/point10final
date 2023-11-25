@@ -213,7 +213,9 @@ image {
   flex-direction: column !important;
   align-items: center !important;
   gap: 1rem !important;
-  width: 100% !important;
+  width: 97% !important;
+margin-left: .5rem;
+margin-right: .5rem;
 }
 .client_review {
   border: 1px solid #42da82 !important;
@@ -221,11 +223,13 @@ image {
   background-color: #42da8138 !important;
   padding: 1rem !important;
   -webkit-border-radius: 4px !important;
+  margin-left: .5rem;
+margin-right: .5rem;
   -moz-border-radius: 4px !important;
   -ms-border-radius: 4px !important;
   -o-border-radius: 4px !important;
-  width: 100% !important;
   max-width: 400px !important;
+  width: 100% !important;
   font-size: 0.8rem !important;
   color: #01451ddd !important;
 }

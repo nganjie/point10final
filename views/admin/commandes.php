@@ -1,6 +1,6 @@
 
 <?php
-
+forcer_utilisateur_connecter_admin();
 $commande =$params['commande'];
 $commande->allCommandeEnCours();
 
@@ -63,14 +63,14 @@ $commande->allCommandeEnCours();
           <div class="active-calories review_item">
             <h4 style="align-self: flex-start">Commandes En cours</h4>
             <div class="active-calories-container">
-              <div class="box" style="--i: 85%">
+              <div class="box" style="--i: <?=ROUND($commande->nb_commande_enc*100/$commande->nb_commande()) ?>%">
                 <div class="circle">
-                  <h2>85<small>%</small></h2>
+                  <h2><?=ROUND($commande->nb_commande_enc*100/$commande->nb_commande()) ?><small>%</small></h2>
                 </div>
               </div>
               <div class="calories-content">
-                <p><strong>Nouveau:</strong> <span> 400 </span></p>
-                <p><strong>Total:</strong> <span> 1400 </span></p>
+                <p><strong>Nouveau:</strong> <span><?=$commande->nb_commande_enc?> </span></p>
+                <p><strong>Total:</strong> <span> <?= ROUND($commande->nb_commande()) ?></span></p>
               </div>
             </div>
           </div>
@@ -214,7 +214,8 @@ $commande->allCommandeEnCours();
       <input type="text" name="id" />
       <input type="text" name="motif" />
       <input type="text" name="id_commande" />
-      <input type="text" name="id_admin" value='1' />
+      <input type="text" name="id_admin" value='<?=$_SESSION['adm-id']?>' />
+      <input type="text" name="chemin" value="<?=SCRIPTS ?>"/>
     </form>
   </body>
 </html>

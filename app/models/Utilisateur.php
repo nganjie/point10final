@@ -10,7 +10,7 @@ use App\Models\Messages;
     protected $table='utilisateur';
     public $id;
     public $nom;
-    protected $numero;
+    public $numero;
     protected $user;
     protected $messages;
 
@@ -72,18 +72,18 @@ use App\Models\Messages;
         ));
         return $id+1;
     }
-    public function createMessage($post)
+    public function createMessage($post,bool $send)
     {
-      $this->messages->create($post);
+      $this->messages->create($post,$send);
     }
-    public function TemplateMessage()
+    public function TemplateMessage(int $id)
     {
       $a="          <div class='content'>
       <div class='contact-profile'>
         <img src='../media/images/Sans titre.jpeg' alt='' />
         <p>{$this->nom}</p>
       </div>
-       {$this->messages->TemplateMessages($this->id)}
+       {$this->messages->TemplateMessages($id)}
       <div class='message-input'>
         <div class='wrap'>
           <input type='text' placeholder='Write your message...' />

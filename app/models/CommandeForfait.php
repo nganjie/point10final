@@ -14,6 +14,10 @@ use DateTime;
     protected $table='commande_forfait';
     public $commandes_encours=[];
     public $commandes=[];
+    public $commandes_user=[];
+    public $nb_commande_enc;
+    public $nb_commande;
+    public $nb_commande_cloturer;
 
 
     public function maxId():int
@@ -97,6 +101,30 @@ use DateTime;
       return true;
       
     }
+    public function nb_commande()
+    {
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id ORDER BY c.id desc;");
+      $req->execute();
+      $data=$req->fetch();
+      //var_dump($data);
+      $this->nb_commande=$data->nb;
+      return $data->nb;
+    }
+    public function allStatsCommande()
+    {
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id ORDER BY c.id desc;");
+      $req->execute();
+      $data=$req->fetch();
+      //var_dump($data);
+      $this->nb_commande=$data->nb;
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id WHERE cl.decision='cloturer' ORDER BY c.id desc;");
+      $req->execute();
+      $data=$req->fetch();
+      $this->nb_commande_cloturer=$data->nb;
+      //return $data->nb;
+    }
     public function connexion($post):int
     {
         $secu =new Securisation();
@@ -120,21 +148,38 @@ use DateTime;
         }
        // $req->bindValue("password",$password);
     }
+    public function allCommandeUser(int $id)
+    {
+      $pdo =$this->db->getPDO();
+      $req =$pdo->prepare("SELECT * FROM commande_forfait WHERE id AND idclient=:idc");
+      $req->bindValue("idc",$id);
+      $req->execute();
+      $data=$req->fetchAll();
+      //echo $id;
+     //var_dump($data);
+      foreach($data as $tab)
+      {
+        $this->commandes_user[]=new SingleCommande($tab);
+      }
+    }
     public function allCommandeEnCours(){
       $pdo =$this->db->getPDO();
-      $req =$pdo->prepare("SELECT * FROM commande_forfait WHERE id NOT IN(SELECT c.id_commande from cloturer_commande c)");
+      $req =$pdo->prepare("SELECT * FROM commande_forfait WHERE id NOT IN(SELECT c.id_commande from cloturer_commande c ORDER BY id desc)");
       $req->execute();
       $data=$req->fetchAll();
       //var_dump($data);
+      
       foreach($data as $tab)
       {
+        $this->nb_commande_enc+=1;
         $this->commandes_encours[]=new SingleCommande($tab);
       }
+      $this->nb_commande();
      // var_dump($this->commandes_encours);
     }
     public function allCommande(){
       $pdo =$this->db->getPDO();
-      $req =$pdo->prepare("SELECT c.id,c.nom,c.email,c.numero_benefice,c.numero_payement,c.operateur_payement,c.numero_transaction,c.date_commande,c.date_cloture,c.idclient,c.forfait_id,cl.id as idc,cl.id_commande,cl.date_cloture,cl.decision,cl.id_admin FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id;");
+      $req =$pdo->prepare("SELECT c.id,c.nom,c.email,c.numero_benefice,c.numero_payement,c.operateur_payement,c.numero_transaction,c.date_commande,c.date_cloture,c.idclient,c.forfait_id,cl.id as idc,cl.id_commande,cl.date_cloture,cl.decision,cl.id_admin FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id ORDER BY c.id desc;");
       $req->execute();
       $data=$req->fetchAll();
       //var_dump($data);
@@ -162,6 +207,22 @@ use DateTime;
         "id_admin"=>$id_admin
       ));
       AlertModification::modifierCommande($id_commande);
+      $req=$pdo->prepare("SELECT c.id,c.nom,c.email,c.numero_benefice,c.numero_payement,c.operateur_payement,c.numero_transaction,c.date_commande,c.date_cloture,c.idclient,c.forfait_id,ca.nom as nom_forfait,t.symbole as taille,f.prix,f.nb_go,cl.id as idc,cl.id_commande,cl.date_cloture,cl.decision,cl.id_admin FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id INNER JOIN forfait f ON f.id=c.forfait_id INNER JOIN categorie ca ON ca.id =f.id_nom INNER JOIN taille t ON t.id=f.taille WHERE c.id=:id_commande");
+      $req->execute(array(
+        "id_commande"=>$id_commande
+      ));
+      $data =$req->fetch();
+      //$commande = new SingleCommande($data);
+     // var_dump($data);
+      $fact =$this->facture($data);
+      $maile =new Mail("nouveau compte client");
+      $content ="<h4 style='color:blue'>Facture client </h4>
+      $fact
+      ";
+      $maile->externalEmail($data->email);
+      $maile->htmlEmail($content);
+      $maile->send();
+      
       
     }
     public function TemplateCommandeEncour()
@@ -217,7 +278,7 @@ use DateTime;
       {
         //echo "un monde de fous";
         //echo $cd->Template();
-        $tab.=$cd->Template();
+        $tab.=$cd->TemplateEncour();
       }
       $tab.="<tbody class='responsive-table__body'>";
       $tab.="</tbody>";
@@ -286,6 +347,195 @@ use DateTime;
       //echo "un monde de merde ici bas";
       
       return $tab;
+    }
+    public function TemplateCommandeUser()
+    {
+      $tab ='';
+      $tab.="<!-- Responsive Table Header Section -->
+      <thead class='responsive-table__head'>
+        <tr class='responsive-table__row'>
+          <th
+            class='responsive-table__head__title responsive-table__head__title--name'
+          >
+            Nom du forfait
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            Email
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            N°-Trans
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--types'
+          >
+            N°-Payeur
+          </th>
+          <th
+            class='responsive-table__head__title responsive-table__head__title--update'
+          >
+            Date
+          </th>
+
+          <th
+            class='responsive-table__head__title responsive-table__head__title--status'
+          >
+            Status
+          </th>
+
+          <th
+               class='responsive-table__head__title responsive-table__head__title--status'
+             >
+                  Télécharger la facture
+                </th>
+        </tr>
+      </thead>
+      <!-- Responsive Table Body Section -->";
+      foreach($this->commandes_user as $cd)
+      {
+        //echo "un monde de fous";
+        //echo $cd->Template();
+       // var_dump($cd);
+        $tab.=$cd->TemplateCommandeUser();
+      }
+      $tab.="<tbody class='responsive-table__body'>";
+      $tab.="</tbody>";
+      //echo $tab;
+      //echo "un monde de merde ici bas";
+      
+      return $tab;
+    }
+    private function facture($commande):string
+    {
+      
+      $facture="  <main class='wrapper'>
+      <div id='previe'>
+            <div class='wrappe'>
+              <section class='bill_head'>
+                <div>
+                  <img src='<?= SCRIPTS ?>../media/logo-point10final.png' alt='' />
+                </div>
+                <div>Reçu Client</div>
+              </section>
+              <div class='background_pre'>point10recharge</div>
+              <!-- user details -->
+              <section class='user_bill_details'>
+                <!-- right -->
+                <div>
+                  <p>Point10recharge</p>
+                  <p>Plateforme de vente en ligne de forfait</p>
+                  <p>
+                    <a href='issahnfonsouen@point10recharge'
+                      >E-mail : issahnfonsouen@point10recharge</a
+                    >
+                  </p>
+                  <strong>$commande->date_commande </strong>
+                </div>
+  
+                <!-- left -->
+                <div>
+                  <p>Recu à</p>
+                  <strong id='name-client'> ........</strong>
+                  <p>Douala</p>
+                  <p id='number-client'>+237 $commande->numero_payement</p>
+                  <p id='email-client'>$commande->email</p>
+                  <p>Cameroun</p>
+                </div>
+              </section>
+  
+              <!--  -->
+              <div>
+                <p>Désignation</p>
+                <strong >$commande->nom</strong>
+              </div>
+              <div class='main_content_section'>
+                <div>
+                  <div>
+                    <span>numero bénéficiare</span>
+                    <strong id='number-recharge'>$commande->numero_benefice</strong>
+                  </div>
+  
+                  <div>
+                    <span>Référence</span>
+                    <strong id='reference'>$commande->numero_transaction</strong>
+                  </div>
+                  <div>
+                    <span>Mode de paiement</span>
+                    <strong id='mode-paiemant'>$commande->operateur_payement</strong>
+                  </div>
+                </div>
+  
+                <!-- table details -->
+                <div class='bill_section_table'>
+                  <div class='bill_section'>
+                    <div class='bill_item'>
+                      <span class='w_30'>QTE</span>
+                      <span>ARTICLE</span>
+                      <span class='flex_1'>AMOUNT</span>
+                    </div>
+  
+                    <div class='bill_item'>
+                      <span class='w_30'>01</span>
+                      <strong>Forfait  $commande->nom_forfait</strong>
+                      <span class='flex_1'> $commande->prix XAF</span>
+                    </div>
+  
+                    <div class='bill_item'>
+                      <span>Facture</span>
+                      <span class='flex_1'> $commande->date_commande</span>
+                    </div>
+                    <div class='bill_item'>
+                      <span>Taille</span>
+                      <span class='flex_1'> $commande->nb_go Go</span>
+                    </div>
+                    <div class='bill_item'>
+                      <span>Categorie</span>
+                      <span class='flex_1'> $commande->taille </span>
+                    </div>
+                    <div
+                      class=''
+                      style='
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0.4rem 0.3rem;
+                      '
+                    >
+                      <span> Total</span> <span class='flex_1'> $commande->prix XAF </span>
+                    </div>
+  
+                    <div class='bill_item'>
+                      <strong>Montant net à payer (XAF)</strong>
+                      <span class='style_price'> $commande->prix XAF</span>
+                    </div>
+                  </div>
+  
+                  <div>
+                    <span>Important</span>
+                    <p>
+                      Cette facture est soumise aux conditions général de paiement
+                      
+                      . Bien vouloir les consulter sur
+                      www.point10recharge.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class='footer_wrapper_pre'>
+                <a>www.point10recharge.cm</a>
+                <p>support@point10recharge.cm</p>
+                <span>Page 1/1</span>
+              </div>
+            </div>
+          </div>
+      </main>";
+      return $facture;
     }
    }
    

@@ -6,6 +6,7 @@ use Router\Router;
 
 
 require  '../vendor/autoload.php';
+require "../views/authentification.php";
 $router = new Router($_GET['url']);
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define("SCRIPTS", dirname($_SERVER['SCRIPT_NAME']) . '/');
@@ -45,6 +46,9 @@ $router->get('admin/ajouter_forfait', 'App\Controllers\Admin\PostController@ajou
 $router->get('admin/ajouter_forfait:valid', 'App\Controllers\Admin\PostController@ajouter_forfait'); 
 $router->get('admin/messages', 'App\Controllers\Admin\PostController@messages');
 $router->get('admin/messages/:id', 'App\Controllers\Admin\PostController@messages_id'); 
+$router->post('admin/connexion-admin', 'App\Controllers\Admin\PostController@connexion_admin'); 
+$router->get('admin/connexion', 'App\Controllers\Admin\PostController@connexion'); 
+
 $router->post('admin/enregistrer_forfait', 'App\Controllers\Admin\PostController@enregistrer_forfait'); 
 $router->post('enregistrer_message_contact', 'App\Controllers\BlogController@enregistrer_message_contact');
 $router->post('admin/messages/:id', 'App\Controllers\Admin\PostController@messages_create'); 
@@ -63,6 +67,10 @@ $router->get('/show/:id', 'App\Controllers\BlogController@show');
 $router->get('forfait', 'App\Controllers\BlogController@forfait');
 $router->get('/details-forfait/:id', 'App\Controllers\BlogController@details_forfait');
 $router->get('/validation-forfait/:id', 'App\Controllers\BlogController@validation_forfait');
+$router->get('dashbord-client', 'App\Controllers\BlogController@dashbord_client');
+$router->get('facture-client/:id', 'App\Controllers\BlogController@facture_client');
+$router->get('message-client', 'App\Controllers\BlogController@client_message');
+$router->post('message-client', 'App\Controllers\BlogController@messages_create');
 
 
 

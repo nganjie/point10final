@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+    <title>Se connecter a un compte</title>
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/6e9cf17fd4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- js file -->
+    <script type="module" src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
+  </head>
+  <body>
+    <main class="main_content">
+      <!-- banner -->
+      <div class="divided_main_content">
+        <!-- <section class="banner_wrapper">
+          <div class="banner_content">
+            <div class="banner_content_right">
+              <h1 class="banner_title">Se connecter</h1>
+
+              <div class="banner_description small_text">
+                N'oubliez pas que votre satisfaction est notre priorité absolue.
+                En vous connectant à votre compte, vous pourrez suivre l'état de
+                vos commandes en temps réel. Vous saurez ainsi exactement quand
+                votre forfait sera livré.
+              </div>
+              <div class="image_right">
+                <img src="/media/images/image_boy1.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </section> -->
+
+        <!--  -->
+
+        <section class="body_section">
+          <div class="bordered_content">
+            <div class="message_with_logo_section">
+              <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
+            </div>
+            <form method ="POST" action="connexion-admin" id="message_form">
+              <div class="banner_description small_text" style="text-align: center;">
+                Formulaire de connexion reservé aux administrateurs.
+              </div>
+              <input type="Nom" name="mail" id="" placeholder=" Email..." />
+              <input
+                type="Nom"
+                name="password"
+                id=""
+                placeholder="Mot de passe..."
+              />
+
+              <button class="form_btn">Envoyer</button>
+            </form>
+            <div class="green_link">
+              pas encore de compte ?
+              <a class="" >Insrcivez vous ici</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    var form =document.getElementById("message_form");
+    form.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        if(form['mail'].value&&form['password'].value)
+        {
+            form.submit();
+        }else{
+            alert("Veillez remplir tous les champs du formulaire");
+        }
+    })
+  </script>
+</html>
