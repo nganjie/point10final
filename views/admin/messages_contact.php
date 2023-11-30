@@ -31,6 +31,7 @@ echo $_SESSION['adm-id'];
     <script type="module" src="<?= SCRIPTS ?>../js/toast.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/messages_contact.js" defer></script>
+    <script type="module"  src="<?= SCRIPTS ?>../js/notification.js" defer></script>
   </head>
 
   <body>
@@ -55,7 +56,7 @@ echo $_SESSION['adm-id'];
             <h2>Msgs Contact</h2>
           </div>
           <div>
-            <a class="new_btn" href="register_new_bundle.html"
+            <a class="new_btn" href="<?= SCRIPTS ?>../admin/ajouter_forfait"
               >Nouveau forfait</a
             >
           </div>

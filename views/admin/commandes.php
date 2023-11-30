@@ -28,6 +28,9 @@ $commande->allCommandeEnCours();
 
     <script type="module" src="../js/toast.js" defer></script>
     <script type="module" src="../js/modal_coustom.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
   </head>
 
   <body>
@@ -47,13 +50,13 @@ $commande->allCommandeEnCours();
       <div class="content_wrapper">
         <div class="header_admin">
           <div class="title_dash">
-            <button>
+            <button onclick="toggleSidebar()">
               <i class="fa-solid fa-bars"></i>
             </button>
             <h2>Commandes</h2>
           </div>
           <div>
-            <a class="new_btn" href="register_new_bundle.html"
+            <a class="new_btn" href="<?= SCRIPTS ?>../admin/ajouter_forfait"
               >Nouveau forfait</a
             >
           </div>

@@ -157,7 +157,7 @@ $date =new DateTime($commande->date_commande);
  //piece.style.width="600px";
  //piece.style.height="900px";
  var opt = {
-    filename:     "test.pdf",
+    filename:     "facture-client.pdf",
     html2canvas:  { scale: 2 },
     jsPDF:        { unit: 'pc', format: 'a4', orientation: 'l' }
   };
@@ -174,7 +174,7 @@ $date =new DateTime($commande->date_commande);
 
     // L'orientation du PDF (portrait ou paysage)
     orientation: 'portrait',
-    filename:    "test"
+    filename:    "facture-client"
   };
   setTimeout(()=>{
       html2pdf()

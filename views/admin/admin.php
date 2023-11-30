@@ -20,6 +20,7 @@ $commande->allStatsCommande();
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/modal.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/checkbox.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/button.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/notification_message.css" />
 
 
     <!-- font awesome -->
@@ -28,8 +29,13 @@ $commande->allStatsCommande();
       crossorigin="anonymous"
     ></script>
 
-    <script type="module" src="../js/toast.js" defer></script>
-    <script type="module" src="../js/modal_coustom.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/toast.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    <script type="module"  src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    <script  src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
+    <script   src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
+    <script type="module"  src="<?= SCRIPTS ?>../js/notification.js" defer></script>
+    
   </head>
   <body class="body">
     <!-- TOAST CONTENT -->
@@ -55,7 +61,7 @@ $commande->allStatsCommande();
       <div class="content_wrapper">
         <div class="header_admin">
           <div class="title_dash">
-            <button>
+            <button onclick="toggleSidebar()">
               <i class="fa-solid fa-bars"></i>
             </button>
             <h2>Dashbord</h2>

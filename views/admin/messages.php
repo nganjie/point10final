@@ -37,6 +37,10 @@ if(isset($params['client']))
       src="https://kit.fontawesome.com/6e9cf17fd4.js"
       crossorigin="anonymous"
     ></script>
+    <script src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
+    <script type="module"  src="<?= SCRIPTS ?>../js/notification.js" defer></script>
   </head>
 
   <body>
@@ -56,13 +60,13 @@ if(isset($params['client']))
       <div class="content_wrapper">
         <div class="header_admin">
           <div class="title_dash">
-            <button>
+            <button onclick="toggleSidebar()">
               <i class="fa-solid fa-bars"></i>
             </button>
             <h2>Dashbord</h2>
           </div>
           <div>
-            <a class="new_btn" href="register_new_bundle.html"
+            <a class="new_btn" href="<?= SCRIPTS ?>../admin/ajouter_forfait"
               >Nouveau foraits</a
             >
           </div>
@@ -133,5 +137,13 @@ if(isset($params['client']))
         </div>
       </div>
     </main>
+    <form id="form-cache" style="display:none">
+      <input type="text" name="query" />
+      <input type="text" name="id" />
+      <input type="text" name="motif" />
+      <input type="text" name="id_commande" />
+      <input type="text" name="id_admin" value='<?=$_SESSION['adm-id']?>' />
+      <input type="text" name="chemin" value="<?=SCRIPTS ?>"/>
+    </form>
   </body>
 </html>

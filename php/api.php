@@ -77,5 +77,13 @@ if($post['query']=="messagecontact")
     $data=$req->fetch();
     print_r(json_encode($data));
 }
+if($post['query']=="notification")
+{
+    $nb =AlertModification::checkNewCommande();
+    $data=array(
+        "nb_commande"=>$nb
+    );
+    print_r(json_encode($data));
+}
 
 ?>
