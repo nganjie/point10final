@@ -59,6 +59,19 @@
      // echo $f;
       return $f;
     }
+    public function otherForfait()
+    {
+      $query ="SELECT id FROM forfait ORDER BY RAND( ) LIMIT 2";
+      $req=$this->db->getPDO()->query($query);
+      $req=$req->fetchAll();
+      $f="";
+      for($i=0;$i<count($req);$i++)
+      {
+        $f.=(new SingleForfait($this->db,$req[$i]->id))->Template();
+      }
+     // echo $f;
+      return $f;
+    }
     public function AllCategorie()
     {
       $query ="SELECT nom FROM categorie";

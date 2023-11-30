@@ -75,7 +75,11 @@
           </div>
         </div>
         <div class='start_now'>
-          <a href='../validation-forfait/{$this->id}'>Passer ma commande</a>
+          
+          <a href='../validation-forfait/{$this->id}' class='button green_btn'>
+            <div class='slide'></div>
+            <span class='text_btn' >Passer ma commande</span>
+          </a>
         </div>
       </div>";
       return $a;
@@ -102,7 +106,7 @@
 
     public function Template():string
     {
-        $a= "  <a href='/details_forfait/' class='bundle_item'>
+        $a= "  <a href='../details-forfait/{$this->id}' class='bundle_item'>
         <div class='bundle_item_content'>
           <div class='image'>
             <img src='/point10final/public/../media/images/blue.png' alt='' />

@@ -16,7 +16,7 @@
           <li class="active">
             <a href="<?= SCRIPTS ?>../admin/messages_contact">
               <i class="fa fa-envelope"></i>
-              <span>Msgs Contacts</span>
+              <span>Messages Contacts</span>
             </a>
             <span class="notification-label notification-label-red">12</span>
           </li>

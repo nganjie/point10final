@@ -1,32 +1,34 @@
-<header class="header_wrapper">
+
+    <header class="header_wrapper">
       <!-- menu for small vp -->
       <nav aria-label="mobile-menu" id="mobile-menu" class="mobile-menu-close">
         <div class="close_mobile_section">
           <button class="close_btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <ul class="lisy_menu_item">
-          <li>
-            <a href="index.html">Accueil</a>
+          
+          <li class="active_nav_item">
+            <a href="#contact">Accueil</a>
           </li>
           <li>
-            <a href="contacts.html">Contact</a>
-          </li>
-
-          <li>
-            <a href="forfaits.html">Nos forfaits</a>
+            <a href="<?= SCRIPTS ?>../contacts">Contact</a>
           </li>
 
           <li>
-            <a href="se_connecter.html"></a>
-          </li>
-          <li>
-            <a href="creer_compte.html"></a>
+            <a href="<?= SCRIPTS ?>../forfait">Nos forfaits</a>
           </li>
 
-          <li class="user_dashbord_link">
-            <a href="">
+          <li>
+            <a href="<?= SCRIPTS ?>../creer-compte">S'incrire</a>
+          </li>
+          <li>
+            <a href="<?= SCRIPTS ?>../se-connecter">Se connecter</a>
+          </li>
+
+          <li class="user_dashbord_link" <?php if(!est_connecter()) echo "style='display:none'";?>>
+            <a href="dashbord-client">
               <i class="fa-solid fa-user"></i>
-              <span>Ivan</span>
+              <span><?php if(est_connecter()){echo $_SESSION['nom'];}else{echo"nom";}?></span>
             </a>
           </li>
         </ul>
@@ -53,7 +55,7 @@
         /></a>
 
         <ul class="nav_wrap_list">
-          <li class="active_nav_item">
+        <li class="active_nav_item">
             <a href="#contact">Accueil</a>
           </li>
           <li>

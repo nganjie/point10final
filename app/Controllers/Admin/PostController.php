@@ -59,7 +59,7 @@ use App\Models\Messages;
         //var_dump($client);
         $messageContact= new MessageContact($this->db);
         $messageContact->allMessageContact();
-        return $this->view("admin.messages_contact");
+        return $this->view("admin.messages_contact",compact("messageContact"));
     }
     public function commandes()
     {
