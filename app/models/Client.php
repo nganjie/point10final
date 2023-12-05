@@ -29,14 +29,18 @@ use DateTime;
         $req->execute();
         $res=$req->fetch();
         $this->commandes_art=$res->nombre;
-        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=$id");
-        $req->bindValue('idc',$id);
-        $req->execute();
+        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=:idc");
+       // $req->bindValue('idc',$id);
+        $req->execute(array(
+          "idc"=>$id
+        ));
         $res=$req->fetch();
         $this->commandes=$res->nombre;
-        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=$id AND id in(SELECT id_commande FROM cloturer_commande)");
-        $req->bindValue('idc',$id);
-        $req->execute();
+        $req=$pdo->prepare("SELECT COUNT(id) as nombre FROM commande_forfait WHERE idclient=:idc AND id in(SELECT id_commande FROM cloturer_commande)");
+       // $req->bindValue('idc',$id);
+        $req->execute(array(
+          "idc"=>$id
+        ));
         $res=$req->fetch();
         $this->commande_r=$res->nombre;
         $this->commandeForfait =new CommandeForfait($this->db);
