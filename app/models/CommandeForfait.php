@@ -164,7 +164,7 @@ use DateTime;
     }
     public function allCommandeEnCours(){
       $pdo =$this->db->getPDO();
-      $req =$pdo->prepare("SELECT * FROM commande_forfait WHERE id NOT IN(SELECT c.id_commande from cloturer_commande c ORDER BY id desc)");
+      $req =$pdo->prepare("SELECT * FROM commande_forfait WHERE id NOT IN(SELECT c.id_commande from cloturer_commande c ORDER BY id desc) ORDER BY id desc");
       $req->execute();
       $data=$req->fetchAll();
       //var_dump($data);

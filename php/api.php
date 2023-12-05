@@ -52,6 +52,7 @@ if($post['query']=="modalvue")
     $data =$req->fetch();
     print_r(json_encode($data));
 }
+
 if($post['query']=="validercommande")
 {
     $id =(int)($_POST['id']);
@@ -62,6 +63,27 @@ if($post['query']=="validercommande")
         "etat"=>1
     );
     print_r(json_encode($tab));
+}
+if($post['query']=="messagecontact")
+{
+    $id =(int)($_POST['id']);
+    //echo "un autre monde ici "
+    $db =new DBConnection();
+    $pdo =$db->getPDO();
+    $req =$pdo->prepare("SELECT * FROM message_contact WHERE id=:id");
+    $req->execute(array(
+        "id"=>$id
+    ));
+    $data=$req->fetch();
+    print_r(json_encode($data));
+}
+if($post['query']=="notification")
+{
+    $nb =AlertModification::checkNewCommande();
+    $data=array(
+        "nb_commande"=>$nb
+    );
+    print_r(json_encode($data));
 }
 
 ?>

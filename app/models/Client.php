@@ -6,6 +6,8 @@
 use App\Controllers\Mail;
 use App\Controllers\Securisation;
 use App\Models\Utilisateur;
+use DateTime;
+
    class Client extends Utilisateur{
     protected $table='client';
     public $ville;
@@ -45,6 +47,7 @@ use App\Models\Utilisateur;
 
     public function create($post):bool
     {
+      $date =new DateTime();
       $secu =new Securisation();
       $name= $secu->securiser($post['name']);
      // $nom =$secu->securiser($post['nom']);
@@ -73,11 +76,12 @@ use App\Models\Utilisateur;
       }
       //$utilisateur =new Utilisateur($this->db,-1);
       $id =$this->create_uti($name,$number);
-      $req =$pdo->prepare("INSERT INTO client(id_utilisateur,ville,email,password) VALUES(:id_utilisateur,:ville,:email,:password)");
+      $req =$pdo->prepare("INSERT INTO client(id_utilisateur,ville,email,date,password) VALUES(:id_utilisateur,:ville,:email,:date,:password)");
       $r= $req->execute(array(
         "id_utilisateur"=>$id,
         "ville"=>$ville,
         "email"=>$mail,
+        "date"=>$date->format("Y-m-d H:i:s"),
         "password"=>$password
       ));
       //echo $id;

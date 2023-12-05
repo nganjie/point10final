@@ -61,39 +61,7 @@
         <h2 class="title_section">Autre forfait similaire</h2>
 
         <!-- bundle item -->
-        <a href="" class="bundle_item">
-          <div class="bundle_item_content">
-            <div class="image">
-              <img src="<?= SCRIPTS ?>../media/images/blue.png" alt="" />
-            </div>
-            <div class="bundle_description">
-              <p class="plan">Blue Night</p>
-              <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-              <p>15 min appel tous réseaux</p>
-              <p>100 SMS On-net</p>
-            </div>
-            <div>
-              <span class="bundle_name">12500 XFA</span>
-            </div>
-          </div>
-        </a>
-        <!-- bundle item -->
-        <a href="" class="bundle_item">
-          <div class="bundle_item_content">
-            <div class="image">
-              <img src="<?= SCRIPTS ?>../media/images/blue.png" alt="" />
-            </div>
-            <div class="bundle_description">
-              <p class="plan">Blue Night</p>
-              <h4 class="bundle_name">5Go valide 22H à 6H</h4>
-              <p>15 min appel tous réseaux</p>
-              <p>100 SMS On-net</p>
-            </div>
-            <div>
-              <span class="bundle_name">12500 XFA</span>
-            </div>
-          </div>
-        </a>
+       <?=$params["forfait"]->otherForfait()?>
       </section>
     </main>
 

@@ -7,6 +7,7 @@ use App\Models\CommandeForfait;
 //require "../../Models/Forfait.php";
 //spl_autoload_call('Forfait.php');
 use App\Models\Forfait;
+use App\Models\MessageContact;
 use App\Models\Messages;
 
  class PostController extends Controller{
@@ -27,16 +28,20 @@ use App\Models\Messages;
     {
         //echo "je regarde admin";
         $admin =new Admin($this->db,14,1);
-        return $this->view("admin.messages",compact('admin'));
+        $nbMessages=Messages::nbMessage();
+        $nbDiscussion=Messages::nbDiscussion();
+        return $this->view("admin.messages",compact('admin','nbDiscussion','nbMessages'));
     }
     public function messages_id(int $id)
     {
         //echo "je regarde admin";
         $admin =new Admin($this->db,14,1);
         $client = new Client($this->db,$id);
+        $nbMessages=Messages::nbMessage();
+        $nbDiscussion=Messages::nbDiscussion();
         
         //var_dump($client);
-        return $this->view("admin.messages",compact('admin','client'));
+        return $this->view("admin.messages",compact('admin','client','nbDiscussion','nbMessages'));
     }
     public function messages_create(int $id)
     {
@@ -48,11 +53,38 @@ use App\Models\Messages;
         //var_dump($client);
         return $this->view("admin.messages",compact('admin','client'));
     }
+    public function messages_contact()
+    {
+        //echo "je regarde admin";
+       /* $admin =new Admin($this->db,$id,1);
+        $client = new Client($this->db,$_POST['id_rec']);
+        $message =new Messages($this->db,$id);
+        $message->create($_POST,false);*/
+        //var_dump($client);
+        $messageContact= new MessageContact($this->db);
+        $messageContact->allMessageContact();
+        $nbMessages=MessageContact::nbMessage();
+        return $this->view("admin.messages_contact",compact("messageContact","nbMessages"));
+    }
     public function commandes()
     {
         $commande=new CommandeForfait($this->db);
         //echo "je regarde admin";
         return $this->view("admin.commandes",compact('commande'));
+    }
+    public function utilisateur()
+    {
+        
+        //$commande=new CommandeForfait($this->db);
+        //echo "je regarde admin";
+        return $this->view("admin.utilisateur");
+    }
+    public function deconnexion()
+    {
+        
+        //$commande=new CommandeForfait($this->db);
+        //echo "je regarde admin";
+        return $this->view("admin.deconnexion");
     }
     public function ajouter_forfait()
     {

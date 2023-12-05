@@ -21,9 +21,9 @@
  //piece.style.width="600px";
  //piece.style.height="900px";
  var opt = {
-    filename:     "test.pdf",
+    filename:     "facture-forfait.pdf",
     html2canvas:  { scale: 2 },
-    jsPDF:        { unit: 'pc', format: 'a4', orientation: 'l' }
+    jsPDF:        { unit: 'pc', format: 'a4', orientation: 'p' }
   };
   const options = {
     // La largeur et la hauteur du PDF

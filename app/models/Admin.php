@@ -89,6 +89,63 @@ use DateTime;
       }
       
     }
+    public function allClient()
+    {
+      $pdo =$this->db->getPDO();
+      $req=$pdo->prepare("SELECT c.id,nom,numero,id_utilisateur,ville,email,date FROM utilisateur u INNER JOIN client c ON c.id_utilisateur=u.id");
+      $req->execute();
+      $data=$req->fetchAll();
+      foreach($data as $us)
+      {
+        $this->users[]=$us;
+      }
+      
+    }
+    public function TemplateClient()
+    {
+      $a="";
+    foreach($this->users as $us)
+      {
+        $a.="<tr class='responsive-table__row'>
+        <td
+          class='responsive-table__body__text responsive-table__body__text--name'
+        >
+          $us->nom
+        </td>
+  
+        <td
+          class='responsive-table__body__text responsive-table__body__text--types'
+        >
+          $us->email
+        </td>
+        <td
+          class='responsive-table__body__text responsive-table__body__text--country'
+        >
+          $us->numero
+        </td>
+        <td
+        class='responsive-table__body__text responsive-table__body__text--country'
+      >
+        $us->ville
+      </td>
+        <td
+          class='responsive-table__body__text responsive-table__body__text--country'
+        >
+          $us->date
+        </td>
+        <td
+          class='responsive-table__body__text responsive-table__body__text--status'
+        >
+          <span class='status-indicator status-indicator--new'></span>
+          <span> New </span>
+        </td>
+  
+        <!-- </td> -->
+      </tr>";
+      }
+      
+      return $a;
+    }
     public function TemplateUsers()
     {
       $a="<ul>";

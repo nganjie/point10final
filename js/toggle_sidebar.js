@@ -7,3 +7,4 @@ function toggleSidebar() {
       admin_wrapper.classList.contains("hidden_sidebar")
     );
   }
+

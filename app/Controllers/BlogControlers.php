@@ -136,6 +136,12 @@ Class BlogController extends Controller{
        // $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
        return $this->view("blog.dashbord_client");
     }
+    public function deconnexion()
+    {
+       // $client =new Client($this->db,$_SESSION["id_utilisateur"]);
+       // $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
+       return $this->view("blog.deconnexion");
+    }
     public function facture_client(int $id)
     {
       $pdo =$this->db->getPDO();

@@ -1,6 +1,7 @@
 <?php
 //echo $params['forfait']->AllForfait();
 $categorie=$params['forfait']->AllCategorie();
+$actif="forfait";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +29,12 @@ $categorie=$params['forfait']->AllCategorie();
     <!-- js file -->
     <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
+    <script
+      type="module"
+      type="module"
+      src="/js/new_caroussel.js"
+      defer
+    ></script>
   </head>
   <body>
   <?php require "header.php" ?>
@@ -64,7 +71,7 @@ $categorie=$params['forfait']->AllCategorie();
         <div class="container">
           <div class="carousel">
             <div class="nav nav-left">
-              <div class="ion-chevron-left carousel-arrow-icon-left"></div>
+            <i class="fa-solid fa-chevron-left"></i>
             </div>
             
             <div class="carousel-content" id="carousel-forfait">
@@ -75,7 +82,7 @@ $categorie=$params['forfait']->AllCategorie();
             </div>
 
             <div class="nav nav-right">
-              <div class="ion-chevron-right carousel-arrow-icon-right"></div>
+            <i class="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
@@ -88,7 +95,7 @@ $categorie=$params['forfait']->AllCategorie();
             <h3>Faites une recherche ici</h3>
 
             <p>Catégorie du forfait</p>
-            <select name="categorie" class="categorie">
+            <select name="categorie" class="categorie" id="categorie">
               <option value="">-- choisir une catégorie --</option>
               <?php foreach($categorie as $ca):?>
               <option value="<?= $ca->nom?>"><?= $ca->nom?></option>

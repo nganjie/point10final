@@ -38,6 +38,16 @@ use Database\DBConnection;
         //var_dump($res);
         return $res->numero_modifier;
     }
+    static function checkNewCommande(){
+        $db =new DBConnection();
+        $pdo=$db->getPDO();
+        $req=$pdo->prepare("SELECT COUNT(id) as nb FROM commande_forfait WHERE id not in(SELECT id_commande FROM cloturer_commande)");
+        $req->execute();
+        $res =$req->fetch();
+        //echo $res->numero_modifier;
+        //var_dump($res);
+        return $res->nb;
+    }
  }
 
 ?>

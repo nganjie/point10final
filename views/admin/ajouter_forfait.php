@@ -3,6 +3,7 @@
 //var_dump($post);
 //var_dump($params['categorie']);
 forcer_utilisateur_connecter_admin();
+$actif="forfait";
 
  ?>
 <!DOCTYPE html>
@@ -12,8 +13,23 @@ forcer_utilisateur_connecter_admin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin point10recharge</title>
 
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/admin.css" />
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/admin.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/toast.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/table.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/modal.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/checkbox.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/button.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/message.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/notification_message.css" />
+
+    <script
+      src="https://kit.fontawesome.com/6e9cf17fd4.js"
+      crossorigin="anonymous"
+    ></script>
+   
+    <script src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
+    <script src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
   </head>
   <body>
     <main class="admin_wrapper">
@@ -22,9 +38,15 @@ forcer_utilisateur_connecter_admin();
       <!-- header adamin -->
       <div class="content_wrapper">
         <div class="header_admin">
-          <h1>Dashbord</h1>
+        <div class="title_dash">
+            <button onclick="toggleSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <h2>Dashbord</h2>
+          </div>
+          
           <div>
-            <a class="new_btn" href="#">Nouveau forfait</a>
+            <a class="new_btn" href="<?= SCRIPTS ?>../admin/ajouter_forfait">Nouveau forfait</a>
           </div>
         </div>
 
@@ -62,5 +84,13 @@ forcer_utilisateur_connecter_admin();
       </div>
     </main>
   </body>
+  <form id="form-cache" style="display:none">
+      <input type="text" name="query" />
+      <input type="text" name="id" />
+      <input type="text" name="motif" />
+      <input type="text" name="id_commande" />
+      <input type="text" name="id_admin" value='<?=$_SESSION['adm-id']?>' />
+      <input type="text" name="chemin" value="<?=SCRIPTS ?>"/>
+    </form>
   <script src="<?= SCRIPTS ?>../js/ajouter_forfait.js"></script>
 </html>
