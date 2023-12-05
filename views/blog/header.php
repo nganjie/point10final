@@ -18,12 +18,15 @@
             <a href="<?= SCRIPTS ?>../forfait">Nos forfaits</a>
           </li>
 
-          <li>
-            <a href="<?= SCRIPTS ?>../creer-compte">S'incrire</a>
+          <?php if(!est_connecter()){
+            echo "<li>
+            <a href=".SCRIPTS."../creer-compte'>S'incrire</a>
           </li>
           <li>
-            <a href="<?= SCRIPTS ?>../se-connecter">Se connecter</a>
-          </li>
+            <a href=".SCRIPTS."../se-connecter'>Se connecter</a>
+          </li>";
+          }?>
+          
 
           <li class="user_dashbord_link" <?php if(!est_connecter()) echo "style='display:none'";?>>
             <a href="dashbord-client">
@@ -66,12 +69,14 @@
             <a href="<?= SCRIPTS ?>../forfait">Nos forfaits</a>
           </li>
 
-          <li>
-            <a href="<?= SCRIPTS ?>../creer-compte">S'incrire</a>
+          <?php if(!est_connecter()){
+            echo "<li>
+            <a href=".SCRIPTS."../creer-compte'>S'incrire</a>
           </li>
           <li>
-            <a href="<?= SCRIPTS ?>../se-connecter">Se connecter</a>
-          </li>
+            <a href=".SCRIPTS."../se-connecter'>Se connecter</a>
+          </li>";
+          }?>
           <li class="user_dashbord_link" <?php if(!est_connecter()) echo "style='display:none'";?>>
             <a href="dashbord-client">
               <i class="fa-solid fa-user"></i>

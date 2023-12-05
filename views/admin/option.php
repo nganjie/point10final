@@ -13,7 +13,7 @@ use App\Controllers\AlertModification;
         </div>
         <ul class="list_nav">
           <li class=""><a href="<?= SCRIPTS ?>../admin/dashbord">Dashbord</a></li>
-          <li><a href="<?= SCRIPTS ?>../admin/forfaits">Forfaits</a></li>
+          
           <li >
             <a href="<?= SCRIPTS ?>../admin/commandes">Commandes en cours </a>
             <span class="notification-label notification-label-red" id="notif"><?= AlertModification::checkNewCommande()?></span>
@@ -23,7 +23,7 @@ use App\Controllers\AlertModification;
               <i class="fa fa-envelope"></i>
               <span>Messages Contacts</span>
             </a>
-            <span class="notification-label notification-label-red" ></span>
+            <!--<span class="notification-label notification-label-red" ></span>-->
           </li>
 
           <li>
@@ -31,7 +31,7 @@ use App\Controllers\AlertModification;
               <i class="fa fa-envelope"></i>
               <span>Messages</span>
             </a>
-            <span class="notification-label notification-label-red"></span>
+            <!--<span class="notification-label notification-label-red"></span>-->
           </li>
         </ul>
       </nav>

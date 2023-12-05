@@ -75,11 +75,11 @@ $commande->allStatsCommande();
 
         <!-- page content -->
         <div class="resume_wrapper">
-          <!-- resume item  -->
+          <!-- resume item  
           <div class="review_item">
             <h4>Total Commandes</h4>
             <span>34567</span>
-          </div>
+          </div>-->
         </div>
 
         <div class="resume_wrapper">

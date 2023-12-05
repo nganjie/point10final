@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/index.css" />
+ 
   <title>Document</title>
 
   <!-- font awesome -->
@@ -72,7 +72,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
               Parcourez notre vaste liste de forfaits , disponible pour tous les
               réseaux et soyez des aujourd'hui plus que jamais connecté.
             </div>
-            <a class="button start_now" href="forfaits.html">
+            <a class="button start_now" href="forfait">
               <div class="slide"></div>
               <span class="text_btn">
                 <span class=""> Commencer maintenant </span>

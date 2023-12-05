@@ -5,7 +5,7 @@ export function generateurPDF(piecejointe,nom_fichier){
  var opt = {
     filename:     nom_fichier,
     html2canvas:  { scale: 2 },
-    jsPDF:        { unit: 'pc', format: 'a4', orientation: 'l' }
+    jsPDF:        { unit: 'pc', format: 'a4', orientation: 'p' }
   };
   const options = {
     // La largeur et la hauteur du PDF

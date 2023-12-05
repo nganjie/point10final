@@ -52,7 +52,7 @@ $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
 
             <div class="banner_description">
               bienvenu <strong class="">Ivan</strong> dans ton espace, Ici tu
-              trouvera un bilan de toutes tes activité réaliseés sur ce site.
+              trouvera un bilan de toutes tes activités réaliseés sur ce site.
             </div>
           </div>
         </div>

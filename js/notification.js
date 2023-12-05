@@ -14,7 +14,13 @@ setInterval(()=>{
         
         if(nb_commande!=Number(data.nb_commande))
         {
-            notif.innerHTML=data.nb_commande
+            if(data.nb_commande==0){
+                notif.style.display="none"
+            }else{
+                notif.style.display="flex"
+                notif.innerHTML=data.nb_commande
+            }
+
             nb_commande=Number(data.nb_commande);
             launch_toast("Nouvelle commande enregistrer","success")
             console.log(data);

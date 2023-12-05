@@ -369,6 +369,6 @@ $date = new DateTime();
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="<?= SCRIPTS ?>../js/valider_commande"></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/valider_commande.js"></script>
   </body>
 </html>

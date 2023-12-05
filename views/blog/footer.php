@@ -3,7 +3,7 @@
         <div class="footer_top_content">
           <div class="footer_section">
             <div>
-              <img src="<?= SCRIPTS ?>.../media/logo-point10final.png" alt="" />
+              <img src="<?= SCRIPTS ?>../media/logo-point10final.png" alt="" />
             </div>
             <p>
               Nous proposons des forfaits adaptés à vos besoins et qui vous
