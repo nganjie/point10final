@@ -3,6 +3,7 @@
 //var_dump($post);
 //var_dump($params['categorie']);
 forcer_utilisateur_connecter_admin();
+$actif="forfait";
 
  ?>
 <!DOCTYPE html>

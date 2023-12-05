@@ -1,3 +1,6 @@
+<?php
+$actif="contact";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

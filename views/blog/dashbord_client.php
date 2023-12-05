@@ -3,6 +3,7 @@
 use App\Models\Client;
 
 forcer_utilisateur_connecter();
+$actif="client";
 $client =new Client($this->db,$_SESSION["id_utilisateur"]);
 $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
 //echo "un monde en colère <br><br> $client->email et ".$_SESSION['id_utilisateur'];

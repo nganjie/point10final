@@ -1,6 +1,7 @@
 <?php
 //echo $params['forfait']->AllForfait();
 $categorie=$params['forfait']->AllCategorie();
+$actif="forfait";
  ?>
 <!DOCTYPE html>
 <html lang="en">

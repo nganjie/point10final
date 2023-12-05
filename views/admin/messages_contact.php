@@ -5,6 +5,7 @@
 forcer_utilisateur_connecter_admin();
 $messageContact =$params['messageContact'];
 echo $_SESSION['adm-id'];
+$actif="message_contact";
 
  ?>
 <!DOCTYPE html>
@@ -67,7 +68,7 @@ echo $_SESSION['adm-id'];
           <!-- resume item  -->
           <div class="review_item">
             <h4>Nouveau Messages</h4>
-            <span>34567</span>
+            <span><?=$params['nbMessages'] ?></span>
           </div>
         </div>
 

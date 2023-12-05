@@ -4,6 +4,7 @@ forcer_utilisateur_connecter_admin();
 $commande =$params['commande'];
 $commande->allCommande();
 $commande->allStatsCommande();
+$actif="admin";
 //echo $_SESSION['adm-nom'];
 
 ?>

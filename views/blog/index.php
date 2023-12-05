@@ -1,3 +1,6 @@
+<?php
+$actif="index";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

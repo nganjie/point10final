@@ -6,6 +6,7 @@ form_cache["query"].value="notification";
 console.log(form_cache["query"].value)
 var nb_commande =Number(notif.innerHTML);
 setInterval(()=>{
+    form_cache["query"].value="notification";
     fetch(form_cache['chemin'].value+"../php/api.php",{
         method:"POST",
         body:new FormData(document.getElementById("form-cache"))

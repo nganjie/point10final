@@ -4,6 +4,8 @@
    use App\Controllers\Securisation;
    use DateTime;
    use App\Models\SingleMessageContact;
+use Database\DBConnection;
+
    class MessageContact extends Model{
     protected $table='message_contact';
     public $messages;
@@ -27,6 +29,14 @@
       //echo $r;
       return true;
     }
+    static function nbMessage(){
+      $db=new DBConnection();
+      $pdo=$db->getPDO();
+     $req =$pdo->prepare("SELECT COUNT(id) as nb FROM message_contact");
+     $req->execute();
+   $data=$req->fetch();
+   return  $data->nb;
+   }
     public function allMessageContact(){
       $pdo =$this->db->getPDO();
       $req =$pdo->prepare("SELECT * FROM message_contact ORDER BY id desc");

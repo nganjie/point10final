@@ -49,6 +49,8 @@ $router->get('admin/messages/:id', 'App\Controllers\Admin\PostController@message
 $router->post('admin/connexion-admin', 'App\Controllers\Admin\PostController@connexion_admin'); 
 $router->get('admin/connexion', 'App\Controllers\Admin\PostController@connexion'); 
 $router->get('admin/messages_contact', 'App\Controllers\Admin\PostController@messages_contact'); 
+$router->get('admin/utilisateur', 'App\Controllers\Admin\PostController@utilisateur'); 
+$router->get('admin/deconnexion', 'App\Controllers\Admin\PostController@deconnexion'); 
 
 $router->post('admin/enregistrer_forfait', 'App\Controllers\Admin\PostController@enregistrer_forfait'); 
 $router->post('enregistrer_message_contact', 'App\Controllers\BlogController@enregistrer_message_contact');
@@ -71,6 +73,7 @@ $router->get('/validation-forfait/:id', 'App\Controllers\BlogController@validati
 $router->get('dashbord-client', 'App\Controllers\BlogController@dashbord_client');
 $router->get('facture-client/:id', 'App\Controllers\BlogController@facture_client');
 $router->get('message-client', 'App\Controllers\BlogController@client_message');
+$router->get('deconnexion', 'App\Controllers\BlogController@deconnexion');
 $router->post('message-client', 'App\Controllers\BlogController@messages_create');
 
 

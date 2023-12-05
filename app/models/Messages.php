@@ -47,6 +47,22 @@ class Messages extends Model{
         }
         
     }
+    static function nbMessage(){
+       $db=new DBConnection();
+       $pdo=$db->getPDO();
+      $req =$pdo->prepare("SELECT COUNT(id) as nb FROM message");
+      $req->execute();
+    $data=$req->fetch();
+    return  $data->nb;
+    }
+    static function nbDiscussion(){
+      $db=new DBConnection();
+       $pdo=$db->getPDO();
+      $req =$pdo->prepare("SELECT COUNT(c.id) as nb FROM client c WHERE id_utilisateur in (SELECT Env_id FROM message)");
+      $req->execute();
+    $data=$req->fetch();
+    return  $data->nb;
+    }
 
     public function allMessages(){
         $pdo =$this->db->getPDO();

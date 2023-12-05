@@ -1,9 +1,15 @@
 <?php
+use App\Models\Admin;
+use Database\DBConnection;
+
 forcer_utilisateur_connecter_admin();
-$admin =$params['admin'];
+$db =new DBConnection();
+$admin =new Admin($db,$_SESSION['adm-id_utilisateur'],$_SESSION['adm-id']);
+//$admin =$params['admin'];
 $admin->allUsers();
 $client="";
-echo $_SESSION['adm-id_utilisateur'];
+$actif="message";
+//echo $_SESSION['adm-id_utilisateur'];
 
 $id=(int)$_SESSION['adm-id_utilisateur'];
 if(isset($params['client']))
@@ -77,13 +83,13 @@ if(isset($params['client']))
           <!-- resume item  -->
           <div class="review_item">
             <h4>Total Messages</h4>
-            <span>34567</span>
+            <span><?=$params['nbMessages'] ?></span>
           </div>
 
           <!-- resume item  -->
           <div class="review_item">
             <h4>Total Discussion</h4>
-            <span>34567</span>
+            <span><?=$params['nbDiscussion'] ?></span>
           </div>
         </div>
 
