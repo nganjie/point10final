@@ -1,71 +1,67 @@
 /* Button Styles */
 
 .button {
-  display: inline-flex;
-  min-height: 40px;
-  /* width: 150px; */
-  border: 2px solid #42da82;
-  margin: 20px 20px 20px 20px;
+  display: flex !important;
+  min-height: 40px !important;
+  border: 2px solid #42da82 !important;
+  margin: 20px 20px 20px 20px !important;
   color: #42da82;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 1.5px;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: .5rem 1rem  !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  font-size: 0.8em !important;
+  letter-spacing: 1.5px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  padding: 0.5rem 1rem !important ;
 }
 
-.text_btn {
+.button .text_btn {
   color: #42da82;
-  text-decoration: none;
-  letter-spacing: 1px;
+  text-decoration: none !important;
+  letter-spacing: 1px !important;
 }
 /* Second Button */
 
 .button {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
 }
 
 .button .text_btn {
-  position: relative;
-  transition: all 0.35s ease-Out;
+  position: relative !important;
+  transition: all 0.35s ease-Out !important;
 }
 
-.slide {
-  width: 100%;
-  height: 100%;
-  left: -300px;
-  background: #42da82 ;
-  position: absolute;
-  transition: all 0.35s ease-Out;
-  bottom: 0;
+.button .slide {
+  width: 100% !important;
+  height: 100% !important;
+  left: -300px !important;
+  background: #42da82 !important;
+  position: absolute !important;
+  transition: all 0.35s ease-Out !important;
+  bottom: 0 !important;
 }
-.button.green_btn 
-.slide {
-  background-color: #002c85;
+.button.green_btn .slide {
+  background-color: #002c85 !important;
 }
 .button:hover .slide {
-  left: 0;
+  left: 0 !important;
 }
 
 .button:hover .text_btn {
   color: white;
 }
 
-
-.button.green_btn{
-  border-color: #002c85;
+.button.green_btn {
+  border-color: #002c85 !important;
   color: #002c85;
 }
-.button.green_btn .text_btn{
+.button.green_btn .text_btn {
   color: #002c85;
-  
 }
 
 .button.green_btn:hover .text_btn {
-  color: white;
+  color: white !important;
 }
