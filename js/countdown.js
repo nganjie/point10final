@@ -1,5 +1,5 @@
 //let xd;
-import { launch_toast } from "./toast";
+import { launch_toast } from "../js/toast.js";
 (function () {
   const second = 1000,
     minute = second * 60,

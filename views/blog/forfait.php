@@ -29,12 +29,7 @@ $actif="forfait";
     <!-- js file -->
     <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
-    <script
-      type="module"
-      type="module"
-      src="/js/new_caroussel.js"
-      defer
-    ></script>
+
   </head>
   <body>
   <?php require "header.php" ?>

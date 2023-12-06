@@ -1,3 +1,5 @@
+import { launch_toast } from "../js/toast.js";
+
 const METHODE = "methode";
 const METHODE1 = "methode1";
 
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     const id = e.target.id;
     const desc = document.querySelector(".input-description");
     if (Boolean(value) && id == METHODE) {
+      console.log("on ici cvad");
       desc.innerHTML = `
       <h1>Guide de paiement Orange Money Cameroun</h1>
                 <p>Composer le <h3 class="number_compose">
@@ -23,11 +26,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
               </p>
       `;
     } else {
+      console.log("on ici cvb");
       desc.innerHTML = `
       <h1>Guide de paiement MTN MOMO Cameroun</h1>
                 <p>Composer le <h3 class="number_compose">
 
-                  #150*14*272180*656968696*le_montant_ici#
+                *126*14*683577518*montant# 
+                Réf:620
                 </h3> 
               </p>
 
@@ -41,54 +46,100 @@ document.addEventListener("DOMContentLoaded", function (e) {
   const singleForms = [...document.querySelectorAll(".single-form")];
   const list = [...document.querySelectorAll(".list")];
   const btnsNext = [...document.querySelectorAll(".btn.next")];
-
+  var confirmdiv=document.getElementById("confirm-div");
+  var submitdiv=document.getElementById("submit-div");
+  var infodiv=document.getElementById("info-div");
+  var info_btn=document.getElementById("info-btn");
+var submit_btn=document.getElementById("submit-btn");
+var commandeForm=document.getElementById("valid-form");
+info_btn.addEventListener("click",(e)=>{
+  console.log("cela marche bien");
+  console.log(commandeForm);
+  console.log(infodiv);
+  if(commandeForm['name'].value&&commandeForm['email'].value&&commandeForm['phone_number'].value&&commandeForm['whatsapp_number'].value)
+  {
+    infodiv.classList.add("hide");
+      console.log(list)
+      list[0].classList.add("inactive");
+      list[0].classList.remove("active");
+      submitdiv.classList.remove("hide")
+      list[1].classList.remove("inactive");
+      list[1].classList.add("active");
+      
+  }else{
+    launch_toast("veillez renseignez tous les champs","error");
+  }
+})
+submit_btn.addEventListener("click",(e)=>{
+  //e.preventDefault();
+  if(commandeForm['methode'].value&&commandeForm['pay_number'].value&&commandeForm['transaction_number'].value)
+  {
+    submitdiv.classList.add("hide");
+      console.log(list)
+      list[1].classList.add("inactive");
+      list[1].classList.remove("active");
+      confirmdiv.classList.remove("hide")
+      list[2].classList.remove("inactive");
+      list[2].classList.add("active");
+      
+  }else{
+    launch_toast("veillez renseignez tous les champs","error");
+  }
+})
+//if(commandeForm[''].value&&commandeForm[''].value&&commandeForm[''].value&&commandeForm[''].value)
+/*
   console.log(singleForms, btnsPrev, btnsNext, list);
 
   btnsNext.forEach(function (elt, ind) {
     elt.addEventListener("click", function () {
-      console.log("first click");
-      const BooliNP = [];
-      singleForms.forEach(function (form, i) {
-        const inputs = form.querySelectorAll(".input-field");
-        inputs.forEach(function (inp, a) {
-          console.log("input : ", inp.value, inp.checked);
-          if (Boolean(inp.value)) {
-            BooliNP.push(true);
-          } else {
-            BooliNP.push(false);
-          }
-        });
-        const isValidform = BooliNP.every((prev) => Boolean(prev));
-        const inds = [];
-        BooliNP.forEach((prev, ind) => {
-          !Boolean(prev) && inds.push(ind);
-        });
-        // if (!isValidform) {
-        //   inputs.forEach(function (inp, a) {
-        //     if (inds.includes(a)) inp.classList.add("invalid");
-        //   });
-        // } else
-        
-        if (i == ind + 1) {
-          form.classList.remove("hide");
-          list[i].classList.remove("inactive");
-          list[i].classList.add("active");
-        } else {
-          form.classList.add("hide");
-          list[i].classList.add("inactive");
-          list[i].classList.remove("active");
+      console.log("first click : "+ind+" et elt :"+elt.id);
+      singleForms.forEach(function(div,idv){
+        console.log(div)
+        console.log(" et ")
+        console.log(singleForms[idv+1])
+        console.log(idv)
+        if(ind==idv+1)
+        {
+          console.log("un bonjour")
+         
+      
+      console.log(singleForms[idv+1].classList)
+          singleForms[idv].classList.remove("hide");
+          console.log(singleForms[idv+1].classList)
+          list[idv].classList.remove("inactive");
+      list[idv].classList.add("active");
+        }else{
+          console.log(div.classList)
+      div.classList.add("hide");
+      console.log(div.classList)
+      list[2].classList.add("inactive");
+      list[2].classList.remove("active");
         }
-      });
+      })
+      if(elt.id=="next-submit"){
+        
+      }else if(elt.id=="info-div"){
+        infodiv.classList.remove("hide");
+      list[0].classList.remove("inactive");
+      list[0].classList.add("active");
+      submitdiv.classList.add("hide");
+      list[1].classList.add("inactive");
+      list[1].classList.remove("active");
+      console.log(singleForms[0])
+      }
+
     });
   });
 
   btnsPrev.forEach(function (elt, ind) {
     console.log("fir²", elt);
     elt.addEventListener("click", function () {
-      console.log("first selected");
+      //console.log("first selected");
       singleForms.forEach(function (form, i) {
+        //console.log("on a : "+i+" et aussi : "+(ind - 1))
         if (i == ind - 1) {
           form.classList.remove("hide");
+          console.log(list[i])
           list[i].classList.remove("inactive");
           list[i].classList.add("active");
         } else {
@@ -98,9 +149,56 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
       });
     });
-  });
+  });*/
 });
 
+/*else{
+        const BooliNP = [];
+        singleForms.forEach(function (form, i) {
+          const inputs = form.querySelectorAll(".input-field");
+          //console.log(inputs)
+          
+          inputs.forEach(function (inp, a) {
+           // console.log("input : ", inp.value, inp.checked);
+            if (Boolean(inp.value)) {
+              BooliNP.push(true);
+              console.log(BooliNP)
+            } else {
+              BooliNP.push(false);
+            }
+           
+          });
+          const isValidform = BooliNP.every((prev) => Boolean(prev));
+  
+          // console.log("regardons un : "+isValidform)
+   const inds = [];
+   BooliNP.forEach((prev, ind) => {
+     //console.log("prev : "+prev+" et ind +"+inds)
+     !Boolean(prev) && inds.push(ind);
+   });
+   //console.log(inds)
+   // if (!isValidform) {
+   //   inputs.forEach(function (inp, a) {
+   //     if (inds.includes(a)) inp.classList.add("invalid");
+   //   });
+   // } else
+   console.log(inputs.length)
+   if (i == ind+1) {
+    console.log("un un")
+    form.classList.remove("hide");
+    list[i].classList.remove("inactive");
+    list[i].classList.add("active");
+  } else {
+    console.log("deux deux")
+    form.classList.add("hide");
+    list[i].classList.add("inactive");
+    list[i].classList.remove("active");
+  }
+   
+  
+    
+        });
+      }*/
 // document.addEventListener("DOMContentLoaded", function (e) {
 //   const methode = "methode";
 //   const methode1 = "methode1";
