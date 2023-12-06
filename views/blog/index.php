@@ -44,7 +44,7 @@ $actif="index";
     <script src="<?= SCRIPTS ?>../js/swiper.js" defer></script>
 
   <!-- js file -->
-  <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
+ 
 </head>
 
 <body>
@@ -59,7 +59,7 @@ Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne
               Découvrez le paradis bleu et l'aventure Yoome sur notre site de vente en ligne ! Plongez dans une expérience unique où les eaux cristallines et les paysages à couper le souffle vous attendent. Explorez nos forfaits exclusifs et laissez-vous séduire par des escapades inoubliables. Préparez-vous à vivre des moments de détente absolue et d'excitation intense. Ne manquez pas cette opportunité de créer des souvenirs inestimables. Rejoignez-nous dès maintenant et laissez la magie opérer !"
 
  -->
- <main class="main_content">
+ <main class="admin_wrapper">
       <!-- banner -->
       <section class="banner_wrapper">
         <div class="banner_content">

@@ -6,21 +6,22 @@ use PHPMailer\PHPMailer\Exception;
 
  class Mail{
     public $mailClass;
-    public $mailSystem="nganjienzatsi@gmail.com";
+    public $mailSystem="equipe@point10recharge.cm";
+    public $password="0aVd!K35"."$"."wKc";
     public function __construct($subjet)
     {
         $mail = new PHPMailer();
-        $mail->SMTPDebug =SMTP::DEBUG_OFF;
+        $mail->SMTPDebug =2;//SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host ="smtp.gmail.com";
+        $mail->Host ="mail.point10recharge.cm";
         $mail->SMTPAuth=true;
         $mail->Username=$this->mailSystem;
-        $mail->Password="ohwc uerm iukm kvie";
+        $mail->Password=$this->password;
         $mail->SMTPSecure=PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port=465;
         //issahnfonsouen@point10recharge.cm
-        $mail->setFrom($this->mailSystem,'gz-app');
-        $mail->addReplyTo($this->mailSystem,'gz-app');
+        $mail->setFrom($this->mailSystem,'');
+        $mail->addReplyTo($this->mailSystem,'');
         
         //$mail->addCC('');
         //$mail->addBCC('');

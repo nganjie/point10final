@@ -1,5 +1,5 @@
 import { generateurPDF } from "../js/createPdf.js";
-import { launch_toast } from "../js/toast.js";
+import { launch_toast } from "js/toast.js";
 //function decompteEn5Minutes() {
   const duree = 60000*5;
   let tempsRestant = duree;
