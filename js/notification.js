@@ -1,4 +1,4 @@
-import { launch_toast } from "./toast";
+import { launch_toast } from "../js/toast.js";
 var form_cache =document.getElementById("form-cache");
 var notif =document.getElementById("notif");
 console.log("cela marche");

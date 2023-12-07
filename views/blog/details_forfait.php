@@ -1,3 +1,6 @@
+<?php
+$actif="detaille_forfait" 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

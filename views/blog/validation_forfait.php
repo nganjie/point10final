@@ -1,6 +1,7 @@
 <?php
 $forfait =$params['forfait'];
 $date = new DateTime();
+$actif="validation_forfait"
 //echo $forfait->nom;
 //var_dump($params['forfait']);
  ?>
@@ -21,7 +22,7 @@ $date = new DateTime();
 
 
 
-    <script src="<?= SCRIPTS ?>../js/multiple_form.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/multiple_form.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/createPdf.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/new_countDown.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -51,14 +52,14 @@ $date = new DateTime();
               </li>
             </ul>
 
-            <div class="single-form">
+            <div class="single-form" id="info-div">
               <span> Informations Personnelles </span>
-              <div class="input-group">
+              <div class="input-group" id="info-div">
                 <label for="name">Nom : </label
                 ><input
                   type="text"
                   class="user-name input-field"
-                  value="<?= est_connecter()?$_SESSION['nom']:"" ?>"
+                  value="<?= isset($_SESSION['nom'])?$_SESSION['nom']:"" ?>"
                   placeholder="Votre nom : "
                   name="name"
                   id="name"
@@ -70,7 +71,7 @@ $date = new DateTime();
                   type="email"
                   class="user-email input-field"
                   id="email"
-                  value="<?= est_connecter()?$_SESSION['email']:"" ?>"
+                  value="<?= isset($_SESSION['email'])?$_SESSION['email']:"" ?>"
                   placeholder="Adresse email"
                   name="email"
                 />
@@ -92,7 +93,7 @@ $date = new DateTime();
                   id="whatsapp_number"
                   type="number"
                   class="user-date input-field"
-                  value="<?= est_connecter()?$_SESSION['numero']:"" ?>"
+                  value="<?= isset($_SESSION['numero'])?$_SESSION['numero']:"" ?>"
                   placeholder="Numéro whatsapp"
                   name="whatsap-number"
                 />
@@ -104,12 +105,12 @@ $date = new DateTime();
                   style="visibility: hidden"
                 ><i class="fa-solid fa-arrow-left-long"></i>
                   Précédent</button
-                ><button class="btn next" type="button">Suivant <i class="fa-solid fa-arrow-right-long"></i></button>
+                ><button class="btn next" id="info-btn" type="button">Suivant <i class="fa-solid fa-arrow-right-long"></i></button>
               </div>
             </div>
 
             <!--  -->
-            <div class="single-form hide">
+            <div class="single-form hide" id="submit-div">
               <div class="input-group" >
 
                 <h4>Mode de paiement</h4>
@@ -149,7 +150,7 @@ $date = new DateTime();
                   value="MTN Mobile money"
                 />
               </div>
-              <div class="input-description">
+              <div class="input-description" id="om">
                 <h1>Guide de paiement Orange Money Cameroun</h1>
                 <p>Composer le <h3>
 
@@ -157,7 +158,6 @@ $date = new DateTime();
                 </h3> 
               </p>
               </div>
-
               <div class="input-group">
                 <label for="pay_number">Numéro payeur : </label
                 ><input
@@ -189,15 +189,15 @@ $date = new DateTime();
               <div class="btn-container">
                 <input type="text" name="query" value="commande_forfait" style="display:none"/>
                 <input type="number" name="id_forfait" value="<?= $params["forfait"]->id?>" style="display:none"/>
-                <input type="number" name="id_client" value="<?= est_connecter()?$_SESSION['id']:0 ?>" style="display:none"/>
+                <input type="number" name="id_client" value="<?= isset($_SESSION['id'])?$_SESSION['id']:0 ?>" style="display:none"/>
                 <button class="btn prev" type="button">Précédent</button
-                ><button class="btn next" type="submit">Validé</button>
+                ><button class="btn next" type="submit" id="submit-btn">Validé</button>
               </div>
             </div>
           </form>
           <div id="error"></div>
           <!-- Confirmation de la commande  -->
-          <div class="single-form hide">
+          <div class="single-form hide" id="confirm-div">
             <span> Confirmation de la commande </span>
 
             <!-- countdwn -->

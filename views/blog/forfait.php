@@ -9,8 +9,8 @@ $actif="forfait";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/index.css" />
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../csstmp/contacts.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
+    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundles.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/caroussel_styles.css" />
     <title>Formulaire de contacts</title>
@@ -29,12 +29,7 @@ $actif="forfait";
     <!-- js file -->
     <script src="<?= SCRIPTS ?>../js/mobile_menu.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/caroussel.js" defer></script>
-    <script
-      type="module"
-      type="module"
-      src="/js/new_caroussel.js"
-      defer
-    ></script>
+
   </head>
   <body>
   <?php require "header.php" ?>

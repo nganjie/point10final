@@ -1,4 +1,4 @@
-var container = document.getElementById("container_one");
+var container = document.getElementsByClassName("container");
 var slider = document.getElementById("slider");
 var slides = document.getElementsByClassName("slide").length;
 var buttons = document.getElementsByClassName("btn");
@@ -9,6 +9,7 @@ var slidesCount = slides - slidesPerPage;
 var containerWidth = container.offsetWidth;
 var prevKeyActive = false;
 var nextKeyActive = true;
+console.log(slider)
 
 window.addEventListener("resize", checkWidth);
 

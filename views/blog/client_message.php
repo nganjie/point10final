@@ -5,6 +5,7 @@ use App\Models\Client;
 forcer_utilisateur_connecter();
 $client =new Client($this->db,$_SESSION["id_utilisateur"]);
 $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
+$actif="message_client";
 //echo "un monde en colère <br><br> $client->email et ".$_SESSION['id_utilisateur'];
 //var_dump($client->commandeForfait);
 //echo $client->commandeForfait->TemplateCommandeUser();

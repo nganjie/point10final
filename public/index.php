@@ -13,7 +13,7 @@ define("SCRIPTS", dirname($_SERVER['SCRIPT_NAME']) . '/');
 
 $password ="toto";
 $hash=password_hash($password,PASSWORD_DEFAULT);
-/*$maile =new Mail("nouveau compte client");
+$maile =new Mail("nouveau compte client");
 $content ="<h1 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h1>
 <p>nom: <strong>{name}</strong> </p>
 <p>ville: <strong>{ville}</strong> </p>
@@ -22,7 +22,7 @@ $content ="<h1 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h1>
 ";
 $maile->systemEmail();
 $maile->htmlEmail($content);
-$maile->send();*/
+$maile->send();
 /*ob_start();
  require "../php/template_facture.php";
  $content=ob_get_clean();

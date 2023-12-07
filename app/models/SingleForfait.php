@@ -90,7 +90,7 @@
         <a href='details-forfait/{$this->id}' class='bundle_item'>
         <div class='bundle_item_content'>
           <div class='image'>
-            <img src='/point10final/public/../media/images/blue.png' alt='' />
+            <img src='../media/images/blue.png' alt='' />
           </div>
           <div class='bundle_description'>
             <p class='plan'><span style='color:#41f1b6'>{$this->nom}</span></p>
@@ -109,7 +109,7 @@
         $a= "  <a href='../details-forfait/{$this->id}' class='bundle_item'>
         <div class='bundle_item_content'>
           <div class='image'>
-            <img src='/point10final/public/../media/images/blue.png' alt='' />
+            <img src='../media/images/blue.png' alt='' />
           </div>
           <div class='bundle_description'>
             <p class='plan'><span style='color:#41f1b6'>{$this->nom}</span></p>

@@ -1,5 +1,5 @@
-import { Caracteristique } from "./class";
-import { launch_toast } from "./toast";
+import { Caracteristique } from "../js/class.js";
+import { launch_toast } from "../js/toast.js";
 
 const openEls = document.querySelectorAll("[data-open]");
 
