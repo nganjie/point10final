@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
  class Mail{
     public $mailClass;
+    public $username="equipe@point10recharge.cm";
     public $mailSystem="equipe@point10recharge.cm";
     public $password="0aVd!K35"."$"."wKc";
     public function __construct($subjet)
@@ -15,12 +16,12 @@ use PHPMailer\PHPMailer\Exception;
         $mail->isSMTP();
         $mail->Host ="mail.point10recharge.cm";
         $mail->SMTPAuth=true;
-        $mail->Username=$this->mailSystem;
+        $mail->Username=$this->username;
         $mail->Password=$this->password;
         $mail->SMTPSecure=PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port=465;
         //issahnfonsouen@point10recharge.cm
-        $mail->setFrom($this->mailSystem,'');
+        $mail->setFrom($this->mailSystem,'equipe');
         $mail->addReplyTo($this->mailSystem,'');
         
         //$mail->addCC('');

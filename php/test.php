@@ -18,7 +18,10 @@ $content ="<h1 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h1>
 <p>numero: <strong>{number}</strong> </p>
 <p>mail: <strong>{mail}</strong> </p>
 ";
-$maile->externalEmail("nganjienzatsi@gmail.com");
+$maile->externalEmail("issah.nfis@gmail.com");
+//$maile->systemEmail();
+//issah.nfis@gmail.com
+//nganjienzatsi@gmail.com
 $maile->htmlEmail($content);
 $maile->send();
 ?>
