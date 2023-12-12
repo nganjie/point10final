@@ -614,6 +614,10 @@ image {
   .open_btn {
     display: none !important ;
   }
+  #mobile-menu {
+    transform: translate(-100%) !important;
+    display: none !important;
+  }
 }
 @media screen and (max-width: 649px) {
   .banner_title {
