@@ -16,6 +16,10 @@ const initFonction = function () {
       mobileMenu?.classList?.remove("mobile-menu-close");
     });
   }
+
+  if (window.innerWidth <= 700) {
+    mobileMenu.classList.remove("mobile-menu-close");
+  }
 };
 
 document.addEventListener("DOMContentLoaded", initFonction);

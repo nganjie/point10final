@@ -616,7 +616,9 @@ image {
   }
   #mobile-menu {
     transform: translate(-100%) !important;
-    display: none !important;
+  }
+  #mobile-menu.mobile-menu-close {
+    transform: translate(-100%) !important;
   }
 }
 @media screen and (max-width: 649px) {
