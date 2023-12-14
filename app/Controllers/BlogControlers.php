@@ -55,13 +55,14 @@ Class BlogController extends Controller{
        if($result)
        {
         $valid =1;
-        return $this->view("blog.creer_compte");
+        //return $this->view("blog.se-connecter");
+        return header("LOCATION: se-connecter");
         //return header("LOCATION: index.php");
         //return $this->view("blog.index");
         //return $this->view("blog.contacts",compact('valid'));
        }else{
-        return $this->view("blog.creer_compte");
-       // return header("LOCATION: creer-compte?result={$result}");
+       // return $this->view("blog.creer_compte");
+        return header("LOCATION: creer-compte?result={$result}");
        }
     }
     public function messages_create()

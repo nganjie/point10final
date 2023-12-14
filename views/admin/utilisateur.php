@@ -26,13 +26,13 @@ $actif="utilisateur";
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/button.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/message.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/notification_message.css" />
-
+    <?php require "favicon.php"; ?>
     <!-- font awesome -->
     <script
       src="https://kit.fontawesome.com/6e9cf17fd4.js"
       crossorigin="anonymous"
     ></script>
-    <script src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
     <script src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
     <script src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
     <script type="module"  src="<?= SCRIPTS ?>../js/notification.js" defer></script>

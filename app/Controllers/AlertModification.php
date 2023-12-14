@@ -17,12 +17,13 @@ use Database\DBConnection;
         ));
 
     }
-    static function modifierCommande(int $id){
+    static function modifierCommande(int $id,int $etat){
         $db =new DBConnection();
         $pdo=$db->getPDO();
-        $selectmod = $pdo->prepare("UPDATE modification SET numero_modifier=2 WHERE id_modif=:id");
+        $selectmod = $pdo->prepare("UPDATE modification SET numero_modifier=:etat WHERE id_modif=:id");
         $selectmod->execute(array(
-            "id"=>$id
+            "id"=>$id,
+            "etat"=>$etat
         ));
         //echo $resultmod[0][0]+1;
     }

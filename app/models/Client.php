@@ -89,7 +89,7 @@ use DateTime;
         "password"=>$password
       ));
       //echo $id;
-      $maile =new Mail("nouveau compte client");
+      /*$maile =new Mail("nouveau compte client");
       $content ="<h4 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h4>
       <p>id: <strong>{$id}</strong> </p>
       <p>nom: <strong>{$name}</strong> </p>
@@ -99,7 +99,7 @@ use DateTime;
       ";
       $maile->systemEmail();
       $maile->htmlEmail($content);
-      $maile->send();
+      $maile->send();*/
       return true;
       
     }

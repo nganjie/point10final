@@ -22,7 +22,7 @@ $actif="admin";
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/checkbox.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/button.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/notification_message.css" />
-
+    <?php require "favicon.php"; ?>
 
     <!-- font awesome -->
     <script
@@ -87,9 +87,9 @@ $actif="admin";
           <div class="active-calories review_item">
             <h4 style="align-self: flex-start">Commandes Réalisées</h4>
             <div class="active-calories-container">
-              <div class="box" style="--i: <?=ROUND(($commande->nb_commande-$commande->nb_commande_cloturer)*100/$commande->nb_commande)?>%">
+              <div class="box" style="--i: <?=  ($commande->nb_commande!=0)? ROUND(($commande->nb_commande-$commande->nb_commande_cloturer)*100/$commande->nb_commande) :0?>%">
                 <div class="circle">
-                  <h2><?=ROUND(($commande->nb_commande-$commande->nb_commande_cloturer)*100/$commande->nb_commande)?><small>%</small></h2>
+                  <h2><?= ($commande->nb_commande!=0)? ROUND(($commande->nb_commande-$commande->nb_commande_cloturer)*100/$commande->nb_commande) :0?><small>%</small></h2>
                 </div>
               </div>
               <div class="calories-content">
@@ -102,9 +102,9 @@ $actif="admin";
           <div class="active-calories review_item">
             <h4 style="align-self: flex-start">Commandes non-Réalisées</h4>
             <div class="active-calories-container">
-              <div class="box" style="--i: <?=ROUND($commande->nb_commande_cloturer*100/$commande->nb_commande)?>%">
+              <div class="box" style="--i: <?=  ($commande->nb_commande!=0)? ROUND($commande->nb_commande_cloturer*100/$commande->nb_commande) : 0?>%">
                 <div class="circle">
-                  <h2><?=ROUND($commande->nb_commande_cloturer*100/$commande->nb_commande)?><small>%</small></h2>
+                  <h2><?= ($commande->nb_commande!=0)? ROUND($commande->nb_commande_cloturer*100/$commande->nb_commande) :0?><small>%</small></h2>
                 </div>
               </div>
               <div class="calories-content">
@@ -245,8 +245,7 @@ $actif="admin";
         </section>
         <!-- <footer class="modal-footer">The footer of the second modal</footer> -->
       </div>
-    </div>
-    <form id="form-cache" style="display:none">
+      <form id="form-cache" style="display:none">
       <input type="text" name="query" />
       <input type="text" name="id" />
       <input type="text" name="motif" />
@@ -254,7 +253,8 @@ $actif="admin";
       <input type="text" name="id_admin" value='<?=$_SESSION['adm-id']?>' />
       <input type="text" name="chemin" value="<?=SCRIPTS ?>"/>
     </form>
-
+    </div>
+    
   </body>
 </html>
 

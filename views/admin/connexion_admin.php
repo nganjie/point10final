@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+    <?php require "favicon.php"; ?>
     <title>Se connecter a un compte</title>
 
     <!-- font awesome -->

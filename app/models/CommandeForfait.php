@@ -25,6 +25,10 @@ use DateTime;
       $pdo =$this->db->getPDO();
       $req=$pdo->query("SELECT MAX(id) as id FROM commande_forfait");
       $res =$req->fetch();
+     /* if(!$res->id)
+      {
+        return 0;
+      }*/
       return $res->id;
     }
     public function create($post):bool
@@ -42,10 +46,10 @@ use DateTime;
       $mail=$secu->securiser($post['email']);
       $id_forfait =(int)$secu->securiser($post['id_forfait']);
       $id_client =(int)$secu->securiser($post['id_client']);
-      AlertModification::createModification($this->maxId()+1,"commande");
+      
       //$password =password_hash($post['password'],PASSWORD_DEFAULT);
       //$utilisateur =new Utilisateur($this->db);
-    //  $id =$utilisateur->create_uti($name,$number);
+    // $id =$utilisateur->create_uti($name,$number);
       
       //echo $id;
       $pdo =$this->getDB()->getPDO();
@@ -64,6 +68,7 @@ use DateTime;
         "forfait_id"=>$id_forfait
       ));
       //echo $id;
+      AlertModification::createModification($this->maxId(),"commande");
       $f =new SingleForfait($this->db,$id_forfait);
      /*$maile =new Mail("nouvelle commande de forfait");
       $content ="<h4 style='color:blue'>NOUVELLE COMMANDE DE FORFAIT ENREGISTRER</h4>
@@ -206,7 +211,12 @@ use DateTime;
         "decision"=>$motif,
         "id_admin"=>$id_admin
       ));
-      AlertModification::modifierCommande($id_commande);
+      $etat=2;
+      if($motif=="cloturer")
+      {
+        $etat=3;
+      }
+      AlertModification::modifierCommande($id_commande,$etat);
       $req=$pdo->prepare("SELECT c.id,c.nom,c.email,c.numero_benefice,c.numero_payement,c.operateur_payement,c.numero_transaction,c.date_commande,c.date_cloture,c.idclient,c.forfait_id,ca.nom as nom_forfait,t.symbole as taille,f.prix,f.nb_go,cl.id as idc,cl.id_commande,cl.date_cloture,cl.decision,cl.id_admin FROM commande_forfait c INNER JOIN cloturer_commande cl ON cl.id_commande=c.id INNER JOIN forfait f ON f.id=c.forfait_id INNER JOIN categorie ca ON ca.id =f.id_nom INNER JOIN taille t ON t.id=f.taille WHERE c.id=:id_commande");
       $req->execute(array(
         "id_commande"=>$id_commande
@@ -215,13 +225,13 @@ use DateTime;
       //$commande = new SingleCommande($data);
      // var_dump($data);
       $fact =$this->facture($data);
-      $maile =new Mail("nouveau compte client");
+      /*$maile =new Mail("nouveau compte client");
       $content ="<h4 style='color:blue'>Facture client </h4>
       $fact
       ";
       $maile->externalEmail($data->email);
       $maile->htmlEmail($content);
-      $maile->send();
+      $maile->send();*/
       
       
     }
@@ -274,13 +284,14 @@ use DateTime;
         </tr>
       </thead>
       <!-- Responsive Table Body Section -->";
+      $tab.="<tbody class='responsive-table__body'>";
       foreach($this->commandes_encours as $cd)
       {
         //echo "un monde de fous";
         //echo $cd->Template();
         $tab.=$cd->TemplateEncour();
       }
-      $tab.="<tbody class='responsive-table__body'>";
+      
       $tab.="</tbody>";
       //echo $tab;
       //echo "un monde de merde ici bas";
@@ -335,13 +346,14 @@ use DateTime;
         </tr>
       </thead>
       <!-- Responsive Table Body Section -->";
+      $tab.="<tbody class='responsive-table__body'>";
       foreach($this->commandes as $cd)
       {
         //echo "un monde de fous";
         //echo $cd->Template();
         $tab.=$cd->Template();
       }
-      $tab.="<tbody class='responsive-table__body'>";
+      
       $tab.="</tbody>";
       //echo $tab;
       //echo "un monde de merde ici bas";
@@ -397,6 +409,7 @@ use DateTime;
         </tr>
       </thead>
       <!-- Responsive Table Body Section -->";
+      $tab.="<tbody class='responsive-table__body'>";
       foreach($this->commandes_user as $cd)
       {
         //echo "un monde de fous";
@@ -404,7 +417,7 @@ use DateTime;
        // var_dump($cd);
         $tab.=$cd->TemplateCommandeUser();
       }
-      $tab.="<tbody class='responsive-table__body'>";
+      
       $tab.="</tbody>";
       //echo $tab;
       //echo "un monde de merde ici bas";

@@ -22,6 +22,7 @@ $actif="message_client";
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/message.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+    <?php require "favicon.php"; ?>
     <title>Page de contacts</title>
 
     <!-- font awesome -->

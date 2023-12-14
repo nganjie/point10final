@@ -27,7 +27,8 @@ $actif="index";
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/toast.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/button.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/banner_animation.css" />
-    <link rel="stylesheet" href="<?= SCRIPTS ?>../css/new_swipper_review.css" />
+    
+    <?php require "favicon.php"; ?>
     <title>Accueil | point10recharge</title>
 
     <!-- font awesome -->
@@ -41,7 +42,7 @@ $actif="index";
     <!-- <script src="../../js/toast.js" defer></script> -->
     <script src="<?= SCRIPTS ?>../js/intersection__animated.js" defer></script>
     <script src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
-    <script src="<?= SCRIPTS ?>../js/swiper.js" defer></script>
+    <!--<script src="../js/swiper.js" defer></script>-->
 
   <!-- js file -->
  

@@ -13,7 +13,8 @@ $actif="forfait";
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundles.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/caroussel_styles.css" />
-    <title>Formulaire de contacts</title>
+    <?php require "favicon.php"; ?>
+    <title>Forfaits</title>
 
     <!-- font awesome -->
     <script

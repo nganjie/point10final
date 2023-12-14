@@ -20,16 +20,16 @@ $actif="commande";
     <link rel="stylesheet" href="../css/checkbox.css" />
     <link rel="stylesheet" href="../css/button.css" />
     <link rel="stylesheet" href="../css/notification_message.css" />
-
+    <?php require "favicon.php"; ?>
     <!-- font awesome -->
     <script
       src="https://kit.fontawesome.com/6e9cf17fd4.js"
       crossorigin="anonymous"
     ></script>
 
-    <script type="module" src="../js/toast.js" defer></script>
-    <script type="module" src="../js/modal_coustom.js" defer></script>
-    <script src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/toast.js" defer></script>
+    <script type="module" src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
+    
     <script src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
     <script src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
   </head>
@@ -67,9 +67,9 @@ $actif="commande";
           <div class="active-calories review_item">
             <h4 style="align-self: flex-start">Commandes En cours</h4>
             <div class="active-calories-container">
-              <div class="box" style="--i: <?=ROUND($commande->nb_commande_enc*100/$commande->nb_commande()) ?>%">
+              <div class="box" style="--i: <?=  ($commande->nb_commande!=0)? ROUND($commande->nb_commande_enc*100/$commande->nb_commande()) :0 ?>%">
                 <div class="circle">
-                  <h2><?=ROUND($commande->nb_commande_enc*100/$commande->nb_commande()) ?><small>%</small></h2>
+                  <h2><?=  ($commande->nb_commande!=0)? ROUND($commande->nb_commande_enc*100/$commande->nb_commande()) :0?><small>%</small></h2>
                 </div>
               </div>
               <div class="calories-content">

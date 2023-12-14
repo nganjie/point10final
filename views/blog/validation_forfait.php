@@ -19,6 +19,7 @@ $actif="validation_forfait"
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundle_details.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/countdown.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/toast.css" />
+    <?php require "favicon.php"; ?>
 
 
 
@@ -246,8 +247,8 @@ $actif="validation_forfait"
                 <p>Point10recharge</p>
                 <p>Plateforme de vente en ligne de forfait</p>
                 <p>
-                  <a href="issahnfonsouen@point10recharge"
-                    >E-mail : issahnfonsouen@point10recharge</a
+                  <a href="point10recharge@gmail.com"
+                    >E-mail : point10recharge@gmail.com</a
                   >
                 </p>
                 <strong><?=$date->format("Y-m-d H:i") ?></strong>
@@ -298,7 +299,7 @@ $actif="validation_forfait"
                   <div class="bill_item">
                     <span class="w_30">01</span>
                     <strong>Forfait <?= $params["forfait"]->nom ?></strong>
-                    <span class="flex_1"><?= $params["forfait"]->prix ?>$USD</span>
+                    <span class="flex_1"><?= $params["forfait"]->prix ?> Franc CFA</span>
                   </div>
 
                   <div class="bill_item">
@@ -336,7 +337,7 @@ $actif="validation_forfait"
                     Cette facture est soumise aux conditions général de paiement
                     
                     . Bien vouloir les consulter sur
-                    www.point10recharge.com
+                    www.point10recharge.cm
                   </p>
                 </div>
               </div>

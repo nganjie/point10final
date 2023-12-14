@@ -12,7 +12,7 @@ $actif="detaille_forfait"
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundles.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/caroussel_styles.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundle_details.css" />
-
+    <?php require "favicon.php"; ?>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"

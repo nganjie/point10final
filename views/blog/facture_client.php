@@ -44,8 +44,8 @@ $date =new DateTime($commande->date_commande);
                 <p>Point10recharge</p>
                 <p>Plateforme de vente en ligne de forfait</p>
                 <p>
-                  <a href="issahnfonsouen@point10recharge"
-                    >E-mail : issahnfonsouen@point10recharge</a
+                  <a href="point10recharge@gmail.com"
+                    >E-mail : point10recharge@gmail.com</a
                   >
                 </p>
                 <strong><?=$date->format("Y-m-d H:i") ?></strong>
@@ -96,7 +96,7 @@ $date =new DateTime($commande->date_commande);
                   <div class="bill_item">
                     <span class="w_30">01</span>
                     <strong>Forfait <?= $forfait->nom?></strong>
-                    <span class="flex_1"><?= $forfait->prix ?>XAF</span>
+                    <span class="flex_1"><?= $forfait->prix ?> Franc CFA</span>
                   </div>
 
                   <div class="bill_item">
@@ -134,7 +134,7 @@ $date =new DateTime($commande->date_commande);
                     Cette facture est soumise aux conditions général de paiement
                     
                     . Bien vouloir les consulter sur
-                    www.point10recharge.com
+                    www.point10recharge.cm
                   </p>
                 </div>
               </div>

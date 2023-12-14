@@ -10,6 +10,7 @@ $actif="contact";
 
   <link rel="stylesheet" href="<?= SCRIPTS ?>../css/index.css" />
   <link rel="stylesheet" href="<?= SCRIPTS ?>../css/contacts.css" />
+  <?php require "favicon.php"; ?>
   <title>Formulaire de contacts</title>
 
   <!-- font awesome -->

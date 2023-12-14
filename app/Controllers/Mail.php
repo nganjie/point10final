@@ -6,23 +6,23 @@ use PHPMailer\PHPMailer\Exception;
 
  class Mail{
     public $mailClass;
-    public $username="equipe@point10recharge.cm";
-    public $mailSystem="equipe@point10recharge.cm";
-    public $password="0aVd!K35"."$"."wKc";
+    public $username="equipe@point10recharge.cm";//"point10recharge@gmail.com";//"equipe@point10recharge.cm";
+    public $mailSystem="equipe@point10recharge.cm";//"point10recharge@gmail.com";//"equipe@point10recharge.cm";
+    public $password="0aVd!K35"."$"."wKc";//"dbqo ypfs qcgn felk";//"0aVd!K35"."$"."wKc";
     public function __construct($subjet)
     {
         $mail = new PHPMailer();
         $mail->SMTPDebug =2;//SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host ="mail.point10recharge.cm";
+        $mail->Host ="mail.point10recharge.cm";//"smtp.gmail.com";//"mail.point10recharge.cm";
         $mail->SMTPAuth=true;
-        $mail->Username=$this->username;
+        $mail->Username=$this->mailSystem;
         $mail->Password=$this->password;
         $mail->SMTPSecure=PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port=465;
         //issahnfonsouen@point10recharge.cm
         $mail->setFrom($this->mailSystem,'equipe');
-        $mail->addReplyTo($this->mailSystem,'');
+        $mail->addReplyTo($this->mailSystem,'equipe');
         
         //$mail->addCC('');
         //$mail->addBCC('');
@@ -46,7 +46,7 @@ use PHPMailer\PHPMailer\Exception;
     }
     public function systemEmail()
     {
-        $this->mailClass->addAddress($this->mailSystem,'');
+        $this->mailClass->addAddress($this->mailSystem);
     }
     public function simpleEmail($message)
     {

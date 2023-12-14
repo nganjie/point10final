@@ -31,6 +31,7 @@ $client->setInfo($_SESSION['id'],$_SESSION['ville'],$_SESSION['email']);
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/checkbox.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/button.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/notification_message.css" />
+    <?php require "favicon.php"; ?>
     <title>Espace Client</title>
 
     <!-- font awesome -->

@@ -12,7 +12,7 @@ define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEP
 define("SCRIPTS", dirname($_SERVER['SCRIPT_NAME']) . '/');
 
 $password ="toto";
-$hash=password_hash($password,PASSWORD_DEFAULT);
+/*$hash=password_hash($password,PASSWORD_DEFAULT);
 $maile =new Mail("nouveau compte client");
 $content ="<h1 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h1>
 <p>nom: <strong>{name}</strong> </p>
@@ -20,9 +20,9 @@ $content ="<h1 style='color:blue'>NOUVEAU CLIENT ENREGISTRER</h1>
 <p>numero: <strong>{number}</strong> </p>
 <p>mail: <strong>{mail}</strong> </p>
 ";
-$maile->systemEmail();
+$maile->externalEmail("nganjienzatsi@gmail.com");
 $maile->htmlEmail($content);
-$maile->send();
+$maile->send();*/
 /*ob_start();
  require "../php/template_facture.php";
  $content=ob_get_clean();

@@ -1,5 +1,5 @@
 import { generateurPDF } from "../js/createPdf.js";
-import { launch_toast } from "js/toast.js";
+import { launch_toast } from "../js/toast.js";
 //function decompteEn5Minutes() {
   const duree = 60000*5;
   let tempsRestant = duree;
@@ -143,6 +143,14 @@ form_command.addEventListener("submit",(e)=>{
          
          
          
+       }else if(Number(data)==3)
+       {
+        min.innerHTML+=`<p style="color:red">votre forfait à été rejeté</p>`;
+        launch_toast("votre forfait à été rejeté","error");
+          console.log(" un nouveau monde souvre à moi");
+          //div_error.innerHTML=data;
+          clearInterval(intervalle);
+          clearInterval(confirm);
        }else{
          console.log("rien ne va ici bas");
        }

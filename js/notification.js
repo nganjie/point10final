@@ -1,7 +1,7 @@
 import { launch_toast } from "../js/toast.js";
 var form_cache =document.getElementById("form-cache");
 var notif =document.getElementById("notif");
-console.log("cela marche");
+console.log(form_cache);
 form_cache["query"].value="notification";
 console.log(form_cache["query"].value)
 var nb_commande =Number(notif.innerHTML);
