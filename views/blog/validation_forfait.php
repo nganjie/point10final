@@ -78,6 +78,17 @@ $actif="validation_forfait"
                 />
               </div>
               <div class="input-group">
+                <label for="nom-entreprise">Nom de l'entreprise(facultatif) : </label
+                ><input
+                  type="text"
+                  class="user-entreprise input-field"
+                  id="nom-entreprise"
+                  
+                  placeholder="Nom de l'entreprise"
+                  name="nom-entreprise"
+                />
+              </div>
+              <div class="input-group">
                 <label for="phone_number">Numero de téléphone du béneficiare : </label
                 ><input
                   id="phone_number"
@@ -284,6 +295,10 @@ $actif="validation_forfait"
                 <div>
                   <span>Mode de paiement</span>
                   <strong id="mode-paiemant">Orange money CM</strong>
+                </div>
+                <div>
+                  <span>Nom De l'entreprise :</span>
+                  <strong id="entreprise"></strong>
                 </div>
               </div>
 

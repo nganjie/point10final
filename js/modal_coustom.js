@@ -92,6 +92,8 @@ for (const el of openEls) {
                 <p>Numero payement : <strong>${data.numero_payement}</strong></p>
                 <p>Numero bénéficiaire : <strong>${data.numero_benefice}</strong></p>
                 <p>Operateur de payement : <strong>${data.operateur_payement}</strong></p>
+                <p>Nom De L'entreprise : <strong>${data.nom_entreprise}</strong></p>
+                <p>Numero whatsapp : <strong>${data.numero_whatsapp}</strong></p>
                 <p> Numero de transaction : <strong>${data.numero_transaction}</strong></p>
                 <p>Date de commande : <strong>${data.date_commande}</strong></p>
                 <p>Date de cloture : <strong>${data.date_cloture}</strong></p>

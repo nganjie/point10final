@@ -36,6 +36,7 @@ use DateTime;
       $date = new DateTime();
       $secu =new Securisation();
       $name= $secu->securiser($post['name']);
+      $nom_entreprise=$secu->securiser($post['nom-entreprise']);
      // $nom =$secu->securiser($post['nom']);
       $number=(int)$secu->securiser($post['phone_number']);
       $pay_number =(int)$secu->securiser($post['pay_number']);
@@ -55,12 +56,14 @@ use DateTime;
       $pdo =$this->getDB()->getPDO();
       //var_dump($post);
 
-      $req =$pdo->prepare("INSERT INTO commande_forfait(nom,email,numero_benefice,numero_payement,operateur_payement,numero_transaction,date_commande,idclient,forfait_id) VALUES(:nom,:email,:numero_b,:numero_p,:operateur_p,:numero_transaction,:date_commande,:idclient,:forfait_id)");
+      $req =$pdo->prepare("INSERT INTO commande_forfait(nom,email,numero_benefice,numero_payement,nom_entreprise,numero_whatsapp,operateur_payement,numero_transaction,date_commande,idclient,forfait_id) VALUES(:nom,:email,:numero_b,:numero_p,:nom_entreprise,:numero_whatsapp,:operateur_p,:numero_transaction,:date_commande,:idclient,:forfait_id)");
       $r= $req->execute(array(
         "nom"=>$name,
         "email"=>$mail,
         "numero_b"=>$number,
         "numero_p"=>$pay_number,
+        "nom_entreprise"=>$nom_entreprise,
+        "numero_whatsapp"=>$whatsap_number,
         "operateur_p"=>$operateur,
         "numero_transaction"=>$transaction_number,
         "date_commande"=>$date->format("Y-m-d H:i:s"),

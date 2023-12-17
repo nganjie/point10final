@@ -8,6 +8,7 @@ var number_recharge=document.getElementById('number-recharge');
 var reference=document.getElementById('reference');
 var mode_paiemant=document.getElementById('mode-paiemant');
 var div_error=document.getElementById("error");
+var entreprise =document.getElementById("entreprise");
 
 
 //console.log("avant le launch ");
@@ -28,6 +29,10 @@ form_commande["phone_number"].addEventListener("change",(e)=>{
 form_commande["pay_number"].addEventListener("change",(e)=>{
     console.log(form_commande["pay_number"].value)
     number_client.innerHTML=form_commande["pay_number"].value;
+})
+form_commande["nom-entreprise"].addEventListener("change",(e)=>{
+    console.log(form_commande["nom-entreprise"].value)
+    entreprise.innerHTML=form_commande["nom-entreprise"].value;
 })
 console.log(form_commande["methode"]["methode"]);
 form_commande["methode"].forEach(element => {

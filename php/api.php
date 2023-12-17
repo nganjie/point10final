@@ -43,7 +43,7 @@ if($post['query']=="modalvue")
     $id =(int)($_POST['id']);
     //echo "un autre monde ici ";
     $t="SELECT
-    c.id,c.nom,ca.nom as nom_categorie,email,numero_benefice,numero_payement,operateur_payement,numero_transaction,date_commande,date_cloture,idclient,forfait_id,f.id as id_f,id_nom,type,t.symbole as taille,description,prix,nb_go FROM commande_forfait c INNER JOIN forfait f ON f.id=c.forfait_id INNER JOIN taille t ON t.id=f.taille INNER JOIN categorie ca ON ca.id=f.id_nom  WHERE c.id=:id";
+    c.id,c.nom,ca.nom as nom_categorie,email,numero_benefice,numero_payement,operateur_payement,nom_entreprise,numero_whatsapp,numero_transaction,date_commande,date_cloture,idclient,forfait_id,f.id as id_f,id_nom,type,t.symbole as taille,description,prix,nb_go FROM commande_forfait c INNER JOIN forfait f ON f.id=c.forfait_id INNER JOIN taille t ON t.id=f.taille INNER JOIN categorie ca ON ca.id=f.id_nom  WHERE c.id=:id";
     $pdo=(new DBConnection())->getPDO();
     $req =$pdo->prepare($t);
     $req->execute(array(

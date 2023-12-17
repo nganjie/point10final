@@ -32,7 +32,6 @@ $actif="admin";
 
     <script type="module" src="<?= SCRIPTS ?>../js/toast.js" defer></script>
     <script type="module" src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
-    <script type="module"  src="<?= SCRIPTS ?>../js/modal_coustom.js" defer></script>
     <script  src="<?= SCRIPTS ?>../js/toggle_sidebar.js" defer></script>
     <script   src="<?= SCRIPTS ?>../js/resize_sidebar.js" defer></script>
     <script type="module"  src="<?= SCRIPTS ?>../js/notification.js" defer></script>

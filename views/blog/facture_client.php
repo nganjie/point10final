@@ -82,6 +82,10 @@ $date =new DateTime($commande->date_commande);
                   <span>Mode de paiement</span>
                   <strong id="mode-paiemant"><?=$commande->operateur_payement?></strong>
                 </div>
+                <div>
+                  <span>Nom De L'entreprise</span>
+                  <strong id="nom-entreprise"><?=$commande->operateur_payement?></strong>
+                </div>
               </div>
 
               <!-- table details -->
