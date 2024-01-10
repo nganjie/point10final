@@ -87,7 +87,8 @@ for (const el of openEls) {
                 <img src="${form_cache['chemin'].value}../media/images/blue.png" alt="" />
               </div>
               <div>
-                <p>Nom du client : <strong>${data.nom}</strong></p>
+                <p>Nom Du Client : <strong>${data.nom}</strong></p>
+                <p>Nom De L'entreprise : <strong>${data.nom_entreprise}</strong></p>
                 <p>email  : <strong>${data.email}</strong></p>
                 <p>Numero payement : <strong>${data.numero_payement}</strong></p>
                 <p>Numero bénéficiaire : <strong>${data.numero_benefice}</strong></p>
@@ -98,7 +99,7 @@ for (const el of openEls) {
                 <p>Date de commande : <strong>${data.date_commande}</strong></p>
                 <p>Date de cloture : <strong>${data.date_cloture}</strong></p>
                 <p>Type de forfait : <strong>${data.type}</strong></p>
-                <p>Nom du forfait : <strong>${data.nom}</strong></p>
+                <p>Nom du forfait : <strong>${data.nom_categorie}</strong></p>
                 <p>Taille du forfait : <strong>${data.taille}</strong></p>
                 ${desc.TemplateVue()}
                 <p>Prix : <strong>${data.prix} </strong></p>

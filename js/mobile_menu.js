@@ -23,3 +23,4 @@ const initFonction = function () {
 };
 
 document.addEventListener("DOMContentLoaded", initFonction);
+

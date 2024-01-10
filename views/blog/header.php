@@ -71,7 +71,7 @@
             <a href="<?= SCRIPTS ?>../forfait">Nos forfaits</a>
           </li>
 
-          <?php if(!isset($_SESSION['nom'])){
+          <?php if(!(est_connecter())){
             echo "<li>
             <a href=".SCRIPTS."../creer-compte>S'incrire</a>
           </li>
@@ -81,10 +81,10 @@
           }else echo "<li>
           <a href=".SCRIPTS."../deconnexion>Deconnexion</a>
         </li>";?>
-          <li class="user_dashbord_link" <?php if(!isset($_SESSION['nom'])) echo "style='display:none'";?>>
+          <li class="user_dashbord_link" <?php if(!(est_connecter())) echo "style='display:none'";?>>
             <a href="dashbord-client">
               <i class="fa-solid fa-user"></i>
-              <span><?php if(isset($_SESSION['nom'])){echo $_SESSION['nom'];}else{echo"nom";}?></span>
+              <span><?php if((est_connecter())){echo $_SESSION['nom'];}else{echo"nom";}?></span>
             </a>
           </li>
         </ul>

@@ -19,6 +19,8 @@ $actif="validation_forfait"
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/bundle_details.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/countdown.css" />
     <link rel="stylesheet" href="<?= SCRIPTS ?>../css/toast.css" />
+    <script src="https://smtpjs.com/v3/smtp.js">
+</script>
     <?php require "favicon.php"; ?>
 
 
@@ -60,7 +62,7 @@ $actif="validation_forfait"
                 ><input
                   type="text"
                   class="user-name input-field"
-                  value="<?= isset($_SESSION['nom'])?$_SESSION['nom']:"" ?>"
+                  value="<?= (est_connecter())?$_SESSION['nom']:"" ?>"
                   placeholder="Votre nom : "
                   name="name"
                   id="name"
@@ -72,7 +74,7 @@ $actif="validation_forfait"
                   type="email"
                   class="user-email input-field"
                   id="email"
-                  value="<?= isset($_SESSION['email'])?$_SESSION['email']:"" ?>"
+                  value="<?= (est_connecter())?$_SESSION['email']:"" ?>"
                   placeholder="Adresse email"
                   name="email"
                 />
@@ -105,7 +107,7 @@ $actif="validation_forfait"
                   id="whatsapp_number"
                   type="number"
                   class="user-date input-field"
-                  value="<?= isset($_SESSION['numero'])?$_SESSION['numero']:"" ?>"
+                  value="<?= (est_connecter())?$_SESSION['numero']:"" ?>"
                   placeholder="Numéro whatsapp"
                   name="whatsap-number"
                 />

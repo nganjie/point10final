@@ -64,6 +64,20 @@ form_commande.addEventListener("submit",(e)=>{
             var form =document.getElementById("cache");
             form['id_commande'].value=Number(data);
             console.log("et on a : "+form['id_commande'].value)
+            var body=`<p>Nom du client : <span style="color:#42da82">${form_commande['name'].value}</span></p>
+            <p>Numero à Recharger :<span style="color:#42da82"> ${form_commande['phone_number'].value}<span></p>
+            <p>Numero whatsapp :<span style="color:#42da82"> ${form_commande['whatsap-number'].value}</span></p>
+            <p>Numero de payement :<span style="color:#42da82"> ${form_commande['pay_number'].value}</span></p>
+            <p>email :<span style="color:#42da82"> ${form_commande['email'].value}</span></p>`
+            Email.send({
+                SecureToken :"59dd3b39-cd85-466b-9454-74da0693ecd9",
+                To : 'point10recharge@gmail.com',
+                From : "point10recharge@gmail.com",
+                Subject : "Nouvelle commande",
+                Body : body
+              }).then(
+              message => console.log(message)
+              );
            // div_error.innerHTML=data;
         })
     }else{

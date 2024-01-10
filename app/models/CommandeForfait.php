@@ -224,7 +224,13 @@ use DateTime;
       $req->execute(array(
         "id_commande"=>$id_commande
       ));
+      
       $data =$req->fetch();
+      $requpdate=$pdo->prepare("UPDATE commande_forfait SET date_cloture=:datec WHERE id=:idm");
+      $requpdate->execute(array(
+        "idm"=>$id_commande,
+        "datec"=>$date->format("Y-m-d H:i:s"),
+      ));
       //$commande = new SingleCommande($data);
      // var_dump($data);
       $fact =$this->facture($data);
